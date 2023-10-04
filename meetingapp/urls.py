@@ -7,4 +7,5 @@ urlpatterns = [
     path('message',message,name='message'),
     path('survey',survey,name='survey'),
     path('login',login,name='login'),
+    path('forgot',forgot,name='forgot'),
  ]

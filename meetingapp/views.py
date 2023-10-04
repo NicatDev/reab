@@ -118,3 +118,19 @@ def survey(request):
         return JsonResponse(data)
     else:
         return HttpResponse(status=405) 
+
+
+def forgot(request):
+    if Header.objects.all().exists():
+        header = Header.objects.first()
+    else:
+        header = {}
+    meetnumber = len(Meeting.objects.all())
+    eagernumber = len(Eager.objects.all())
+    sportmennumber = len(Sportmen.objects.all()) 
+    context = {'header':header,
+        'meetnumber':meetnumber,
+        'eagernumber':eagernumber,
+        'sportmennumber':sportmennumber
+        }
+    return render(request,'forgot.html',context)

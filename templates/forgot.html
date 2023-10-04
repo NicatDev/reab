@@ -378,121 +378,12 @@
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
-            <!-- Hero End -->
-            <div class="containerr" style="padding-bottom:0px !important;">
-                <div>
-                  <button onclick="OpendivLogin()" class="log act" id="log">Login</button>
-                  <button onclick="OpendivRegister()" class="reg" id="reg">Register</button>
-               </div>
-              </div>
-
-            <!-- Login Start -->
-            <div class="login-register-area section-padding-02" style="padding: 60px 0 !important;">   
-                <div class="container">
-                    <div class="row justify-content-center g-5">
-                        <div  id="login"  class="col-lg-6 col-md-8">
-                           
-                            <div class="hero-form mt-0 grey-bg">
-                                <h3 class="form-title black">Login</h3>
-                                <form  class="exvent-form">
-                                    <div class="row gy-4">
-                                        <div class="col-12">
-                                            <div class="single-input white-bg">
-                                                <input id="name" type="text"
-                                                    placeholder="Username or Email">
-                                            </div>
-                                        </div>
-                                  
-                                        <div class="col-12">
-                                            <div class="single-input white-bg">
-                                                <input id="password" type="password"
-                                                    placeholder="Password">
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-check">
-                                                <input class="form-check-input"
-                                                    type="checkbox"
-                                                    id="flexCheckDefault">
-                                                <label class="form-check-label" id="remember-me-checkbox"
-                                                    for="flexCheckDefault">Remember
-                                                    Me</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-5 text-center">
-                                            <button onclick="LoginUser()"
-                                                class="submit_btn">Log in</button>
-                                        </div>
-                                        <div class="col-12">
-                                            <a href="login-register.html"
-                                                class="forgot-pass">Fogot your
-                                                password?</a>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                     
-                        <div id="register" class="col-lg-6 col-md-8" style="display: none;" >
-                          
-                            <div class="hero-form mt-0 grey-bg">
-                                <h3  class="form-title black">Register</h3>
-                                <form class="exvent-form">
-                                    <div class="row gy-4">
-                                        <div class="col-12">
-                                            <div class="single-input white-bg">
-                                                <input id="reg_username" type="text"
-                                                    placeholder="Username">
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="single-input white-bg">
-                                                <input id="reg_name" type="text"
-                                                    placeholder="Ad">
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="single-input white-bg">
-                                                <input id="reg_surname" type="text"
-                                                    placeholder="Soyad">
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="single-input white-bg">
-                                                <input id="reg_email"
-                                                    type="email"
-                                                    placeholder="Email">
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="single-input white-bg ">
-                                                <input  id="reg_password"
-                                                    type="password"
-                                                    placeholder="Password">
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="single-input white-bg">
-                                                <input id="reg_password2"
-                                                    type="password"
-                                                    placeholder="Confrim Password">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-5 text-center">
-                                            <button onclick="RegisterUser()"
-                                                class="submit_btn">Register</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- content start -->
+            <div>
+                <input type="email" placeholder="example@gmail.com">
+                <button>send</button>
             </div>
-            <!-- Login End -->
-
-
-
+            <!--content end -->
             <!-- Footer Section Start -->
             <div class="footer-section" style="background-image: url({% static
                 'assets/images/bg/footer_bg1.jpg' %});">
@@ -571,22 +462,51 @@
 
             </div>
             <script>
-
-
-
-                const rememberMeCheckbox = document.getElementById("remember-me-checkbox");
-                const rememberMe = rememberMeCheckbox.checked;
-                if (rememberMe) {
-                 localStorage.setItem("rememberMe", "true");
-                 } else {
-                  localStorage.removeItem("rememberMe");
-                }
-
-                const rememberMeStatus = localStorage.getItem("rememberMe");
-
-               if (rememberMeStatus === "true") {
-               // Kullanıcıyı otomatik olarak giriş yapma seçeneği sunabilirsiniz
+  var csrfToken = "{{ csrf_token }}";
+function GmailPost(){
+    event.preventDefault();
+    const email=document.getElementById("email");
+    const clickedButton = event.target;
+    if (clickedButton.classList.contains('submit_btn')) {
+    const url = '#';
+if
 }
+     fetch(url, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        email: email,
+                      
+                    }), // You can format the data as needed
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrfToken
+                    }
+                })
+                    .then(response => {
+                        // Handle the response here (e.g., show a success message)
+                        if (response.ok) {
+                        
+                            swal({
+                                title: "Əla",
+                                text: "Ugurlar",
+                                icon: "success",
+                                button: "Tamam",
+                            });
+
+                        } else  {
+                            console.log(response)
+                            swal('Xəta baş verdi');
+                            console.log(name, email)
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            }
+        
+                
+              
+
          // register
         var csrfToken = "{{ csrf_token }}";
         function RegisterUser() {
