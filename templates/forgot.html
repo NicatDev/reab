@@ -9,39 +9,47 @@
         <title>Exvent - Event & Conference HTML5 Template</title>
         <meta name="robots" content="noindex, follow">
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1,
+            shrink-to-fit=no">
         <!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/images/favicon.png' %}">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+        <link rel="shortcut icon" type="image/x-icon" href="{% static
+            'assets/images/favicon.png' %}">
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
             integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
             integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+
         <!-- CSS
         ============================================ -->
-    
+
         <!-- Icon Font CSS -->
-        <link rel="stylesheet" href="{% static 'assets/css/plugins/all.min.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/plugins/flaticon.css' %}">
-    
+        <link rel="stylesheet" href="{% static 'assets/css/plugins/all.min.css'
+            %}">
+        <link rel="stylesheet" href="{% static 'assets/css/plugins/flaticon.css'
+            %}">
+
         <!-- Plugins CSS -->
-        <link rel="stylesheet" href="{% static 'assets/css/plugins/bootstrap.min.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/plugins/swiper-bundle.min.css' %}">
+        <link rel="stylesheet" href="{% static
+            'assets/css/plugins/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static
+            'assets/css/plugins/swiper-bundle.min.css' %}">
         <link rel="stylesheet" href="{% static 'assets/css/plugins/aos.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/plugins/magnific-popup.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/plugins/lightbox.min.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/plugins/gijgo.min.css' %}">
-    
+        <link rel="stylesheet" href="{% static
+            'assets/css/plugins/magnific-popup.css' %}">
+        <link rel="stylesheet" href="{% static
+            'assets/css/plugins/lightbox.min.css' %}">
+        <link rel="stylesheet" href="{% static
+            'assets/css/plugins/gijgo.min.css' %}">
+
         <!-- Main Style CSS -->
         <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
-    
-    
         <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
         <!-- <link rel="stylesheet" href="{% static 'assets/css/vendor/plugins.min.css">
         <link rel="stylesheet" href="{% static 'assets/css/style.min.css"> -->
-    
     </head>
 
     <body>
@@ -378,15 +386,58 @@
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
+
+
+
             <!-- content start -->
-            <div>
-                <input type="email" placeholder="example@gmail.com">
-                <button>send</button>
+            <div style="padding: 2rem; user-select: none; align-items: center;
+                justify-content: center;display: flex;">
+                <p style="font-size:x-large;">Zəhmət olmasa <span
+                        style="font-weight:bold;">Email</span> ünvanınızı daxil
+                    edin!</p>
             </div>
+            <div style=" display: flex;flex-direction: column; justify-content:
+                center;align-items: center;">
+                <div class="row g-4 justify-content-center;">
+                    <div class="col-lg-12">
+                        <input style="background-color:rgba(198, 229, 244,
+                            0.226)" type="email" required='true' class="submit"
+                            id="email"
+                            placeholder="Your Email">
+                    </div>
+                    <div class="col-lg-12">
+                        <input style="background-color:rgba(198, 229, 244,
+                            0.226);display: none;" type="text" required='true'
+                            class="submit" id="pass" placeholder="XXXXX">
+                    </div>
+                    <div class="col-lg-12">
+                        <button class="submit_btn" onclick="submitData()">Submit
+                            Now</button>
+                    </div>
+                </div>
+            </div>
+            <!-- modalll -->
+            <!-- Trigger/Open The Modal -->
+            <button id="myBtn">Open Modal</button>
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Modal Title</h2>
+                    <p>This is some modal content.</p>
+                </div>
+            </div>
+
+
             <!--content end -->
+
+
+
             <!-- Footer Section Start -->
-            <div class="footer-section" style="background-image: url({% static
-                'assets/images/bg/footer_bg1.jpg' %});">
+            <div class="footer-section" style="background-image: url({%static
+                'assets/images/bg/footer_bg1.jpg'%});">
 
                 <div class="footer-widget-social">
                     <div class="container">
@@ -461,305 +512,131 @@
                 <!-- back to top end -->
 
             </div>
+
             <script>
-  var csrfToken = "{{ csrf_token }}";
-function GmailPost(){
-    event.preventDefault();
-    const email=document.getElementById("email");
-    const clickedButton = event.target;
-    if (clickedButton.classList.contains('submit_btn')) {
-    const url = '#';
-if
-}
-     fetch(url, {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        email: email,
-                      
-                    }), // You can format the data as needed
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRFToken': csrfToken
-                    }
-                })
-                    .then(response => {
-                        // Handle the response here (e.g., show a success message)
-                        if (response.ok) {
-                        
-                            swal({
-                                title: "Əla",
-                                text: "Ugurlar",
-                                icon: "success",
-                                button: "Tamam",
-                            });
-
-                        } else  {
-                            console.log(response)
-                            swal('Xəta baş verdi');
-                            console.log(name, email)
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                    });
-            }
-        
-                
-              
-
-         // register
-        var csrfToken = "{{ csrf_token }}";
-        function RegisterUser() {
-            event.preventDefault();
-
-            // Get the email input value
-            const email = document.getElementById('reg_email').value;
-            const username = document.getElementById('reg_username').value;
-            const password = document.getElementById('reg_password').value;
-            const password2 = document.getElementById ('reg_password2').value;
-            const name = document.getElementById('reg_name').value;
-            const surname = document.getElementById('reg_surname').value;
-        
-            // Check if the class name of the clicked button is "submit_btn"
-            const clickedButton = event.target;
-            if (clickedButton.classList.contains('submit_btn')) {
-                // Send the data to a URL (replace 'your_url' with the actual URL)
-                const url = '#';
-                if (   password !== password2 || password.length < 6 ) {
-                    swal('parolunuzu tekrar daxil edin !');
-                    return;
-                   
-                }
-                 else if (username ==='') {
-                    swal('İstifadəçi adı daxil edin !');
-                    return;
-                }
-                else if (surname ==='') {
-                    swal('Soyadınızı daxil edin !');
-                    return;
-                }
-                else if (name ==='') {
-                    swal('Adinizi daxil edin !');
-                    return;
-                }
-
-
-                // You can use a method like fetch to send the data to the server
-                fetch(url, {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        email: email,
-                        username: username,
-                        password:password,
-                        surname:surname
-                    }), // You can format the data as needed
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRFToken': csrfToken
-                    }
-                })
-                    .then(response => {
-                        // Handle the response here (e.g., show a success message)
-                        if (response.ok) {
-                            console.log(response)
-                            console.log(name, email)
-                            swal({
-                                title: "Əla",
-                                text: "Registrasiyadan ugurla kediniz!",
-                                icon: "success",
-                                button: "Tamam",
-                            });
-
-                        } else  {
-                            console.log(response)
-                            swal('Xəta baş verdi');
-                            console.log(name, email)
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                    });
-            }
-        }
-
-
-        // login
-        var csrfToken = "{{ csrf_token }}";
-        function LoginUser() {
-            event.preventDefault();
-
-            // Get the email input value
-            const name = document.getElementById('name').value;
-            const password = document.getElementById('password').value;
-
-            // Check if the class name of the clicked button is "submit_btn"
-            const clickedButton = event.target;
-            if (clickedButton.classList.contains('submit_btn')) {
-                // Send the data to a URL (replace 'your_url' with the actual URL)
-                const url = '#';
-                if (name ==='') {
-                    swal('Username ve ya Gmail daxil edin !');
-                    return;
-                   
-                }
-                 else if (password.length < 6) {
-                    swal('Parolunuzu düzgün daxil edin!');
-                    return; 
-                }
-
-
-                // You can use a method like fetch to send the data to the server
-                fetch(url, {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        name: name,
-                        password:password
-
-                    }), // You can format the data as needed
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRFToken': csrfToken
-                    }
-                })
-                    .then(response => {
-                        // Handle the response here (e.g., show a success message)
-                        if (response.ok) {
-                            console.log(response)
-                            console.log(name)
-                            swal({
-                                title: "Əla",
-                                text: "Login oldunuz!",
-                                icon: "success",
-                                button: "Tamam",
-                            });
-
-                        } else  {
-                            console.log(response)
-                            swal('Xəta baş verdi');
-                            console.log(name)
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                    });
-            }
-        }
-      
-        function OpendivRegister(){
-        
-         const clickedButton = event.target;
-         const login = document.getElementById('login');
-         const register = document.getElementById('register');
-    
-            login.style.display="none";
-            register.style.display="block"
-           
-            const button = document.getElementById('reg')
-        const button2 = document.getElementById('log')
-      
-        button.classList.add('act')
-        button2.classList.remove('act')
-        }
-        function OpendivLogin(){
-         const clickedButton = event.target;
-         const register = document.getElementById('register');
-         const login = document.getElementById('login');
-    
-            login.style.display="block"
-            register.style.display="none"
-
-        const button = document.getElementById('log')
-        const button2 = document.getElementById('reg')
-        button.classList.add('act')
-        button2.classList.remove('act')
-  
+var a =1
+                        function OpendivPassword(){
+                            a=2
+                         
+                            email = document.getElementById('email')
+                    pass = document.getElementById('pass')
+                         pass.style.display="block"
+                         email.style.display="none"
+                       
         }
      
-    </script>
+                var csrfToken = "{{ csrf_token }}";
+                
+                function submitData() {
+                
+                    event.preventDefault();
+                    
+                    // Get the email input value
+                    email = document.getElementById('email').value
+                    pass = document.getElementById('pass').value
+          
+                    // Check if the class name of the clicked button is "submit_btn"
+                    const clickedButton = event.target;
+                    if (clickedButton.classList.contains('submit_btn')) {
+                        // Send the data to a URL (replace 'your_url' with the actual URL)
+                        const url = '#';
+                        if (email === '' || email == null ) {
+                            swal('Data daxil edin !');
+                            return;
+                        }
+                       
+        
+                        // You can use a method like fetch to send the data to the server
+                        fetch(url, {
+                            method: 'POST',
+                            body: JSON.stringify({
+                                email: email,
+                                pass:pass,
+                                a:a
+                                
+                            }), // You can format the data as needed
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRFToken': csrfToken
+                            }
+                        })
+                            .then(response => {
+                                // Handle the response here (e.g., show a success message)
+                                if (response.ok) {
+                                    console.log(response)
+                                    console.log(a,email,pass)
+                                    if (a==2){
+                                       Modal();
+                                    }
+                                OpendivPassword();
+        
+                                } else {
+                                    console.log(response)
+                                    swal('Xəta baş verdi');
+                                
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                            });
+                    }
+                }
 
-            <style>
-    .social-list i{
-        line-height: 2.5;
+
+               function Modal(){
+              // Get references to the modal elements
+const modal = document.getElementById("myModal");
+const closeBtn = document.getElementsByClassName("close")[0];
+
+// Function to open the modal
+function openModal() {
+    modal.style.display = "block";
+}
+
+// Function to close the modal
+function closeModal() {
+    modal.style.display = "none";
+}
+
+// Event listeners
+openModalBtn.addEventListener("click", openModal);
+closeBtn.addEventListener("click", closeModal);
+
+// Close the modal when clicking outside of it
+window.addEventListener("click", function(event) {
+    if (event.target === modal) {
+        closeModal();
     }
-    .active {
-    background-color: #ea1857;
-    color: #fff;
-}
-.containerr {
-  height: 10vh;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  text-align: center;
-}
+});
 
 
+               }
 
-.containerr button {
-  cursor: pointer;
-  border: 0;
-  border-radius: 4px;
-  font-weight: 600;
-  margin: 0 10px;
-  width: 200px;
-  padding: 10px 0;
-  box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
-  transition: 0.4s;
-}
-
-.act {
-  color: white !important;
-  background-color: rgba(104, 85, 224, 1) !important;
-}
-.reg {
-    color: rgb(104, 85, 224);
-  background-color: rgba(255, 255, 255, 1);
-  border: 1px solid rgba(104, 85, 224, 1);
-}
-
-.log {
-  color: rgb(104, 85, 224);
-  background-color: rgba(255, 255, 255, 1);
-  border: 1px solid rgba(104, 85, 224, 1);
-}
-
-.containerr button:hover {
-  color: white;
-
-  box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
-  background-color: rgba(104, 85, 224, 1);
-}
-
-
-</style>
-            <!-- JS
+            </script>
+        </style>
+        <!-- JS
     ============================================ -->
-       <script src="{% static 'assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
-    <script src="{% static 'assets/js/vendor/modernizr-3.11.2.min.js' %}"></script>
-
-    <!-- Bootstrap JS -->
-    <script src="{% static 'assets/js/plugins/popper.min.js' %}"></script>
-    <script src="{% static 'assets/js/plugins/bootstrap.min.js' %}"></script>
-
-    <!-- Plugins JS -->
-    <script src="{% static 'assets/js/plugins/swiper-bundle.min.js' %}"></script>
-    <script src="{% static 'assets/js/plugins/aos.js' %}"></script>
-    <script src="{% static 'assets/js/plugins/waypoints.min.js' %}"></script>
-    <script src="{% static 'assets/js/plugins/back-to-top.js' %}"></script>
-    <script src="{% static 'assets/js/plugins/jquery.counterup.min.js' %}"></script>
-    <script src="{% static 'assets/js/plugins/appear.min.js' %}"></script>
-    <script src="{% static 'assets/js/plugins/jquery.magnific-popup.min.js' %}"></script>
-    <script src="{% static 'assets/js/plugins/lightbox.min.js' %}"></script>
-    <script src="{% static 'assets/js/plugins/gijgo.min.js' %}"></script>
-
-
-    <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
-
-
-    <!-- Main JS -->
-    <script src="{% static 'assets/js/main.js' %}"></script>
-        </body>
+        <script src="{% static 'assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
+        <script src="{% static 'assets/js/vendor/modernizr-3.11.2.min.js' %}"></script>
+        <!-- Bootstrap JS -->
+        <script src="{% static 'assets/js/plugins/popper.min.js' %}"></script>
+        <script src="{% static 'assets/js/plugins/bootstrap.min.js' %}"></script>
+        <!-- Plugins JS -->
+        <script src="{% static 'assets/js/plugins/swiper-bundle.min.js' %}"></script>
+        <script src="{% static 'assets/js/plugins/aos.js' %}"></script>
+        <script src="{% static 'assets/js/plugins/waypoints.min.js' %}"></script>
+        <script src="{% static 'assets/js/plugins/back-to-top.js' %}"></script>
+        <script src="{% static 'assets/js/plugins/jquery.counterup.min.js' %}"></script>
+        <script src="{% static 'assets/js/plugins/appear.min.js' %}"></script>
+        <script src="{% static 'assets/js/plugins/jquery.magnific-popup.min.js'
+            %}"></script>
+        <script src="{% static 'assets/js/plugins/lightbox.min.js' %}"></script>
+        <script src="{% static 'assets/js/plugins/gijgo.min.js' %}"></script>
+        <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
+        <!-- Main JS -->
+        <script src="{% static 'assets/js/main.js' %}"></script>
+    </body>
 
 
-        <!-- Mirrored from thepixelcurve.com/html/exvent/dest/login-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 29 Sep 2023 11:13:43 GMT -->
-    </html>
+    <!-- Mirrored from thepixelcurve.com/html/exvent/dest/login-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 29 Sep 2023 11:13:43 GMT -->
+</html>
