@@ -33,17 +33,12 @@
             %}">
 
         <!-- Plugins CSS -->
-        <link rel="stylesheet" href="{% static
-            'assets/css/plugins/bootstrap.min.css' %}">
-        <link rel="stylesheet" href="{% static
-            'assets/css/plugins/swiper-bundle.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/plugins/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/plugins/swiper-bundle.min.css' %}">
         <link rel="stylesheet" href="{% static 'assets/css/plugins/aos.css' %}">
-        <link rel="stylesheet" href="{% static
-            'assets/css/plugins/magnific-popup.css' %}">
-        <link rel="stylesheet" href="{% static
-            'assets/css/plugins/lightbox.min.css' %}">
-        <link rel="stylesheet" href="{% static
-            'assets/css/plugins/gijgo.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/plugins/magnific-popup.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/plugins/lightbox.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/plugins/gijgo.min.css' %}">
 
         <!-- Main Style CSS -->
         <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
@@ -410,27 +405,47 @@
                             0.226);display: none;" type="text" required='true'
                             class="submit" id="pass" placeholder="XXXXX">
                     </div>
-                    <div class="col-lg-12">
+                    <div class="col-lg-12" style="padding-bottom: 2rem;">
                         <button class="submit_btn" onclick="submitData()">Submit
                             Now</button>
                     </div>
                 </div>
             </div>
             <!-- modalll -->
-            <!-- Trigger/Open The Modal -->
-            <button id="myBtn">Open Modal</button>
-
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
-                <!-- Modal content -->
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h2>Modal Title</h2>
-                    <p>This is some modal content.</p>
+           
+            <div id="myModal" class="modal" style="display:none;background-color:rgba(102, 105, 107, 0.454);filter:blur(10%);">
+              <div style="display: flex;justify-content:center;padding-top:10rem;">
+                   
+                    <div id="register" class="col-lg-6 col-md-8"  >  
+                        <div class="hero-form mt-0 grey-bg">
+                            <span class="close" style="font-size:xx-large" id="closeModalBtn">&times;</span>
+                            <h3  class="form-title black">Register</h3>
+                            <form class="exvent-form">
+                                <div class="row gy-4">
+                                    <div class="col-12">
+                                        <div class="single-input white-bg ">
+                                            <input  id="reg_password"
+                                                type="password"
+                                                placeholder="Password">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="single-input white-bg">
+                                            <input id="reg_password2"
+                                                type="password"
+                                                placeholder="Confrim Password">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5 text-center">
+                                        <button onclick="RegisterUser()"
+                                            class="submit_btn">Register</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-
             <!--content end -->
 
 
@@ -514,7 +529,7 @@
             </div>
 
             <script>
-var a =1
+                        var a =1
                         function OpendivPassword(){
                             a=2
                          
@@ -566,9 +581,9 @@ var a =1
                                     console.log(response)
                                     console.log(a,email,pass)
                                     if (a==2){
-                                       Modal();
+                                      modal();
                                     }
-                                OpendivPassword();
+                                 OpendivPassword();
         
                                 } else {
                                     console.log(response)
@@ -582,36 +597,23 @@ var a =1
                     }
                 }
 
-
-               function Modal(){
-              // Get references to the modal elements
-const modal = document.getElementById("myModal");
-const closeBtn = document.getElementsByClassName("close")[0];
-
-// Function to open the modal
-function openModal() {
-    modal.style.display = "block";
-}
-
-// Function to close the modal
-function closeModal() {
-    modal.style.display = "none";
-}
-
-// Event listeners
-openModalBtn.addEventListener("click", openModal);
-closeBtn.addEventListener("click", closeModal);
-
-// Close the modal when clicking outside of it
-window.addEventListener("click", function(event) {
-    if (event.target === modal) {
-        closeModal();
-    }
-});
-
-
-               }
-
+                function modal(){
+                    const modal = document.getElementById("myModal");
+                    const closeModalBtn = document.getElementById("closeModalBtn");
+                    modal.style.display = "block";
+                    closeModalBtn.addEventListener("click", closeModal=()=>{
+                        modal.style.display = "none";
+                    });
+                 }
+                        
+                       
+                      
+                      
+                    
+                        
+                       
+                        
+                      
             </script>
         </style>
         <!-- JS
@@ -628,8 +630,7 @@ window.addEventListener("click", function(event) {
         <script src="{% static 'assets/js/plugins/back-to-top.js' %}"></script>
         <script src="{% static 'assets/js/plugins/jquery.counterup.min.js' %}"></script>
         <script src="{% static 'assets/js/plugins/appear.min.js' %}"></script>
-        <script src="{% static 'assets/js/plugins/jquery.magnific-popup.min.js'
-            %}"></script>
+        <script src="{% static 'assets/js/plugins/jquery.magnific-popup.min.js' %}"></script>
         <script src="{% static 'assets/js/plugins/lightbox.min.js' %}"></script>
         <script src="{% static 'assets/js/plugins/gijgo.min.js' %}"></script>
         <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
