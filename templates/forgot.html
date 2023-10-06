@@ -48,8 +48,40 @@
     </head>
 
     <body>
-
-        <div class="main-wrapper" style="position:absolute;">
+        <div id="myModal" class="modal" style="display:none; ">
+            <div style="display: flex;justify-content:center;padding-top:7rem;">
+                 
+                  <div id="register" class="col-lg-6 col-md-8"  >  
+                      <div class="hero-form mt-0 grey-bg">
+                          <span class="close" style="font-size:xx-large;cursor:pointer;user-select:none;" id="closeModalBtn">&times;</span>
+                          <h3 style="user-select:none;" class="form-title black">Register</h3>
+                          <form class="exvent-form">
+                              <div class="row gy-4">
+                                  <div class="col-12">
+                                      <div class="single-input white-bg ">
+                                          <input  id="newpass"
+                                              type="password"
+                                              placeholder="New Password">
+                                      </div>
+                                  </div>
+                                  <div class="col-12">
+                                      <div class="single-input white-bg">
+                                          <input id="confirmpass"
+                                              type="password"
+                                              placeholder="Confrim Password">
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-5 text-center">
+                                      <button onclick="submitNewPass()"
+                                          class="submit_btn">Register</button>
+                                  </div>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        <div class="main-wrapper" id="main" style="position:absolute;">
 
 
             <!-- Header Start  -->
@@ -412,39 +444,7 @@
             </div>
             <!-- modalll -->
            
-            <div id="myModal" class="modal" style="display:block; ">
-              <div style="display: flex;justify-content:center;padding-top:7rem;">
-                   
-                    <div id="register" class="col-lg-6 col-md-8"  >  
-                        <div class="hero-form mt-0 grey-bg">
-                            <span class="close" style="font-size:xx-large;cursor:pointer;user-select:none;" id="closeModalBtn">&times;</span>
-                            <h3 style="user-select:none;" class="form-title black">Register</h3>
-                            <form class="exvent-form">
-                                <div class="row gy-4">
-                                    <div class="col-12">
-                                        <div class="single-input white-bg ">
-                                            <input  id="newpass"
-                                                type="password"
-                                                placeholder="New Password">
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="single-input white-bg">
-                                            <input id="confirmpass"
-                                                type="password"
-                                                placeholder="Confrim Password">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-5 text-center">
-                                        <button onclick="submitNewPass()"
-                                            class="submit_btn">Register</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <!--content end -->
 
 
@@ -648,9 +648,11 @@
                 }
 
                 function modal(){
+                    main=document.getElementById('main');
                     const modal = document.getElementById("myModal");
                     const closeModalBtn = document.getElementById("closeModalBtn");
                     modal.style.display = "block";
+                    main.style.filter= "blur(8px)";
                     closeModalBtn.addEventListener("click", closeModal=()=>{
                         modal.style.display = "none";
                     });
