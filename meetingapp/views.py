@@ -9,8 +9,20 @@ from datetime import date,timedelta
 from meetingapp.forms import Messageform,Surveyform
 from django.http import HttpResponse
 import json
+from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
+from django.core.mail import send_mail
+from django.contrib.auth import logout
+from django.shortcuts import redirect
+from django.urls import reverse
+from django.conf import settings
+from django.contrib.auth import login as auth_login
 # Create your views here.
 import calendar
+
+def meetjoin(request):
+    context = {}
+    return render(request,'index.html',context)
+
 def home(request):
     if Header.objects.all().exists():
         header = Header.objects.first()
@@ -79,7 +91,15 @@ def contact(request):
         }
     return render(request,'contact.html',context)
 
+def logout_view(request):
+    if request.user.is_authenticated:
+        logout(request)
+    next_page = request.GET.get('next', reverse('home'))  # Default to the home page
+    return redirect(next_page)
+
 def login(request):
+  
+    
     if Header.objects.all().exists():
         header = Header.objects.first()
     else:
@@ -87,10 +107,16 @@ def login(request):
     meetnumber = len(Meeting.objects.all())
     eagernumber = len(Eager.objects.all())
     sportmennumber = len(Sportmen.objects.all()) 
+    
+    
+
+
+
     context = {'header':header,
         'meetnumber':meetnumber,
         'eagernumber':eagernumber,
-        'sportmennumber':sportmennumber
+        'sportmennumber':sportmennumber,
+
         }
     return render(request,'login-register.html',context)
 
@@ -104,6 +130,43 @@ def message(request):
             newmessage.save()
         data = {'message': 'Data saved successfully'}
         return JsonResponse(data)
+    else:
+        return HttpResponse(status=405) 
+
+def login_register(request):
+    myaction = request.GET.get('myaction', reverse('login'))
+    myresponse = {'message':'success'}
+
+    if request.method == 'POST':
+    
+        data = json.loads(request.body)
+    
+        if myaction == '2':
+            
+            login_form = AuthenticationForm(request, data=data)
+    
+            if login_form.is_valid():
+                user = login_form.get_user()
+                auth_login(request, user)
+   
+                
+                return JsonResponse(myresponse)
+            else:
+      
+                return HttpResponse(status=400) 
+                # Replace 'home' with the URL of your home page
+        elif myaction == '1':
+            registration_form = UserCreationForm(data)
+            if registration_form.is_valid():
+                user = registration_form.save()
+                auth_login(request, user)
+                return JsonResponse(myresponse)
+            else:
+
+                
+                return HttpResponse(status=400)  
+        return HttpResponse(status=200) 
+            # Replace 'home' with the URL of your home page
     else:
         return HttpResponse(status=405) 
 
@@ -134,3 +197,18 @@ def forgot(request):
         'sportmennumber':sportmennumber
         }
     return render(request,'forgot.html',context)
+
+def send_mail(request):
+    
+    data = json.loads(request.body)
+    content = ''
+    
+    send_mail(
+            "tezsagal.az saytindan yeni muraciet !",
+            # data,
+            content,
+            settings.EMAIL_HOST_USER,
+            [data.email],
+            fail_silently=False, html_message=content
+    )
+    return JsonResponse(data)

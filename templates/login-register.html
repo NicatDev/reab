@@ -58,8 +58,7 @@
                     <div class="header-wrap">
 
                         <div class="header-logo">
-                            <a href="index.html"><img src="{% static
-                                    'assets/images/logo/logo2.png' %}" alt=""></a>
+                            <a href="index.html"><img src="{% static 'assets/images/logo/logo2.png' %}" alt=""></a>
                         </div>
 
                         <div class="header-menu d-none d-lg-block">
@@ -78,6 +77,7 @@
 
                             <!-- Header Search End -->
                             <!-- Header Cart Start -->
+                            {% if user.is_authenticated %}
                             <div class="header-cart dropdown">
                                 <button class="cart-btn"
                                     data-bs-toggle="dropdown">
@@ -127,9 +127,7 @@
                                         <!-- Single Cart Item Start -->
                                         <div class="single-cart-item">
                                             <div class="item-image">
-                                                <img src="{% static
-                                                    'assets/images/cart/cart-3.jpg'
-                                                    %}" alt="cart">
+                                                <img src="{% static 'assets/images/cart/cart-3.jpg' %}" alt="cart">
                                             </div>
                                             <div class="item-content">
                                                 <h4 class="title"><a
@@ -145,21 +143,49 @@
                                     <!-- Dropdown Cart Items End -->
                                     <!-- Dropdown Cart Total Start -->
                                     <div class="cart-total">
-                                        <span class="label">Subtotal:</span>
-                                        <span class="value">$99.9</span>
+                                        
+                                        <span class="label">İstifadəçi:</span>
+                                        <span style="color:black" class="value">{{request.user.first_name}} {{request.user.last_name}}</span>
                                     </div>
                                     <!-- Dropdown Cart Total End -->
                                     <!-- Dropdown Cart Button Start -->
                                     <div class="cart-btns">
-                                        <a class="btn" href="pricing.html">View
-                                            Cart</a>
+                                        <a class="btn" href="pricing.html">Kabinet</a>
                                         <a class="btn btn-2"
-                                            href="pricing.html">Checkout</a>
+                                            href="{% url 'logout' %}?next={{ request.path }}">Çıxış et</a>
                                     </div>
                                     <!-- Dropdown Cart Button End -->
                                 </div>
                                 <!-- Header Dropdown Cart End -->
                             </div>
+                            {% else %}
+                            <div class="header-cart dropdown">
+                                <button class="cart-btn"
+                                    data-bs-toggle="dropdown">
+                                    <i style="color:#ffae4a;" class="fa-solid
+                                        fa-user"></i>
+                                    <span class="count">0</span>
+                                </button>
+                                <!-- Header Dropdown Cart Start -->
+                                <div class="dropdown-menu dropdown-cart
+                                    slideIn">
+                                    <!-- Dropdown Cart Items Start -->
+                                  
+                                    <!-- Dropdown Cart Items End -->
+                                    <!-- Dropdown Cart Total Start -->
+                                   
+                                    <!-- Dropdown Cart Total End -->
+                                    <!-- Dropdown Cart Button Start -->
+                                    <div class="cart-btns">
+                                        <a class="btn" href="{% url 'login' %}?myaction=2">Daxil ol</a>
+                                        <a class="btn btn-2"
+                                            href="{% url 'login' %}?myaction=1">Qeydiyyat</a>
+                                    </div>
+                                    <!-- Dropdown Cart Button End -->
+                                </div>
+                                <!-- Header Dropdown Cart End -->
+                            </div>
+                            {% endif %}
                             <!-- Header Cart End -->
 
                             <!-- Header Button Start -->
@@ -194,8 +220,7 @@
                 <div class="offcanvas-header">
                     <!-- Offcanvas Logo Start -->
                     <div class="offcanvas-logo">
-                        <a href="index.html"><img src="{% static
-                                'assets/images/logo.png' %}" alt=""></a>
+                        <a href="index.html"><img src="{% static 'assets/images/logo.png' %}" alt=""></a>
                     </div>
                     <!-- Offcanvas Logo End -->
                     <button type="button" class="close-btn"
@@ -212,8 +237,7 @@
 
                             </li>
 
-                            <li class="active-menu"><a href="{% url 'contact'
-                                    %}">Əlaqə</a></li>
+                            <li class="active-menu"><a href="{% url 'contact' %}">Əlaqə</a></li>
                         </ul>
                     </div>
                 </div>
@@ -306,15 +330,13 @@
                                                 <li class="meta-item">
                                                     <a href="speaker-01.html"><i
                                                             class="fas
-                                                            fa-marker"></i> {{
-                                                        meetnumber }}
+                                                            fa-marker"></i> {{ meetnumber }}
                                                         görüş</a>
                                                 </li>
                                                 <li class="meta-item">
                                                     <a href="contact.html"><i
                                                             class="fas
-                                                            fa-medal"></i> {{
-                                                        sportmennumber }}
+                                                            fa-medal"></i> {{ sportmennumber }}
                                                         çempion</a>
                                                 </li>
                                             </ul>
@@ -379,10 +401,11 @@
                 <div class="swiper-pagination"></div>
             </div>
             <!-- Hero End -->
-            <div class="containerr" style="padding-bottom:0px !important;">
+            <div id="mytarget" class="containerr" style="padding-bottom:0px !important;">
                 <div>
-                  <button onclick="OpendivLogin()" class="log act" id="log">Login</button>
-                  <button onclick="OpendivRegister()" class="reg" id="reg">Register</button>
+                   
+                  <button onclick="OpendivLogin()"  {% if action != '1' %} class="log act" {% else %} class="log" {% endif %} id="log">Login</button>
+                  <button onclick="OpendivRegister()" {% if action != '1' %} class="reg" {% else %} class="reg act" {% endif %} id="reg">Register</button>
                </div>
               </div>
 
@@ -390,7 +413,7 @@
             <div class="login-register-area section-padding-02" style="padding: 60px 0 !important;">   
                 <div class="container">
                     <div class="row justify-content-center g-5">
-                        <div  id="login"  class="col-lg-6 col-md-8">
+                        <div  id="login" {% if action == '1' %} style="display: none;"{% endif %}  class="col-lg-6 col-md-8">
                            
                             <div class="hero-form mt-0 grey-bg">
                                 <h3 class="form-title black">Login</h3>
@@ -424,16 +447,15 @@
                                                 class="submit_btn">Log in</button>
                                         </div>
                                         <div class="col-12">
-                                            <a href="login-register.html"
-                                                class="forgot-pass">Fogot your
-                                                password?</a>
+                                            <a href="{% url 'forgot' %}"
+                                                class="forgot-pass">Şifrəni unutmusunuz ?</a>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                         </div>
                      
-                        <div id="register" class="col-lg-6 col-md-8" style="display: none;" >
+                        <div id="register" class="col-lg-6 col-md-8" {% if action != '1' %} style="display: none;"{% endif %} >
                           
                             <div class="hero-form mt-0 grey-bg">
                                 <h3  class="form-title black">Register</h3>
@@ -604,11 +626,14 @@
             const clickedButton = event.target;
             if (clickedButton.classList.contains('submit_btn')) {
                 // Send the data to a URL (replace 'your_url' with the actual URL)
-                const url = '#';
-                if (   password !== password2 || password.length < 6 ) {
+                const url = "{% url 'login_register'  %}?myaction=1";
+                if (   password !== password2) {
                     swal('parolunuzu tekrar daxil edin !');
                     return;
                    
+                }
+                else if( password.length < 8 ){
+                    swal('Parolunuz 8 simvoldan cox olmalidir ve yalniz reqem daxil etmek olmaz !');
                 }
                  else if (username ==='') {
                     swal('İstifadəçi adı daxil edin !');
@@ -622,7 +647,16 @@
                     swal('Adinizi daxil edin !');
                     return;
                 }
-
+                else if  (!email.includes('@')) {
+                    swal('Emailinizi duzgun daxil edin !');
+                    return;
+                }
+                else if (!email.includes('.')) {
+                    swal('Emailinizi duzgun daxil edin !');
+                    return;
+                }
+                
+                console.log(url)
 
                 // You can use a method like fetch to send the data to the server
                 fetch(url, {
@@ -631,7 +665,11 @@
                         email: email,
                         username: username,
                         password:password,
-                        surname:surname
+                        password1:password,
+                        password2:password,
+                        first_name:name,
+                        last_name:surname,
+    
                     }), // You can format the data as needed
                     headers: {
                         'Content-Type': 'application/json',
@@ -641,8 +679,8 @@
                     .then(response => {
                         // Handle the response here (e.g., show a success message)
                         if (response.ok) {
+                            console.log('11111111111')
                             console.log(response)
-                            console.log(name, email)
                             swal({
                                 title: "Əla",
                                 text: "Registrasiyadan ugurla kediniz!",
@@ -651,8 +689,8 @@
                             });
 
                         } else  {
-                            console.log(response)
-                            swal('Xəta baş verdi');
+                   
+                            swal('Xəta baş verdi, başqa istifadəçi adı ilə yenidən cəhd edin ');
                             console.log(name, email)
                         }
                     })
@@ -666,17 +704,19 @@
         // login
         var csrfToken = "{{ csrf_token }}";
         function LoginUser() {
-            event.preventDefault();
-
+            event.preventDefault()
             // Get the email input value
             const name = document.getElementById('name').value;
             const password = document.getElementById('password').value;
-
+            console.log(name)
             // Check if the class name of the clicked button is "submit_btn"
             const clickedButton = event.target;
+
             if (clickedButton.classList.contains('submit_btn')) {
                 // Send the data to a URL (replace 'your_url' with the actual URL)
-                const url = '#';
+                const url = "{% url 'login_register' %}?myaction=2";
+                console.log(url,'22222222222222222')
+                console.log(name,password)
                 if (name ==='') {
                     swal('Username ve ya Gmail daxil edin !');
                     return;
@@ -686,12 +726,14 @@
                     swal('Parolunuzu düzgün daxil edin!');
                     return; 
                 }
+                console.log('12')
                 // You can use a method like fetch to send the data to the server
                 fetch(url, {
                     method: 'POST',
                     body: JSON.stringify({
-                        name: name,
-                        password:password
+                        username: name,
+                        password:password,
+      
 
                     }), // You can format the data as needed
                     headers: {
@@ -753,6 +795,19 @@
   
         }
      
+    </script>
+
+
+    <script>
+        var action = '{{ action }}'
+        var targetDiv = document.getElementById('mytarget');
+    
+        if (action === '1') {
+            targetDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+        else if(action == '2' ){
+            targetDiv.scrollIntoView({ behavior: 'smooth' });
+        }
     </script>
 
             <style>
