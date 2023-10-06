@@ -388,7 +388,7 @@
             <div style="padding: 2rem; user-select: none; align-items: center;
                 justify-content: center;display: flex;">
                 <p style="font-size:x-large;">Zəhmət olmasa <span
-                        style="font-weight:bold;">Email</span> ünvanınızı daxil
+                        style="font-weight:bold;">Email və OTP </span>-ni daxil
                     edin!</p>
             </div>
             <div style=" display: flex;flex-direction: column; justify-content:
@@ -397,8 +397,7 @@
                     <div class="col-lg-12">
                         <input style="background-color:rgba(198, 229, 244,
                             0.226)" type="email" required='true' class="submit"
-                            id="email"
-                            placeholder="Your Email">
+                            id="email" placeholder="Your Email">
                     </div>
                     <div class="col-lg-12">
                         <input style="background-color:rgba(198, 229, 244,
@@ -413,31 +412,31 @@
             </div>
             <!-- modalll -->
            
-            <div id="myModal" class="modal" style="display:none;background-color:rgba(102, 105, 107, 0.454);filter:blur(10%);">
-              <div style="display: flex;justify-content:center;padding-top:10rem;">
+            <div id="myModal" class="modal" style="display:block; ">
+              <div style="display: flex;justify-content:center;padding-top:7rem;">
                    
                     <div id="register" class="col-lg-6 col-md-8"  >  
                         <div class="hero-form mt-0 grey-bg">
-                            <span class="close" style="font-size:xx-large" id="closeModalBtn">&times;</span>
-                            <h3  class="form-title black">Register</h3>
+                            <span class="close" style="font-size:xx-large;cursor:pointer;user-select:none;" id="closeModalBtn">&times;</span>
+                            <h3 style="user-select:none;" class="form-title black">Register</h3>
                             <form class="exvent-form">
                                 <div class="row gy-4">
                                     <div class="col-12">
                                         <div class="single-input white-bg ">
-                                            <input  id="reg_password"
+                                            <input  id="newpass"
                                                 type="password"
-                                                placeholder="Password">
+                                                placeholder="New Password">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="single-input white-bg">
-                                            <input id="reg_password2"
+                                            <input id="confirmpass"
                                                 type="password"
                                                 placeholder="Confrim Password">
                                         </div>
                                     </div>
                                     <div class="col-sm-5 text-center">
-                                        <button onclick="RegisterUser()"
+                                        <button onclick="submitNewPass()"
                                             class="submit_btn">Register</button>
                                     </div>
                                 </div>
@@ -541,12 +540,63 @@
         }
      
                 var csrfToken = "{{ csrf_token }}";
+                function submitNewPass(){
+                    event.preventDefault();
+                    pass=document.getElementById('newpass').value
+                    confirmpass=document.getElementById('confirmpass').value
+                    const clickedButton=event.target;
+                    if(clickedButton.classList.contains('submit_btn')){
+                        const url="#";
+                        if (pass === '' || pass == null ) {
+                            swal('Data daxil edin !');
+                            return;
+                        }else if(pass !== confirmpass) {
+                            swal('Şifrələr uyğun gəlmir!');
+                            return;
+                        }
+                        fetch(url, {
+                            method: 'POST',
+                            body: JSON.stringify({
+                                confirmpass: confirmpass,
+                                pass:pass,
+                              
+                                
+                            }), // You can format the data as needed
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRFToken': csrfToken
+                            }
+                        })
+                            .then(response => {
+                                // Handle the response here (e.g., show a success message)
+                                if (response.ok) {
+                                    console.log(response)
+                                    swal({
+                                title: "Əla",
+                                text: "Registrasiyadan ugurla kediniz!",
+                                icon: "success",
+                                button: "Tamam",
+                            });
+        
+                                } else {
+                                    console.log(response)
+                                    swal('Xəta baş verdi');
+                                
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                            });
+                    }
                 
+                    
+                }
+
                 function submitData() {
                 
                     event.preventDefault();
                     
-                    // Get the email input value
+                    // Get the email input valuee
                     email = document.getElementById('email').value
                     pass = document.getElementById('pass').value
           
