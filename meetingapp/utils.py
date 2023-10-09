@@ -1,6 +1,14 @@
 import random
 import string
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
 
+def validateEmail(email):
+    try:
+        validate_email( email )
+        return True
+    except ValidationError:
+        return False
 
 def code_slug_generator(size=12, chars=string.ascii_letters):
     return ''.join(random.choice(chars)
@@ -15,6 +23,8 @@ def create_slug_shortcode(size, model_):
     qs_exists = model_.objects.filter(slug=new_code).exists()
     return create_slug_shortcode(size, model_) if qs_exists else new_code
 
+
+    
 
 # Azerice slugfy function
 def seo(title):

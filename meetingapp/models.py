@@ -25,7 +25,7 @@ class About(models.Model):
     def save(self, *args, **kwargs):
         self.pk = 1  
         super(About, self).save(*args, **kwargs)
-        
+    
 class Sportmen(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='owner')
     field = models.CharField(max_length=120)
@@ -33,6 +33,8 @@ class Sportmen(models.Model):
     titul = models.CharField(max_length=1200)
     is_active = models.BooleanField(default=False)
     image = models.ImageField(null=True,blank=True)
+    
+    
     def __str__(self):
         return self.user.first_name + self.user.last_name + self.field
     
@@ -72,9 +74,15 @@ class Eager(models.Model):
     is_blocked = models.BooleanField(default=False)
     is_moderator = models.BooleanField(default=False)
     
+    
     def __str__(self):
         return self.first_name + ' ' + self.last_name
     
+class ForgottenPassword(models.Model):
+    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    forgot_password = models.CharField(max_length=120,null=True,blank=True)
+    last_forgot = models.DateTimeField(null=True,blank=True)
+
 
 class Meeting(models.Model):
     title = models.CharField(max_length=120,null=True,blank=True)

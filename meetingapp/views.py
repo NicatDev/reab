@@ -1,11 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from meetingapp.models import *
-from django.db.models import Q,F,FloatField,Count
-from django.db.models.functions import Coalesce
-from django.core.paginator import Paginator
 from django.http import JsonResponse
-from django.db.models import Count
-from datetime import date,timedelta
+from datetime import date,timedelta,datetime
 from meetingapp.forms import Messageform,Surveyform
 from django.http import HttpResponse
 import json
@@ -16,6 +12,9 @@ from django.shortcuts import redirect
 from django.urls import reverse
 from django.conf import settings
 from django.contrib.auth import login as auth_login
+from meetingapp.utils import code_slug_generator
+
+    
 # Create your views here.
 import calendar
 
@@ -201,14 +200,24 @@ def forgot(request):
 def send_mail(request):
     
     data = json.loads(request.body)
-    content = ''
+    email = ''
+    if validate_email(data.email):
+        email = data.email
+        user = User.objects.get(email = data.email)
+    else:
+        user = User.objects.get(username = data.email)
+        email = user.email
+    
+    password = ForgottenPassword(user=user,forgot_password=code_slug_generator(),last_forgot=datetime.now())
+    password.save()
+        
+    content = password.forgot_password
     
     send_mail(
-            "tezsagal.az saytindan yeni muraciet !",
-            # data,
+            "Zehmet olmasa sifreni daxil edin. Istifade mudddeti 5 deqiqedir",
             content,
             settings.EMAIL_HOST_USER,
-            [data.email],
+            [email],
             fail_silently=False, html_message=content
     )
     return JsonResponse(data)

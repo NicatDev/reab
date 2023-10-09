@@ -280,15 +280,13 @@
                                                 <li class="meta-item">
                                                     <a href="speaker-01.html"><i
                                                             class="fas
-                                                            fa-marker"></i> {{
-                                                        meetnumber }}
+                                                            fa-marker"></i> {{ meetnumber }}
                                                         görüş</a>
                                                 </li>
                                                 <li class="meta-item">
                                                     <a href="contact.html"><i
                                                             class="fas
-                                                            fa-medal"></i> {{
-                                                        sportmennumber }}
+                                                            fa-medal"></i> {{ sportmennumber }}
                                                         çempion</a>
                                                 </li>
                                             </ul>
@@ -378,15 +376,13 @@
                                                 <li class="meta-item">
                                                     <a href="speaker-01.html"><i
                                                             class="fas
-                                                            fa-marker"></i> {{
-                                                        meetnumber }}
+                                                            fa-marker"></i> {{ meetnumber }}
                                                         görüş</a>
                                                 </li>
                                                 <li class="meta-item">
                                                     <a href="contact.html"><i
                                                             class="fas
-                                                            fa-medal"></i> {{
-                                                        sportmennumber }}
+                                                            fa-medal"></i> {{ sportmennumber }}
                                                         çempion</a>
                                                 </li>
                                             </ul>
@@ -744,14 +740,14 @@
                     .then(response => {
                         // Handle the response here (e.g., show a success message)
                         if (response.ok) {
-                            console.log(response)
-                            console.log(name)
+                            
                             swal({
                                 title: "Əla",
                                 text: "Login oldunuz!",
                                 icon: "success",
                                 button: "Tamam",
                             });
+                            window.location.href='/'
 
                         } else  {
                             console.log(response)
