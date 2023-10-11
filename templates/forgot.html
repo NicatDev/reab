@@ -107,113 +107,142 @@
                         </div>
 
                         <!-- Header Meta Start -->
-                        <div class="header-meta">
-                            <!-- Header Search Start -->
-
-                            <!-- Header Search End -->
-                            <!-- Header Cart Start -->
-                            <div class="header-cart dropdown">
-                                <button class="cart-btn"
-                                    data-bs-toggle="dropdown">
-                                    <i style="color:#ffae4a;" class="fa-solid
-                                        fa-user"></i>
-                                    <span class="count">0</span>
-                                </button>
-                                <!-- Header Dropdown Cart Start -->
-                                <div class="dropdown-menu dropdown-cart
-                                    slideIn">
-                                    <!-- Dropdown Cart Items Start -->
-                                    <div class="cart-items">
-                                        <!-- Single Cart Item Start -->
-                                        <div class="single-cart-item">
-                                            <div class="item-image">
-                                                <img src="{% static
-                                                    'assets/images/cart/cart-1.jpg'
-                                                    %}" alt="cart">
+                                               <!-- Header Meta Start -->
+                                               <div class="header-meta">
+                                                <!-- Header Search Start -->
+                    
+                                                <!-- Header Search End -->
+                                                <!-- Header Cart Start -->
+                                                {% if user.is_authenticated %}
+                                                <div class="header-cart dropdown">
+                                                    <button class="cart-btn"
+                                                        data-bs-toggle="dropdown">
+                                                        <i style="color:#ffae4a;" class="fa-solid
+                                                            fa-user"></i>
+                                                        <span class="count">0</span>
+                                                    </button>
+                                                    <!-- Header Dropdown Cart Start -->
+                                                    <div class="dropdown-menu dropdown-cart
+                                                        slideIn">
+                                                        <!-- Dropdown Cart Items Start -->
+                                                        <div class="cart-items">
+                                                            <!-- Single Cart Item Start -->
+                                                            <div class="single-cart-item">
+                                                                <div class="item-image">
+                                                                    <img src="{% static
+                                                                        'assets/images/cart/cart-1.jpg'
+                                                                        %}" alt="cart">
+                                                                </div>
+                                                                <div class="item-content">
+                                                                    <h4 class="title"><a
+                                                                            href="pricing.html">Apple
+                                                                            Iphone X</a></h4>
+                                                                    <span class="quantity">2 x
+                                                                        $59.99</span>
+                                                                </div>
+                                                                <button class="btn-close"></button>
+                                                            </div>
+                                                            <!-- Single Cart Item End -->
+                                                            <!-- Single Cart Item Start -->
+                                                            <div class="single-cart-item">
+                                                                <div class="item-image">
+                                                                    <img src="{% static
+                                                                        'assets/images/cart/cart-2.jpg'
+                                                                        %}" alt="cart">
+                                                                </div>
+                                                                <div class="item-content">
+                                                                    <h4 class="title"><a
+                                                                            href="pricing.html">Sony
+                                                                            Xperia Tablet</a></h4>
+                                                                    <span class="quantity">2 x
+                                                                        $59.99</span>
+                                                                </div>
+                                                                <button class="btn-close"></button>
+                                                            </div>
+                                                            <!-- Single Cart Item End -->
+                                                            <!-- Single Cart Item Start -->
+                                                            <div class="single-cart-item">
+                                                                <div class="item-image">
+                                                                    <img src="{% static 'assets/images/cart/cart-3.jpg' %}" alt="cart">
+                                                                </div>
+                                                                <div class="item-content">
+                                                                    <h4 class="title"><a
+                                                                            href="pricing.html">Camera
+                                                                            Digital</a></h4>
+                                                                    <span class="quantity">2 x
+                                                                        $59.99</span>
+                                                                </div>
+                                                                <button class="btn-close"></button>
+                                                            </div>
+                                                            <!-- Single Cart Item End -->
+                                                        </div>
+                                                        <!-- Dropdown Cart Items End -->
+                                                        <!-- Dropdown Cart Total Start -->
+                                                        <div class="cart-total">
+                                                            
+                                                            <span class="label">İstifadəçi:</span>
+                                                            <span style="color:black" class="value">{{request.user.first_name}} {{request.user.last_name}}</span>
+                                                        </div>
+                                                        <!-- Dropdown Cart Total End -->
+                                                        <!-- Dropdown Cart Button Start -->
+                                                        <div class="cart-btns">
+                                                            <a class="btn" href="{% url 'speaker' %}">Kabinet</a>
+                                                            <a class="btn btn-2"
+                                                                href="{% url 'logout' %}?next={{ request.path }}">Çıxış et</a>
+                                                        </div>
+                                                        <!-- Dropdown Cart Button End -->
+                                                    </div>
+                                                    <!-- Header Dropdown Cart End -->
+                                                </div>
+                                                {% else %}
+                                                <div class="header-cart dropdown">
+                                                    <button class="cart-btn"
+                                                        data-bs-toggle="dropdown">
+                                                        <i style="color:#ffae4a;" class="fa-solid
+                                                            fa-user"></i>
+                                                        <span class="count">0</span>
+                                                    </button>
+                                                    <!-- Header Dropdown Cart Start -->
+                                                    <div class="dropdown-menu dropdown-cart
+                                                        slideIn">
+                                                        <!-- Dropdown Cart Items Start -->
+                                                      
+                                                        <!-- Dropdown Cart Items End -->
+                                                        <!-- Dropdown Cart Total Start -->
+                                                       
+                                                        <!-- Dropdown Cart Total End -->
+                                                        <!-- Dropdown Cart Button Start -->
+                                                        <div class="cart-btns">
+                                                            <a class="btn" href="{% url 'login' %}?myaction=2">Daxil ol</a>
+                                                            <a class="btn btn-2"
+                                                                href="{% url 'login' %}?myaction=1">Qeydiyyat</a>
+                                                        </div>
+                                                        <!-- Dropdown Cart Button End -->
+                                                    </div>
+                                                    <!-- Header Dropdown Cart End -->
+                                                </div>
+                                                {% endif %}
+                                                <!-- Header Cart End -->
+                    
+                                                <!-- Header Button Start -->
+                                                <div class="header-btn d-none d-xl-block">
+                                                    <button class="btn-5" style="width: 150px;">Buy
+                                                        Ticket Now</button>
+                                                </div>
+                                                <!-- Header Button End -->
+                    
+                                                <!-- Header Toggle Start -->
+                                                <div class="header-toggle d-lg-none">
+                                                    <button data-bs-toggle="offcanvas"
+                                                        data-bs-target="#offcanvasExample">
+                                                        <span></span>
+                                                        <span></span>
+                                                        <span></span>
+                                                    </button>
+                                                </div>
+                                                <!-- Header Toggle End -->
                                             </div>
-                                            <div class="item-content">
-                                                <h4 class="title"><a
-                                                        href="pricing.html">Apple
-                                                        Iphone X</a></h4>
-                                                <span class="quantity">2 x
-                                                    $59.99</span>
-                                            </div>
-                                            <button class="btn-close"></button>
-                                        </div>
-                                        <!-- Single Cart Item End -->
-                                        <!-- Single Cart Item Start -->
-                                        <div class="single-cart-item">
-                                            <div class="item-image">
-                                                <img src="{% static
-                                                    'assets/images/cart/cart-2.jpg'
-                                                    %}" alt="cart">
-                                            </div>
-                                            <div class="item-content">
-                                                <h4 class="title"><a
-                                                        href="pricing.html">Sony
-                                                        Xperia Tablet</a></h4>
-                                                <span class="quantity">2 x
-                                                    $59.99</span>
-                                            </div>
-                                            <button class="btn-close"></button>
-                                        </div>
-                                        <!-- Single Cart Item End -->
-                                        <!-- Single Cart Item Start -->
-                                        <div class="single-cart-item">
-                                            <div class="item-image">
-                                                <img src="{% static
-                                                    'assets/images/cart/cart-3.jpg'
-                                                    %}" alt="cart">
-                                            </div>
-                                            <div class="item-content">
-                                                <h4 class="title"><a
-                                                        href="pricing.html">Camera
-                                                        Digital</a></h4>
-                                                <span class="quantity">2 x
-                                                    $59.99</span>
-                                            </div>
-                                            <button class="btn-close"></button>
-                                        </div>
-                                        <!-- Single Cart Item End -->
-                                    </div>
-                                    <!-- Dropdown Cart Items End -->
-                                    <!-- Dropdown Cart Total Start -->
-                                    <div class="cart-total">
-                                        <span class="label">Subtotal:</span>
-                                        <span class="value">$99.9</span>
-                                    </div>
-                                    <!-- Dropdown Cart Total End -->
-                                    <!-- Dropdown Cart Button Start -->
-                                    <div class="cart-btns">
-                                        <a class="btn" href="pricing.html">View
-                                            Cart</a>
-                                        <a class="btn btn-2"
-                                            href="pricing.html">Checkout</a>
-                                    </div>
-                                    <!-- Dropdown Cart Button End -->
-                                </div>
-                                <!-- Header Dropdown Cart End -->
-                            </div>
-                            <!-- Header Cart End -->
-
-                            <!-- Header Button Start -->
-                            <div class="header-btn d-none d-xl-block">
-                                <button class="btn-5" style="width: 150px;">Buy
-                                    Ticket Now</button>
-                            </div>
-                            <!-- Header Button End -->
-
-                            <!-- Header Toggle Start -->
-                            <div class="header-toggle d-lg-none">
-                                <button data-bs-toggle="offcanvas"
-                                    data-bs-target="#offcanvasExample">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </button>
-                            </div>
-                            <!-- Header Toggle End -->
-                        </div>
+                                            <!-- Header Meta End  -->
                         <!-- Header Meta End  -->
 
                     </div>
@@ -256,165 +285,117 @@
             <!-- Offcanvas End -->
 
 
-            <!-- Hero Start -->
-            <div class="swiper hero-slide">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="exvent-hero-section-05"
-                            style="background-image:
-                            url({{header.image1.url}});">
-                            <div class="container">
-                                <div class="row justify-content-center
-                                    align-items-center">
-                                    <div class="col-md-8 text-center">
-                                        <div class="hero-conent-wrapper">
-                                            <div class="top-title-date"
-                                                data-aos="fade-down"
-                                                data-aos-delay="500">
-                                                <span>{{header.minititle1}}</span>
-                                            </div>
-                                            <div class="main-title"
-                                                data-aos="fade-down"
-                                                data-aos-delay="1000">
-                                                <h1>{{header.title1}}</h1>
-                                            </div>
-                                            <ul class="hero-meta"
-                                                data-aos="fade-right"
-                                                data-aos-delay="1500">
-                                                <li class="meta-item">
-                                                    <a href="pricing.html"><i
-                                                            class="fas fa-user"></i>
-                                                        {{ eagernumber }}
-                                                        izləyici</a>
-                                                </li>
-                                                <li class="meta-item">
-                                                    <a href="speaker-01.html"><i
-                                                            class="fas
-                                                            fa-marker"></i> {{ meetnumber }}
-                                                        görüş</a>
-                                                </li>
-                                                <li class="meta-item">
-                                                    <a href="contact.html"><i
-                                                            class="fas
-                                                            fa-medal"></i> {{ sportmennumber }}
-                                                        çempion</a>
-                                                </li>
-                                            </ul>
+        <!-- Hero Start -->
 
+        <div class="swiper hero-slide">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="exvent-hero-section-05" style="background-image: url({{header.image1.url}});">
+                        <div class="container">
+                            <div class="row justify-content-center align-items-center">
+                                <div class="col-md-8 text-center">
+                                    <div class="hero-conent-wrapper">
+                                        <div class="top-title-date" data-aos="fade-down" data-aos-delay="500">
+                                            <span>{{header.minititle1}}</span>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="exvent-hero-section-05"
-                            style="background-image:
-                            url({{header.image2.url}});">
-                            <div class="container">
-                                <div class="row justify-content-center
-                                    align-items-center">
-                                    <div class="col-md-8 text-center">
-                                        <div class="hero-conent-wrapper">
-                                            <div class="top-title-date"
-                                                data-aos="fade-down"
-                                                data-aos-delay="500">
-                                                <span>{{header.minititle2}}</span>
-                                            </div>
-                                            <div class="main-title"
-                                                data-aos="fade-down"
-                                                data-aos-delay="1000">
-                                                <h1>{{header.title2}}</h1>
-                                            </div>
-                                            <ul class="hero-meta"
-                                                data-aos="fade-right"
-                                                data-aos-delay="1500">
-                                                <li class="meta-item">
-                                                    <a href="pricing.html"><i
-                                                            class="fas fa-user"></i>
-                                                        {{ eagernumber }}
-                                                        izləyici</a>
-                                                </li>
-                                                <li class="meta-item">
-                                                    <a href="speaker-01.html"><i
-                                                            class="fas
-                                                            fa-marker"></i> {{
-                                                        meetnumber }}
-                                                        görüş</a>
-                                                </li>
-                                                <li class="meta-item">
-                                                    <a href="contact.html"><i
-                                                            class="fas
-                                                            fa-medal"></i> {{
-                                                        sportmennumber }}
-                                                        çempion</a>
-                                                </li>
-                                            </ul>
+                                        <div class="main-title" data-aos="fade-down" data-aos-delay="1000">
+                                            <h1>{{header.title1}}</h1>
+                                        </div>
+                                        <ul class="hero-meta" data-aos="fade-right" data-aos-delay="1500">
+                                            <li class="meta-item">
+                                                <a href="#"><i class="fas fa-user"></i> {{ eagernumber }}
+                                                    izləyici</a>
+                                            </li>
+                                            <li class="meta-item">
+                                                <a href="#"><i class="fas fa-marker"></i> {{ meetnumber }}
+                                                    görüş</a>
+                                            </li>
+                                            <li class="meta-item">
+                                                <a href="#"><i class="fas fa-medal"></i> {{ sportmennumber }}
+                                                    çempion</a>
+                                            </li>
+                                        </ul>
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide" style="padding-bottom:60px">
-                        <div class="exvent-hero-section-05"
-                            style="background-image:
-                            url({{header.image3.url}});">
-                            <div class="container">
-                                <div class="row justify-content-center
-                                    align-items-center">
-                                    <div class="col-md-8 text-center">
-                                        <div class="hero-conent-wrapper">
-                                            <div class="top-title-date"
-                                                data-aos="fade-down"
-                                                data-aos-delay="500">
-                                                <span>{{header.minititle3}}</span>
-                                            </div>
-                                            <div class="main-title"
-                                                data-aos="fade-down"
-                                                data-aos-delay="1000">
-                                                <h1>{{header.title3}}</h1>
-                                            </div>
-                                            <ul class="hero-meta"
-                                                data-aos="fade-right"
-                                                data-aos-delay="1500">
-                                                <li class="meta-item">
-                                                    <a href="pricing.html"><i
-                                                            class="fas fa-user"></i>
-                                                        {{ eagernumber }}
-                                                        izləyici</a>
-                                                </li>
-                                                <li class="meta-item">
-                                                    <a href="speaker-01.html"><i
-                                                            class="fas
-                                                            fa-marker"></i> {{
-                                                        meetnumber }}
-                                                        görüş</a>
-                                                </li>
-                                                <li class="meta-item">
-                                                    <a href="contact.html"><i
-                                                            class="fas
-                                                            fa-medal"></i> {{
-                                                        sportmennumber }}
-                                                        çempion</a>
-                                                </li>
-                                            </ul>
-
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-pagination"></div>
-            </div>
+                <div class="swiper-slide">
+                    <div class="exvent-hero-section-05" style="background-image: url({{header.image2.url}});">
+                        <div class="container">
+                            <div class="row justify-content-center align-items-center">
+                                <div class="col-md-8 text-center">
+                                    <div class="hero-conent-wrapper">
+                                        <div class="top-title-date" data-aos="fade-down" data-aos-delay="500">
+                                            <span>{{header.minititle2}}</span>
+                                        </div>
+                                        <div class="main-title" data-aos="fade-down" data-aos-delay="1000">
+                                            <h1>{{header.title2}}</h1>
+                                        </div>
+                                        <ul class="hero-meta" data-aos="fade-right" data-aos-delay="1500">
+                                            <li class="meta-item">
+                                                <a href="#"><i class="fas fa-user"></i> {{ eagernumber }}
+                                                    izləyici</a>
+                                            </li>
+                                            <li class="meta-item">
+                                                <a href="#"><i class="fas fa-marker"></i> {{ meetnumber }}
+                                                    görüş</a>
+                                            </li>
+                                            <li class="meta-item">
+                                                <a href="#"><i class="fas fa-medal"></i> {{ sportmennumber }}
+                                                    çempion</a>
+                                            </li>
+                                        </ul>
 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="exvent-hero-section-05" style="background-image: url({{header.image3.url}});">
+                        <div class="container">
+                            <div class="row justify-content-center align-items-center">
+                                <div class="col-md-8 text-center">
+                                    <div class="hero-conent-wrapper">
+                                        <div class="top-title-date" data-aos="fade-down" data-aos-delay="500">
+                                            <span>{{header.minititle3}}</span>
+                                        </div>
+                                        <div class="main-title" data-aos="fade-down" data-aos-delay="1000">
+                                            <h1>{{header.title3}}</h1>
+                                        </div>
+                                        <ul class="hero-meta" data-aos="fade-right" data-aos-delay="1500">
+                                            <li class="meta-item">
+                                                <a href="#"><i class="fas fa-user"></i> {{ eagernumber }}
+                                                    izləyici</a>
+                                            </li>
+                                            <li class="meta-item">
+                                                <a href="#"><i class="fas fa-marker"></i> {{ meetnumber }}
+                                                    görüş</a>
+                                            </li>
+                                            <li class="meta-item">
+                                                <a href="#"><i class="fas fa-medal"></i> {{ sportmennumber }}
+                                                    çempion</a>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <!-- Hero End -->
 
 
             <!-- content start -->
-            <div class="hero-form mt-0 grey-bg" style="width: 500px;margin-left:auto;margin-right:auto;margin-bottom:4rem">
+            <div class="hero-form mt-0 grey-bg" style="width: 500px;margin-left:auto;margin-right:auto;margin-bottom:4rem;">
             <div style="padding: 2rem; user-select: none; align-items: center;
                 justify-content: center;display: flex;">
                 <p style="font-size:x-large;">Zəhmət olmasa <span

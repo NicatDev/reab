@@ -76,91 +76,142 @@
                     </div>
 
                     <!-- Header Meta Start -->
-                    <div class="header-meta">
-                        <!-- Header Search Start -->
-
-                        <!-- Header Search End -->
-                        <!-- Header Cart Start -->
-                        <div class="header-cart dropdown">
-                            <button class="cart-btn" data-bs-toggle="dropdown">
-                                <i class="fa-solid fa-user"></i>
-                                <span class="count">0</span>
-                            </button>
-                            <!-- Header Dropdown Cart Start -->
-                            <div class="dropdown-menu dropdown-cart slideIn">
-                                <!-- Dropdown Cart Items Start -->
-                                <div class="cart-items">
-                                    <!-- Single Cart Item Start -->
-                                    <div class="single-cart-item">
-                                        <div class="item-image">
-                                            <img src="{% static 'assets/images/cart/cart-1.jpg' %}" alt="cart">
-                                        </div>
-                                        <div class="item-content">
-                                            <h4 class="title"><a href="pricing.html">Apple Iphone X</a></h4>
-                                            <span class="quantity">2 x $59.99</span>
-                                        </div>
-                                        <button class="btn-close"></button>
-                                    </div>
-                                    <!-- Single Cart Item End -->
-                                    <!-- Single Cart Item Start -->
-                                    <div class="single-cart-item">
-                                        <div class="item-image">
-                                            <img src="{% static 'assets/images/cart/cart-2.jpg' %}" alt="cart">
-                                        </div>
-                                        <div class="item-content">
-                                            <h4 class="title"><a href="pricing.html">Sony Xperia Tablet</a></h4>
-                                            <span class="quantity">2 x $59.99</span>
-                                        </div>
-                                        <button class="btn-close"></button>
-                                    </div>
-                                    <!-- Single Cart Item End -->
-                                    <!-- Single Cart Item Start -->
-                                    <div class="single-cart-item">
-                                        <div class="item-image">
-                                            <img src="{% static 'assets/images/cart/cart-3.jpg' %}" alt="cart">
-                                        </div>
-                                        <div class="item-content">
-                                            <h4 class="title"><a href="pricing.html">Camera Digital</a></h4>
-                                            <span class="quantity">2 x $59.99</span>
-                                        </div>
-                                        <button class="btn-close"></button>
-                                    </div>
-                                    <!-- Single Cart Item End -->
-                                </div>
-                                <!-- Dropdown Cart Items End -->
-                                <!-- Dropdown Cart Total Start -->
-                                <div class="cart-total">
-                                    <span class="label">Subtotal:</span>
-                                    <span class="value">$99.9</span>
-                                </div>
-                                <!-- Dropdown Cart Total End -->
-                                <!-- Dropdown Cart Button Start -->
-                                <div class="cart-btns">
-                                    <a class="btn" href="pricing.html">View Cart</a>
-                                    <a class="btn btn-2" href="pricing.html">Checkout</a>
-                                </div>
-                                <!-- Dropdown Cart Button End -->
-                            </div>
-                            <!-- Header Dropdown Cart End -->
-                        </div>
-                        <!-- Header Cart End -->
-
-                        <!-- Header Button Start -->
-                        <div class="header-btn d-none d-xl-block">
-                            <button class="btn-5" style="width: 150px;">Buy Ticket Now</button>
-                        </div>
-                        <!-- Header Button End -->
-
-                        <!-- Header Toggle Start -->
-                        <div class="header-toggle d-lg-none">
-                            <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </button>
-                        </div>
-                        <!-- Header Toggle End -->
-                    </div>
+                                            <!-- Header Meta Start -->
+                                            <div class="header-meta">
+                                                <!-- Header Search Start -->
+                    
+                                                <!-- Header Search End -->
+                                                <!-- Header Cart Start -->
+                                                {% if user.is_authenticated %}
+                                                <div class="header-cart dropdown">
+                                                    <button class="cart-btn"
+                                                        data-bs-toggle="dropdown">
+                                                        <i style="color:#ffae4a;" class="fa-solid
+                                                            fa-user"></i>
+                                                        <span class="count">0</span>
+                                                    </button>
+                                                    <!-- Header Dropdown Cart Start -->
+                                                    <div class="dropdown-menu dropdown-cart
+                                                        slideIn">
+                                                        <!-- Dropdown Cart Items Start -->
+                                                        <div class="cart-items">
+                                                            <!-- Single Cart Item Start -->
+                                                            <div class="single-cart-item">
+                                                                <div class="item-image">
+                                                                    <img src="{% static
+                                                                        'assets/images/cart/cart-1.jpg'
+                                                                        %}" alt="cart">
+                                                                </div>
+                                                                <div class="item-content">
+                                                                    <h4 class="title"><a
+                                                                            href="pricing.html">Apple
+                                                                            Iphone X</a></h4>
+                                                                    <span class="quantity">2 x
+                                                                        $59.99</span>
+                                                                </div>
+                                                                <button class="btn-close"></button>
+                                                            </div>
+                                                            <!-- Single Cart Item End -->
+                                                            <!-- Single Cart Item Start -->
+                                                            <div class="single-cart-item">
+                                                                <div class="item-image">
+                                                                    <img src="{% static
+                                                                        'assets/images/cart/cart-2.jpg'
+                                                                        %}" alt="cart">
+                                                                </div>
+                                                                <div class="item-content">
+                                                                    <h4 class="title"><a
+                                                                            href="pricing.html">Sony
+                                                                            Xperia Tablet</a></h4>
+                                                                    <span class="quantity">2 x
+                                                                        $59.99</span>
+                                                                </div>
+                                                                <button class="btn-close"></button>
+                                                            </div>
+                                                            <!-- Single Cart Item End -->
+                                                            <!-- Single Cart Item Start -->
+                                                            <div class="single-cart-item">
+                                                                <div class="item-image">
+                                                                    <img src="{% static 'assets/images/cart/cart-3.jpg' %}" alt="cart">
+                                                                </div>
+                                                                <div class="item-content">
+                                                                    <h4 class="title"><a
+                                                                            href="pricing.html">Camera
+                                                                            Digital</a></h4>
+                                                                    <span class="quantity">2 x
+                                                                        $59.99</span>
+                                                                </div>
+                                                                <button class="btn-close"></button>
+                                                            </div>
+                                                            <!-- Single Cart Item End -->
+                                                        </div>
+                                                        <!-- Dropdown Cart Items End -->
+                                                        <!-- Dropdown Cart Total Start -->
+                                                        <div class="cart-total">
+                                                            
+                                                            <span class="label">İstifadəçi:</span>
+                                                            <span style="color:black" class="value">{{request.user.first_name}} {{request.user.last_name}}</span>
+                                                        </div>
+                                                        <!-- Dropdown Cart Total End -->
+                                                        <!-- Dropdown Cart Button Start -->
+                                                        <div class="cart-btns">
+                                                            <a class="btn" href="{% url 'speaker' %}">Kabinet</a>
+                                                            <a class="btn btn-2"
+                                                                href="{% url 'logout' %}?next={{ request.path }}">Çıxış et</a>
+                                                        </div>
+                                                        <!-- Dropdown Cart Button End -->
+                                                    </div>
+                                                    <!-- Header Dropdown Cart End -->
+                                                </div>
+                                                {% else %}
+                                                <div class="header-cart dropdown">
+                                                    <button class="cart-btn"
+                                                        data-bs-toggle="dropdown">
+                                                        <i style="color:#ffae4a;" class="fa-solid
+                                                            fa-user"></i>
+                                                        <span class="count">0</span>
+                                                    </button>
+                                                    <!-- Header Dropdown Cart Start -->
+                                                    <div class="dropdown-menu dropdown-cart
+                                                        slideIn">
+                                                        <!-- Dropdown Cart Items Start -->
+                                                      
+                                                        <!-- Dropdown Cart Items End -->
+                                                        <!-- Dropdown Cart Total Start -->
+                                                       
+                                                        <!-- Dropdown Cart Total End -->
+                                                        <!-- Dropdown Cart Button Start -->
+                                                        <div class="cart-btns">
+                                                            <a class="btn" href="{% url 'login' %}?myaction=2">Daxil ol</a>
+                                                            <a class="btn btn-2"
+                                                                href="{% url 'login' %}?myaction=1">Qeydiyyat</a>
+                                                        </div>
+                                                        <!-- Dropdown Cart Button End -->
+                                                    </div>
+                                                    <!-- Header Dropdown Cart End -->
+                                                </div>
+                                                {% endif %}
+                                                <!-- Header Cart End -->
+                    
+                                                <!-- Header Button Start -->
+                                                <div class="header-btn d-none d-xl-block">
+                                                    <button class="btn-5" style="width: 150px;">Buy
+                                                        Ticket Now</button>
+                                                </div>
+                                                <!-- Header Button End -->
+                    
+                                                <!-- Header Toggle Start -->
+                                                <div class="header-toggle d-lg-none">
+                                                    <button data-bs-toggle="offcanvas"
+                                                        data-bs-target="#offcanvasExample">
+                                                        <span></span>
+                                                        <span></span>
+                                                        <span></span>
+                                                    </button>
+                                                </div>
+                                                <!-- Header Toggle End -->
+                                            </div>
+                                            <!-- Header Meta End  -->
                     <!-- Header Meta End  -->
 
                 </div>
@@ -175,7 +226,7 @@
             <div class="offcanvas-header">
                 <!-- Offcanvas Logo Start -->
                 <div class="offcanvas-logo">
-                    <a href="index.html"><img src="{% static 'assets/images/logo.png' %}" alt=""></a>
+                    <a href="#"><img src="{% static 'assets/images/logo.png' %}" alt=""></a>
                 </div>
                 <!-- Offcanvas Logo End -->
                 <button type="button" class="close-btn" data-bs-dismiss="offcanvas"><i
@@ -217,15 +268,15 @@
                                         </div>
                                         <ul class="hero-meta" data-aos="fade-right" data-aos-delay="1500">
                                             <li class="meta-item">
-                                                <a href="pricing.html"><i class="fas fa-user"></i> {{ eagernumber }}
+                                                <a href="#"><i class="fas fa-user"></i> {{ eagernumber }}
                                                     izləyici</a>
                                             </li>
                                             <li class="meta-item">
-                                                <a href="speaker-01.html"><i class="fas fa-marker"></i> {{ meetnumber }}
+                                                <a href="#"><i class="fas fa-marker"></i> {{ meetnumber }}
                                                     görüş</a>
                                             </li>
                                             <li class="meta-item">
-                                                <a href="contact.html"><i class="fas fa-medal"></i> {{ sportmennumber }}
+                                                <a href="#"><i class="fas fa-medal"></i> {{ sportmennumber }}
                                                     çempion</a>
                                             </li>
                                         </ul>
@@ -250,15 +301,15 @@
                                         </div>
                                         <ul class="hero-meta" data-aos="fade-right" data-aos-delay="1500">
                                             <li class="meta-item">
-                                                <a href="pricing.html"><i class="fas fa-user"></i> {{ eagernumber }}
+                                                <a href="#"><i class="fas fa-user"></i> {{ eagernumber }}
                                                     izləyici</a>
                                             </li>
                                             <li class="meta-item">
-                                                <a href="speaker-01.html"><i class="fas fa-marker"></i> {{ meetnumber }}
+                                                <a href="#"><i class="fas fa-marker"></i> {{ meetnumber }}
                                                     görüş</a>
                                             </li>
                                             <li class="meta-item">
-                                                <a href="contact.html"><i class="fas fa-medal"></i> {{ sportmennumber }}
+                                                <a href="#"><i class="fas fa-medal"></i> {{ sportmennumber }}
                                                     çempion</a>
                                             </li>
                                         </ul>
@@ -283,15 +334,15 @@
                                         </div>
                                         <ul class="hero-meta" data-aos="fade-right" data-aos-delay="1500">
                                             <li class="meta-item">
-                                                <a href="pricing.html"><i class="fas fa-user"></i> {{ eagernumber }}
+                                                <a href="#"><i class="fas fa-user"></i> {{ eagernumber }}
                                                     izləyici</a>
                                             </li>
                                             <li class="meta-item">
-                                                <a href="speaker-01.html"><i class="fas fa-marker"></i> {{ meetnumber }}
+                                                <a href="#"><i class="fas fa-marker"></i> {{ meetnumber }}
                                                     görüş</a>
                                             </li>
                                             <li class="meta-item">
-                                                <a href="contact.html"><i class="fas fa-medal"></i> {{ sportmennumber }}
+                                                <a href="#"><i class="fas fa-medal"></i> {{ sportmennumber }}
                                                     çempion</a>
                                             </li>
                                         </ul>
@@ -317,8 +368,9 @@
                     <div class="col-12" style="display: flex;justify-content:center">
                         <div class="section-title-wrap">
                             <div class="section-title">
-                                <h5 class="sub-title orange">Get Information</h5>
-                                <h2 class="title">Contact With Us</h2>
+                                <h5 class="sub-title orange">
+                                    Məlumat almaq</h5>
+                                <h2 class="title">Bizimlə əlaqə saxlayın</h2>
                             </div>
                         </div>
                     </div>
@@ -331,7 +383,7 @@
                                 <i class="fas fa-map-marker-alt"></i>
                             </span>
                             <div class="contact-info">
-                                <h4 class="contact-label">Our Location : </h4>
+                                <h4 class="contact-label">Məkanımız : </h4>
                                 <p class="address">925 4th Ave #2300, Seattle,<br> WA 98104, United States of <br>
                                     America</p>
                             </div>
@@ -341,7 +393,7 @@
                                 <i class="flaticon-phone-call"></i>
                             </span>
                             <div class="contact-info">
-                                <h4 class="contact-label">24/7 Hotline</h4>
+                                <h4 class="contact-label">24/7 Qaynar xətt</h4>
                                 <a href="tel:+4581236572324" class="address">+458 123 657 2324</a>
                             </div>
                         </div>
@@ -366,7 +418,7 @@
                             <div class="col-12">
                                 <div class="section-title-wrap text-center">
                                     <div class="section-title">
-                                        <h2 class="title">Send Us A Message</h2>
+                                        <h2 class="title">Bizə Mesaj Göndərin</h2>
                                     </div>
                                 </div>
                             </div>
@@ -374,22 +426,22 @@
                         <div class="row g-4 justify-content-center">
                             <div class="col-lg-6">
                                 <input type="text" required='true' class="comment-form-input" id="name"
-                                    placeholder="Your Name">
+                                    placeholder="Adınız">
                             </div>
                             <div class="col-lg-6">
                                 <input type="email" required='true' class="comment-form-input" id="email"
-                                    placeholder="Your Email">
+                                    placeholder="E-poçtunuz">
                             </div>
                             <div class="col-lg-6">
                                 <input type="tel" required='true' class="comment-form-input" id="phone"
-                                    placeholder="Phone Number">
+                                    placeholder="Telefon nömrəsi">
                             </div>
                             <div class="col-lg-6">
                                 <input type="text" required='true' class="comment-form-input" id="subject"
-                                    placeholder="Subject">
+                                    placeholder="Mövzu">
                             </div>
                             <div class="col-12">
-                                <textarea id="message" required='true' name="messege" placeholder="Your Message"
+                                <textarea id="message" required='true' name="messege" placeholder="Sənin mesajın"
                                     class="comment-form-input"></textarea>
                             </div>
                             <div class="col-sm-5 text-center">
@@ -405,70 +457,88 @@
 
         <!-- Contact Page Start -->
 
+  <!-- Footer Section Start -->
+  <div class="footer-section" style="background-image: url({% static 'assets/images/bg/footer_bg1.jpg' %});">
 
-        <!-- Footer Section Start -->
-        <div class="footer-section" style="background-image: url({% static 'assets/images/bg/footer_bg1.jpg' %});">
-
-
-            <div class="footer-widget-social">
-                <div class="container">
-                    <div class="row text-center">
-                        <div class="col-12">
-                            <div class="social-title">
-                                <h4 class="title">Bizimlə əlaqə saxla</h4>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <ul class="social-list">
-                                <li><a href="www.facebook.html"><i style="line-height:2.5 ;"
-                                            class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="www.twitter.html"><i style="line-height:2.5 ;"
-                                            class="fab fa-twitter"></i></a></li>
-                                <li><a href="www.dribbble.html"><i style="line-height:2.5 ;"
-                                            class="fab fa-dribbble"></i></a></li>
-                                <li><a href="www.behance.html"><i style="line-height:2.5 ;"
-                                            class="fab fa-behance"></i></a></li>
-                            </ul>
-                        </div>
+    <div class="container">
+        <div class="footer-newsletter">
+            <div class="row">
+                <div class="col-lg-5 col-12 text-sm-start text-center">
+                    <div class="footer-title">
+                        <span>Biz gətirərik !</span>
+                        <h4>İstədiyin çempionu yaz, qalanını biz həll edərik !</h4>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-12">
+                    <div class="footer-newsletter-form">
+                        <form>
+                            <input id="name22" type="text" placeholder="Çempion adı">
+                            <button onclick="submitData()" class="btn btn-primary sub222">Göndər</button>
+                        </form>
                     </div>
                 </div>
             </div>
-            <div class="footer-widget-navigation text-center">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="footer-navigation">
-                                <ul>
-                                    <li><a href="{% url 'home' %}">Ana səhifə</a></li>
-                                    <li><a href="{% url 'contact' %}">Əlaqə</a></li>
-
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Footer Copyright Start -->
-            <div class="footer-copyright-area">
-                <div class="container">
-                    <div class="footer-copyright-wrap">
-                        <div class="row align-items-center">
-                            <div class="col-lg-12">
-                                <!-- Footer Copyright Text Start -->
-                                <div class="copyright-text text-center">
-                                    <p>2023</p>
-                                </div>
-                                <!-- Footer Copyright Text End -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Footer Copyright End -->
         </div>
-        <!-- Footer Section End -->
+    </div>
 
+    <div class="footer-widget-social">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12">
+                    <div class="social-title">
+                        <h4 class="title">Bizimlə əlaqə saxla</h4>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <ul class="social-list">
+                        <li><a href="www.facebook.html"><i style="line-height:2.5 ;"
+                                    class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="www.twitter.html"><i style="line-height:2.5 ;"
+                                    class="fab fa-twitter"></i></a></li>
+                        <li><a href="www.dribbble.html"><i style="line-height:2.5 ;"
+                                    class="fab fa-dribbble"></i></a></li>
+                        <li><a href="www.behance.html"><i style="line-height:2.5 ;"
+                                    class="fab fa-behance"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-widget-navigation text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-navigation">
+                        <ul>
+                            <li><a href="{% url 'home' %}">Ana səhifə</a></li>
+                            <li><a href="{% url 'contact' %}">Əlaqə</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Copyright Start -->
+    <div class="footer-copyright-area">
+        <div class="container">
+            <div class="footer-copyright-wrap">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <!-- Footer Copyright Text Start -->
+                        <div class="copyright-text text-center">
+                            <p>2023</p>
+                        </div>
+                        <!-- Footer Copyright Text End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Copyright End -->
+</div>
+<!-- Footer Section End -->
         <!-- back to top start -->
         <div class="progress-wrap">
             <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">

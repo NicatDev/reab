@@ -83,87 +83,142 @@
                     </div>
 
                     <!-- Header Meta Start -->
-                    <div class="header-meta">
-                        <!-- Header Cart Start -->
-                        <div class="header-cart dropdown">
-                            <button class="cart-btn" data-bs-toggle="dropdown">
-                                <i class="fa-solid fa-user"></i>
-                                <span class="count">0</span>
-                            </button>
-                            <!-- Header Dropdown Cart Start -->
-                            <div class="dropdown-menu dropdown-cart slideIn">
-                                <!-- Dropdown Cart Items Start -->
-                                <div class="cart-items">
-                                    <!-- Single Cart Item Start -->
-                                    <div class="single-cart-item">
-                                        <div class="item-image">
-                                            <img src="{% static 'assets/images/cart/cart-1.jpg' %}" alt="cart">
-                                        </div>
-                                        <div class="item-content">
-                                            <h4 class="title"><a href="pricing.html">Apple Iphone X</a></h4>
-                                            <span class="quantity">2 x $59.99</span>
-                                        </div>
-                                        <button class="btn-close"></button>
-                                    </div>
-                                    <!-- Single Cart Item End -->
-                                    <!-- Single Cart Item Start -->
-                                    <div class="single-cart-item">
-                                        <div class="item-image">
-                                            <img src="{% static 'assets/images/cart/cart-2.jpg' %}" alt="cart">
-                                        </div>
-                                        <div class="item-content">
-                                            <h4 class="title"><a href="pricing.html">Sony Xperia Tablet</a></h4>
-                                            <span class="quantity">2 x $59.99</span>
-                                        </div>
-                                        <button class="btn-close"></button>
-                                    </div>
-                                    <!-- Single Cart Item End -->
-                                    <!-- Single Cart Item Start -->
-                                    <div class="single-cart-item">
-                                        <div class="item-image">
-                                            <img src="{% static 'assets/images/cart/cart-3.jpg' %}" alt="cart">
-                                        </div>
-                                        <div class="item-content">
-                                            <h4 class="title"><a href="pricing.html">Camera Digital</a></h4>
-                                            <span class="quantity">2 x $59.99</span>
-                                        </div>
-                                        <button class="btn-close"></button>
-                                    </div>
-                                    <!-- Single Cart Item End -->
-                                </div>
-                                <!-- Dropdown Cart Items End -->
-                                <!-- Dropdown Cart Total Start -->
-                                <div class="cart-total">
-                                    <span class="label">Subtotal:</span>
-                                    <span class="value">$99.9</span>
-                                </div>
-                                <!-- Dropdown Cart Total End -->
-                                <!-- Dropdown Cart Button Start -->
-                                <div class="cart-btns">
-                                    <a class="btn" href="pricing.html">View Cart</a>
-                                    <a class="btn btn-2" href="pricing.html">Checkout</a>
-                                </div>
-                                <!-- Dropdown Cart Button End -->
-                            </div>
-                            <!-- Header Dropdown Cart End -->
-                        </div>
-                        <!-- Header Cart End -->
-                        <!-- Header Button Start -->
-                        <div class="header-btn d-none d-xl-block">
-                            <button class="btn-5" style="width: 150px;">Buy Ticket Now</button>
-                        </div>
-                        <!-- Header Button End -->
-
-                        <!-- Header Toggle Start -->
-                        <div class="header-toggle d-lg-none">
-                            <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </button>
-                        </div>
-                        <!-- Header Toggle End -->
-                    </div>
+                                            <!-- Header Meta Start -->
+                                            <div class="header-meta">
+                                                <!-- Header Search Start -->
+                    
+                                                <!-- Header Search End -->
+                                                <!-- Header Cart Start -->
+                                                {% if user.is_authenticated %}
+                                                <div class="header-cart dropdown">
+                                                    <button class="cart-btn"
+                                                        data-bs-toggle="dropdown">
+                                                        <i style="color:#ffae4a;" class="fa-solid
+                                                            fa-user"></i>
+                                                        <span class="count">0</span>
+                                                    </button>
+                                                    <!-- Header Dropdown Cart Start -->
+                                                    <div class="dropdown-menu dropdown-cart
+                                                        slideIn">
+                                                        <!-- Dropdown Cart Items Start -->
+                                                        <div class="cart-items">
+                                                            <!-- Single Cart Item Start -->
+                                                            <div class="single-cart-item">
+                                                                <div class="item-image">
+                                                                    <img src="{% static
+                                                                        'assets/images/cart/cart-1.jpg'
+                                                                        %}" alt="cart">
+                                                                </div>
+                                                                <div class="item-content">
+                                                                    <h4 class="title"><a
+                                                                            href="pricing.html">Apple
+                                                                            Iphone X</a></h4>
+                                                                    <span class="quantity">2 x
+                                                                        $59.99</span>
+                                                                </div>
+                                                                <button class="btn-close"></button>
+                                                            </div>
+                                                            <!-- Single Cart Item End -->
+                                                            <!-- Single Cart Item Start -->
+                                                            <div class="single-cart-item">
+                                                                <div class="item-image">
+                                                                    <img src="{% static
+                                                                        'assets/images/cart/cart-2.jpg'
+                                                                        %}" alt="cart">
+                                                                </div>
+                                                                <div class="item-content">
+                                                                    <h4 class="title"><a
+                                                                            href="pricing.html">Sony
+                                                                            Xperia Tablet</a></h4>
+                                                                    <span class="quantity">2 x
+                                                                        $59.99</span>
+                                                                </div>
+                                                                <button class="btn-close"></button>
+                                                            </div>
+                                                            <!-- Single Cart Item End -->
+                                                            <!-- Single Cart Item Start -->
+                                                            <div class="single-cart-item">
+                                                                <div class="item-image">
+                                                                    <img src="{% static 'assets/images/cart/cart-3.jpg' %}" alt="cart">
+                                                                </div>
+                                                                <div class="item-content">
+                                                                    <h4 class="title"><a
+                                                                            href="pricing.html">Camera
+                                                                            Digital</a></h4>
+                                                                    <span class="quantity">2 x
+                                                                        $59.99</span>
+                                                                </div>
+                                                                <button class="btn-close"></button>
+                                                            </div>
+                                                            <!-- Single Cart Item End -->
+                                                        </div>
+                                                        <!-- Dropdown Cart Items End -->
+                                                        <!-- Dropdown Cart Total Start -->
+                                                        <div class="cart-total">
+                                                            
+                                                            <span class="label">İstifadəçi:</span>
+                                                            <span style="color:black" class="value">{{request.user.first_name}} {{request.user.last_name}}</span>
+                                                        </div>
+                                                        <!-- Dropdown Cart Total End -->
+                                                        <!-- Dropdown Cart Button Start -->
+                                                        <div class="cart-btns">
+                                                            <a class="btn" href="{% url 'speaker' %}">Kabinet</a>
+                                                            <a class="btn btn-2"
+                                                                href="{% url 'logout' %}?next={{ request.path }}">Çıxış et</a>
+                                                        </div>
+                                                        <!-- Dropdown Cart Button End -->
+                                                    </div>
+                                                    <!-- Header Dropdown Cart End -->
+                                                </div>
+                                                {% else %}
+                                                <div class="header-cart dropdown">
+                                                    <button class="cart-btn"
+                                                        data-bs-toggle="dropdown">
+                                                        <i style="color:#ffae4a;" class="fa-solid
+                                                            fa-user"></i>
+                                                        <span class="count">0</span>
+                                                    </button>
+                                                    <!-- Header Dropdown Cart Start -->
+                                                    <div class="dropdown-menu dropdown-cart
+                                                        slideIn">
+                                                        <!-- Dropdown Cart Items Start -->
+                                                      
+                                                        <!-- Dropdown Cart Items End -->
+                                                        <!-- Dropdown Cart Total Start -->
+                                                       
+                                                        <!-- Dropdown Cart Total End -->
+                                                        <!-- Dropdown Cart Button Start -->
+                                                        <div class="cart-btns">
+                                                            <a class="btn" href="{% url 'login' %}?myaction=2">Daxil ol</a>
+                                                            <a class="btn btn-2"
+                                                                href="{% url 'login' %}?myaction=1">Qeydiyyat</a>
+                                                        </div>
+                                                        <!-- Dropdown Cart Button End -->
+                                                    </div>
+                                                    <!-- Header Dropdown Cart End -->
+                                                </div>
+                                                {% endif %}
+                                                <!-- Header Cart End -->
+                    
+                                                <!-- Header Button Start -->
+                                                <div class="header-btn d-none d-xl-block">
+                                                    <button class="btn-5" style="width: 150px;">Buy
+                                                        Ticket Now</button>
+                                                </div>
+                                                <!-- Header Button End -->
+                    
+                                                <!-- Header Toggle Start -->
+                                                <div class="header-toggle d-lg-none">
+                                                    <button data-bs-toggle="offcanvas"
+                                                        data-bs-target="#offcanvasExample">
+                                                        <span></span>
+                                                        <span></span>
+                                                        <span></span>
+                                                    </button>
+                                                </div>
+                                                <!-- Header Toggle End -->
+                                            </div>
+                                            <!-- Header Meta End  -->
                     <!-- Header Meta End  -->
 
                 </div>
@@ -178,7 +233,7 @@
             <div class="offcanvas-header">
                 <!-- Offcanvas Logo Start -->
                 <div class="offcanvas-logo">
-                    <a href="index.html"><img src="{% static 'assets/images/logo.png' %}" alt=""></a>
+                    <a href="{% url 'home' %}"><img src="{% static 'assets/images/logo.png' %}" alt=""></a>
                 </div>
                 <!-- Offcanvas Logo End -->
                 <button type="button" class="close-btn" data-bs-dismiss="offcanvas"><i
@@ -221,15 +276,15 @@
                                         </div>
                                         <ul class="hero-meta" data-aos="fade-right" data-aos-delay="1500">
                                             <li class="meta-item">
-                                                <a href="pricing.html"><i class="fas fa-user"></i> {{ eagernumber }}
+                                                <a href="#"><i class="fas fa-user"></i> {{ eagernumber }}
                                                     izləyici</a>
                                             </li>
                                             <li class="meta-item">
-                                                <a href="speaker-01.html"><i class="fas fa-marker"></i> {{ meetnumber }}
+                                                <a href="#"><i class="fas fa-marker"></i> {{ meetnumber }}
                                                     görüş</a>
                                             </li>
                                             <li class="meta-item">
-                                                <a href="contact.html"><i class="fas fa-medal"></i> {{ sportmennumber }}
+                                                <a href="#"><i class="fas fa-medal"></i> {{ sportmennumber }}
                                                     çempion</a>
                                             </li>
                                         </ul>
@@ -254,15 +309,15 @@
                                         </div>
                                         <ul class="hero-meta" data-aos="fade-right" data-aos-delay="1500">
                                             <li class="meta-item">
-                                                <a href="pricing.html"><i class="fas fa-user"></i> {{ eagernumber }}
+                                                <a href="#"><i class="fas fa-user"></i> {{ eagernumber }}
                                                     izləyici</a>
                                             </li>
                                             <li class="meta-item">
-                                                <a href="speaker-01.html"><i class="fas fa-marker"></i> {{ meetnumber }}
+                                                <a href="#"><i class="fas fa-marker"></i> {{ meetnumber }}
                                                     görüş</a>
                                             </li>
                                             <li class="meta-item">
-                                                <a href="contact.html"><i class="fas fa-medal"></i> {{ sportmennumber }}
+                                                <a href="#"><i class="fas fa-medal"></i> {{ sportmennumber }}
                                                     çempion</a>
                                             </li>
                                         </ul>
@@ -287,15 +342,15 @@
                                         </div>
                                         <ul class="hero-meta" data-aos="fade-right" data-aos-delay="1500">
                                             <li class="meta-item">
-                                                <a href="pricing.html"><i class="fas fa-user"></i> {{ eagernumber }}
+                                                <a href="#"><i class="fas fa-user"></i> {{ eagernumber }}
                                                     izləyici</a>
                                             </li>
                                             <li class="meta-item">
-                                                <a href="speaker-01.html"><i class="fas fa-marker"></i> {{ meetnumber }}
+                                                <a href="#"><i class="fas fa-marker"></i> {{ meetnumber }}
                                                     görüş</a>
                                             </li>
                                             <li class="meta-item">
-                                                <a href="contact.html"><i class="fas fa-medal"></i> {{ sportmennumber }}
+                                                <a href="#"><i class="fas fa-medal"></i> {{ sportmennumber }}
                                                     çempion</a>
                                             </li>
                                         </ul>
