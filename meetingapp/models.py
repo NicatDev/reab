@@ -33,7 +33,7 @@ class Sportmen(models.Model):
     titul = models.CharField(max_length=1200)
     is_active = models.BooleanField(default=False)
     image = models.ImageField(null=True,blank=True)
-    
+    personal_information = models.CharField(max_length=1200,null=True,blank=True)
     
     def __str__(self):
         return self.user.first_name + self.user.last_name + self.field
@@ -79,7 +79,7 @@ class Eager(models.Model):
         return self.first_name + ' ' + self.last_name
     
 class ForgottenPassword(models.Model):
-    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='forgot')
     forgot_password = models.CharField(max_length=120,null=True,blank=True)
     last_forgot = models.DateTimeField(null=True,blank=True)
 

@@ -290,15 +290,13 @@
                                                 <li class="meta-item">
                                                     <a href="speaker-01.html"><i
                                                             class="fas
-                                                            fa-marker"></i> {{
-                                                        meetnumber }}
+                                                            fa-marker"></i> {{ meetnumber }}
                                                         görüş</a>
                                                 </li>
                                                 <li class="meta-item">
                                                     <a href="contact.html"><i
                                                             class="fas
-                                                            fa-medal"></i> {{
-                                                        sportmennumber }}
+                                                            fa-medal"></i> {{ sportmennumber }}
                                                         çempion</a>
                                                 </li>
                                             </ul>
@@ -545,7 +543,7 @@
                     confirmpass=document.getElementById('confirmpass').value
                     const clickedButton=event.target;
                     if(clickedButton.classList.contains('submit_btn')){
-                        const url="#";
+                        const url="{% url 'change_password' %}";
                         if (pass === '' || pass == null ) {
                             swal('Data daxil edin !');
                             return;
@@ -558,6 +556,7 @@
                             body: JSON.stringify({
                                 confirmpass: confirmpass,
                                 pass:pass,
+                                email:email
                               
                                 
                             }), // You can format the data as needed
@@ -569,13 +568,7 @@
                             .then(response => {
                                 // Handle the response here (e.g., show a success message)
                                 if (response.ok) {
-                                    console.log(response)
-                                    swal({
-                                title: "Əla",
-                                text: "Registrasiyadan ugurla kediniz!",
-                                icon: "success",
-                                button: "Tamam",
-                            });
+                                    window.location.href = "{% url 'login' %}"
         
                                 } else {
                                     console.log(response)
@@ -590,7 +583,7 @@
                 
                     
                 }
-
+       
                 function submitData() {
                 
                     event.preventDefault();
@@ -598,15 +591,18 @@
                     // Get the email input valuee
                     email = document.getElementById('email').value
                     pass = document.getElementById('pass').value
-          
+                    
                     // Check if the class name of the clicked button is "submit_btn"
                     const clickedButton = event.target;
                     if (clickedButton.classList.contains('submit_btn')) {
                         // Send the data to a URL (replace 'your_url' with the actual URL)
-                        const url = '#';
+                        var url = '{% url "send_mail" %}';
                         if (email === '' || email == null ) {
                             swal('Data daxil edin !');
                             return;
+                        }
+                        if (pass != '' && pass != null ) {
+                            url = "{% url 'check_password' %}"
                         }
                        
         
@@ -630,11 +626,22 @@
                                     console.log(response)
                                     console.log(a,email,pass)
                                     if (a==2){
-                                      modal();
+                                      modal()
                                     }
-                                 OpendivPassword();
+                                    if (a==1){
+                                        OpendivPassword();
+                                    }
+                                 
         
-                                } else {
+                                } else if(response.status==403){
+                                    swal('Yanlis username ve ya şifrə')
+                                }else if(response.status==404){
+                                    swal('Yanlis email ve ya username')
+                                }
+                                else if(response.status==402){
+                                    swal('Yanlis otp sifresi')
+                                }
+                                 else {
                                     console.log(response)
                                     swal('Xəta baş verdi');
                                 

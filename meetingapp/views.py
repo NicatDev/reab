@@ -12,15 +12,37 @@ from django.shortcuts import redirect
 from django.urls import reverse
 from django.conf import settings
 from django.contrib.auth import login as auth_login
-from meetingapp.utils import code_slug_generator
-
+from meetingapp.utils import code_slug_generator,validateEmail
+from django.contrib.auth.decorators import login_required
     
 # Create your views here.
 import calendar
 
-def meetjoin(request):
+def meetjoin(request,meet=None):
+    meet
     context = {}
     return render(request,'index.html',context)
+
+
+@login_required
+def speaker(request):
+
+    
+    if Header.objects.all().exists():
+        header = Header.objects.first()
+    else:
+        header = {}
+    meetnumber = len(Meeting.objects.all())
+    eagernumber = len(Eager.objects.all())
+    sportmennumber = len(Sportmen.objects.all()) 
+    context = {'header':header,
+        'meetnumber':meetnumber,
+        'eagernumber':eagernumber,
+        'sportmennumber':sportmennumber,
+    
+        }
+   
+    return render(request,'speaker.html',context)
 
 def home(request):
     if Header.objects.all().exists():
@@ -190,6 +212,7 @@ def forgot(request):
     meetnumber = len(Meeting.objects.all())
     eagernumber = len(Eager.objects.all())
     sportmennumber = len(Sportmen.objects.all()) 
+    
     context = {'header':header,
         'meetnumber':meetnumber,
         'eagernumber':eagernumber,
@@ -197,27 +220,96 @@ def forgot(request):
         }
     return render(request,'forgot.html',context)
 
-def send_mail(request):
+
+def change_password(request):
+    error_data = {
+        'error': 'Bad Request',
+        'message': 'Wrong username or email'
+    }
+    data = json.loads(request.body)
+    email = data.get('email')
+    if data.get('pass') != data.get('confirmpass'):
+        return JsonResponse(error_data,status=401)
+    password = data.get('pass')
+    if User.objects.filter(email = email).exists():
+        user = User.objects.get(email = email)
+    elif User.objects.filter(username = email).exists():
+        user = User.objects.get(username = email)
+    else:
+        return JsonResponse(error_data,status=404)
+    user.set_password(password)
+    user.save()
+    return JsonResponse({'message':True},status=200)
+
+def check_password(request):
+    error_data = {
+        'error': 'Bad Request',
+        'message': 'Wrong username or email'
+    }
+    data = json.loads(request.body)
+    email = data.get('email')
+    password = data.get('pass')
+    if User.objects.filter(email = email).exists():
+        user = User.objects.get(email = email)
+    elif User.objects.filter(username = email).exists():
+        user = User.objects.get(username = email)
+    else:
+        return JsonResponse(error_data,status=404)
+    if user.forgot.forgot_password == password:
+        
+        return JsonResponse({'message':True})
+    else:
+        print(user.forgot.forgot_password,password)
+        return JsonResponse(error_data,status=402)
+
+    
+def sendMail(request):
+    
+    error_data = {
+        'error': 'Bad Request',
+        'message': 'Wrong username or email'
+    }
     
     data = json.loads(request.body)
+
     email = ''
-    if validate_email(data.email):
-        email = data.email
-        user = User.objects.get(email = data.email)
+    if validateEmail(data.get('email')):
+        print('emaildir')
+        email = data.get('email')
+        if User.objects.filter(email=data.get('email')).exists():
+            user = User.objects.get(email = data.get('email'))
+            print('user var')
+        else:
+            print('email user yoxdur')
+            return JsonResponse(status=403)
     else:
-        user = User.objects.get(username = data.email)
-        email = user.email
-    
-    password = ForgottenPassword(user=user,forgot_password=code_slug_generator(),last_forgot=datetime.now())
-    password.save()
-        
+        print('usernamdir')
+        if User.objects.filter(username = data.get('email')).exists():
+            print('user var')
+            user = User.objects.get(username = data.get('email'))
+            email = user.email
+        else:
+            print('username user yoxdur')
+            response = JsonResponse(error_data)
+            response.status_code = 403
+            return response
+    if ForgottenPassword.objects.filter(user=user).exists():
+        password = ForgottenPassword.objects.get(user=user)
+        password.forgot_password = code_slug_generator()
+        password.last_forgot = datetime.now()
+        password.save()
+    else:
+        password = ForgottenPassword(user=user,forgot_password=code_slug_generator(),last_forgot=datetime.now())
+        password.save() 
     content = password.forgot_password
-    
+
     send_mail(
             "Zehmet olmasa sifreni daxil edin. Istifade mudddeti 5 deqiqedir",
             content,
             settings.EMAIL_HOST_USER,
             [email],
-            fail_silently=False, html_message=content
+            fail_silently=False, 
+            html_message=content
     )
-    return JsonResponse(data)
+    
+    return JsonResponse({'message':True})
