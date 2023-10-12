@@ -18,7 +18,7 @@ import pytz
 # Create your views here.
 import calendar
 
-def meetjoin(request,meet=None):
+def meetjoin(request,meet):
     mymeet = Meeting.objects.get(id=meet)
     zoom_url = mymeet.meeting_id
     url_parts = zoom_url.split('/')

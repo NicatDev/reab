@@ -10,7 +10,7 @@
 
 </head>
 
-<body style="opacity: 0;">
+<body >
     <style>
         .sdk-select {
             height: 34px;
@@ -151,16 +151,22 @@
     document.getElementById("meeting_number").value = "{{meeting_id}}";
     document.getElementById("meeting_pwd").value = "{{meeting_pwd}}";
     document.getElementById("meeting_lang").value = "en-US";
-  
-     
+    console.log('{{meeting_pwd}}')
+    console.log('-------------')
+    console.log('{{meeting_id}}')
 
     }, 1000); 
     setTimeout(function() {
     mybutton = document.getElementById('copy_join_link')
     mybutton.click()
-    window.location.href=localStorage.getItem('join')
+    console.log(mybutton)
+    
     },2000);
- 
+    setTimeout(function() {
+    
+        console.log(localStorage.getItem('join'))
+        },3000);
+    
     
 </script>
     <script src="https://source.zoom.us/2.15.2/lib/vendor/react.min.js"></script>

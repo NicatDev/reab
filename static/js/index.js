@@ -145,8 +145,10 @@ function websdkready() {
           testTool.getCurrentDomain() +
           "/static/js/meeting.html?" +
           testTool.serialize(meetingConfig);
-
+        console.log(joinUrl,'+++++++++')
           localStorage.setItem('join',joinUrl)
+          localStorage.setItem('joinUrl',joinUrl)
+          
         document.getElementById('copy_link_value').setAttribute('link', joinUrl);
         copyToClipboard('copy_link_value');
         
