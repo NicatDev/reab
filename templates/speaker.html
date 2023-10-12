@@ -59,7 +59,7 @@
         <!-- Preloader End -->
 
         <!-- Header Start  -->
-        <div id="header" class="section exvent-header-2">
+        <div id="header" class="section exvent-header-section">
 
             <div class="container">
 
@@ -67,155 +67,139 @@
                 <div class="header-wrap">
 
                     <div class="header-logo">
-                        <a href="index.html"><img src="{% static 'assets/images/logo/logo2.png' %}" alt=""></a>
+                        <a href="index.html"><img src="{% static 'assets/images/logo/logo.png' %}" alt=""></a>
                     </div>
 
                     <div class="header-menu d-none d-lg-block">
                         <ul class="main-menu">
                             <li>
-                                <a href="{% url 'home' %}">Əsas səhifə</a>
+                                <a href="{% url 'home' %}">Ana Səhifə</a>
+                               
                             </li>
-
-                            <li><a href="{% url 'contact' %}">Əlaqə</a></li>
+                            <li>
+                                <a href="{% url 'contact' %}">Əlaqə</a>
+                            </li>
+                            
+                           
                         </ul>
                     </div>
 
                     <!-- Header Meta Start -->
-                                            <!-- Header Meta Start -->
-                                            <div class="header-meta">
-                                                <!-- Header Search Start -->
-                    
-                                                <!-- Header Search End -->
-                                                <!-- Header Cart Start -->
-                                                {% if user.is_authenticated %}
-                                                <div class="header-cart dropdown">
-                                                    <button class="cart-btn"
-                                                    data-bs-toggle="dropdown">
-                                                    <i style="color:#ffae4a;font-weight: 900;" class="fa-solid fa-user"></i>
-                                                    <span class="count">0</span>
-                                                </button>
-                                                    <!-- Header Dropdown Cart Start -->
-                                                    <div class="dropdown-menu dropdown-cart
-                                                        slideIn">
-                                                        <!-- Dropdown Cart Items Start -->
-                                                        <div class="cart-items">
-                                                            <!-- Single Cart Item Start -->
-                                                            <div class="single-cart-item">
-                                                                <div class="item-image">
-                                                                    <img src="{% static
-                                                                        'assets/images/cart/cart-1.jpg'
-                                                                        %}" alt="cart">
-                                                                </div>
-                                                                <div class="item-content">
-                                                                    <h4 class="title"><a
-                                                                            href="pricing.html">Apple
-                                                                            Iphone X</a></h4>
-                                                                    <span class="quantity">2 x
-                                                                        $59.99</span>
-                                                                </div>
-                                                                <button class="btn-close"></button>
-                                                            </div>
-                                                            <!-- Single Cart Item End -->
-                                                            <!-- Single Cart Item Start -->
-                                                            <div class="single-cart-item">
-                                                                <div class="item-image">
-                                                                    <img src="{% static
-                                                                        'assets/images/cart/cart-2.jpg'
-                                                                        %}" alt="cart">
-                                                                </div>
-                                                                <div class="item-content">
-                                                                    <h4 class="title"><a
-                                                                            href="pricing.html">Sony
-                                                                            Xperia Tablet</a></h4>
-                                                                    <span class="quantity">2 x
-                                                                        $59.99</span>
-                                                                </div>
-                                                                <button class="btn-close"></button>
-                                                            </div>
-                                                            <!-- Single Cart Item End -->
-                                                            <!-- Single Cart Item Start -->
-                                                            <div class="single-cart-item">
-                                                                <div class="item-image">
-                                                                    <img src="{% static 'assets/images/cart/cart-3.jpg' %}" alt="cart">
-                                                                </div>
-                                                                <div class="item-content">
-                                                                    <h4 class="title"><a
-                                                                            href="pricing.html">Camera
-                                                                            Digital</a></h4>
-                                                                    <span class="quantity">2 x
-                                                                        $59.99</span>
-                                                                </div>
-                                                                <button class="btn-close"></button>
-                                                            </div>
-                                                            <!-- Single Cart Item End -->
-                                                        </div>
-                                                        <!-- Dropdown Cart Items End -->
-                                                        <!-- Dropdown Cart Total Start -->
-                                                        <div class="cart-total">
-                                                            
-                                                            <span class="label">İstifadəçi:</span>
-                                                            <span style="color:black" class="value">{{request.user.first_name}} {{request.user.last_name}}</span>
-                                                        </div>
-                                                        <!-- Dropdown Cart Total End -->
-                                                        <!-- Dropdown Cart Button Start -->
-                                                        <div class="cart-btns">
-                                                            <a class="btn" href="{% url 'speaker' %}">Kabinet</a>
-                                                            <a class="btn btn-2"
-                                                                href="{% url 'logout' %}?next={{ request.path }}">Çıxış et</a>
-                                                        </div>
-                                                        <!-- Dropdown Cart Button End -->
-                                                    </div>
-                                                    <!-- Header Dropdown Cart End -->
-                                                </div>
-                                                {% else %}
-                                                <div class="header-cart dropdown">
-                                                    <button class="cart-btn"
-                                                        data-bs-toggle="dropdown">
-                                                        <i style="color:#ffae4a;" class="fa-solid
-                                                            fa-user"></i>
-                                                        <span class="count">0</span>
-                                                    </button>
-                                                    <!-- Header Dropdown Cart Start -->
-                                                    <div class="dropdown-menu dropdown-cart
-                                                        slideIn">
-                                                        <!-- Dropdown Cart Items Start -->
-                                                      
-                                                        <!-- Dropdown Cart Items End -->
-                                                        <!-- Dropdown Cart Total Start -->
-                                                       
-                                                        <!-- Dropdown Cart Total End -->
-                                                        <!-- Dropdown Cart Button Start -->
-                                                        <div class="cart-btns">
-                                                            <a class="btn" href="{% url 'login' %}?myaction=2">Daxil ol</a>
-                                                            <a class="btn btn-2"
-                                                                href="{% url 'login' %}?myaction=1">Qeydiyyat</a>
-                                                        </div>
-                                                        <!-- Dropdown Cart Button End -->
-                                                    </div>
-                                                    <!-- Header Dropdown Cart End -->
-                                                </div>
-                                                {% endif %}
-                                                <!-- Header Cart End -->
-                    
-                                                <!-- Header Button Start -->
-                                                <div class="header-btn d-none d-xl-block">
-                                                    <button class="btn-5" style="width: 150px;">Buy
-                                                        Ticket Now</button>
-                                                </div>
-                                                <!-- Header Button End -->
-                    
-                                                <!-- Header Toggle Start -->
-                                                <div class="header-toggle d-lg-none">
-                                                    <button data-bs-toggle="offcanvas"
-                                                        data-bs-target="#offcanvasExample">
-                                                        <span></span>
-                                                        <span></span>
-                                                        <span></span>
-                                                    </button>
-                                                </div>
-                                                <!-- Header Toggle End -->
-                                            </div>
-                                            <!-- Header Meta End  -->
+                    <div class="header-meta">
+                        <!-- Header Search Start -->
+
+                        <!-- Header Search End -->
+                        <!-- Header Cart Start -->
+                        {% if user.is_authenticated %}
+                        <div class="header-cart dropdown">
+                            <button class="cart-btn"
+                                data-bs-toggle="dropdown">
+                                <i style="color:#ffae4a;" class="fa-solid
+                                    fa-user"></i>
+                                <span class="count">{% if request.user.owner %}{{request.user.adventures.count}}{% else %}{{request.user.meetings.count}}{% endif %}</span>
+                            </button>
+                            <!-- Header Dropdown Cart Start -->
+                            <div class="dropdown-menu dropdown-cart
+                                slideIn">
+                                <!-- Dropdown Cart Items Start -->
+                                <div class="cart-items">
+                                    <!-- Single Cart Item Start -->
+                                    {% if reuqest.user.owner %}
+                                    {% for meet in request.user.adventures.all|slice:3  %}
+                                    <div class="single-cart-item">
+                                        <div class="item-image">
+                                            <img src="{{meet.meetingowner.owner.image.url}}" alt="cart">
+                                        </div>
+                                        <div class="item-content">
+                                            <h4 class="title"><a
+                                                    href="pricing.html">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</a></h4>
+                                            <span class="quantity">{{meet.date|date:"d"}} {{meet.date|date:"F"}} {{meet.date|date:"H:i"}}</span>
+                                        </div>
+                                        <button class="btn-close"></button>
+                                    </div>
+                                    {% endfor %}
+                                    {% else %}
+                                    {% for meet in request.user.meetings.all|slice:3 %}
+                                    <div class="single-cart-item">
+                                        <div class="item-image">
+                                            <img src="{{meet.meetingowner.owner.image.url}}" alt="cart">
+                                        </div>
+                                        <div class="item-content">
+                                            <h4 class="title"><a
+                                                    href="pricing.html">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</a></h4>
+                                            <span class="quantity">{{meet.date|date:"d"}} {{meet.date|date:"F"}} {{meet.date|date:"H:i"}}</span>
+                                        </div>
+                                        <button class="btn-close"></button>
+                                    </div>
+                                    {% endfor %}
+                                    {% endif %}
+                                    <!-- Single Cart Item End -->
+                                </div>
+                                <!-- Dropdown Cart Items End -->
+                                <!-- Dropdown Cart Total Start -->
+                                <div class="cart-total">
+                                    
+                                    <span class="label">İstifadəçi:</span>
+                                    <span style="color:black" class="value">{{request.user.first_name}} {{request.user.last_name}}</span>
+                                </div>
+                                <!-- Dropdown Cart Total End -->
+                                <!-- Dropdown Cart Button Start -->
+                                <div class="cart-btns">
+                                    <a class="btn" href="{% url 'speaker' %}">Kabinet</a>
+                                    <a class="btn btn-2"
+                                        href="{% url 'logout' %}?next={{ request.path }}">Çıxış et</a>
+                                </div>
+                                <!-- Dropdown Cart Button End -->
+                            </div>
+                            <!-- Header Dropdown Cart End -->
+                        </div>
+                        {% else %}
+                        <div class="header-cart dropdown">
+                            <button class="cart-btn"
+                                data-bs-toggle="dropdown">
+                                <i style="color:#ffae4a;" class="fa-solid
+                                    fa-user"></i>
+                                <span class="count">0</span>
+                            </button>
+                            <!-- Header Dropdown Cart Start -->
+                            <div class="dropdown-menu dropdown-cart
+                                slideIn">
+                                <!-- Dropdown Cart Items Start -->
+                              
+                                <!-- Dropdown Cart Items End -->
+                                <!-- Dropdown Cart Total Start -->
+                               
+                                <!-- Dropdown Cart Total End -->
+                                <!-- Dropdown Cart Button Start -->
+                                <div class="cart-btns">
+                                    <a class="btn" href="{% url 'login' %}?myaction=2">Daxil ol</a>
+                                    <a class="btn btn-2"
+                                        href="{% url 'login' %}?myaction=1">Qeydiyyat</a>
+                                </div>
+                                <!-- Dropdown Cart Button End -->
+                            </div>
+                            <!-- Header Dropdown Cart End -->
+                        </div>
+                        {% endif %}
+                        <!-- Header Cart End -->
+
+                        <!-- Header Button Start -->
+                        <div class="header-btn d-none d-xl-block">
+                            <a href="#"><button class="btn-5" style="width: 150px;">Heydər Əliyev</button></a>
+                        </div>
+                        <!-- Header Button End -->
+
+                        <!-- Header Toggle Start -->
+                        <div class="header-toggle d-lg-none">
+                            <button data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasExample">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                        <!-- Header Toggle End -->
+                    </div>
                     <!-- Header Meta End  -->
 
                 </div>
@@ -230,8 +214,7 @@
             <div class="offcanvas-header">
                 <!-- Offcanvas Logo Start -->
                 <div class="offcanvas-logo">
-                    <a href="index.html"><img src="{% static
-                            'assets/images/logo.png' %}" alt=""></a>
+                    <a href="index.html"><img src="{% static 'assets/images/logo.png' %}" alt=""></a>
                 </div>
                 <!-- Offcanvas Logo End -->
                 <button type="button" class="close-btn"
@@ -248,7 +231,8 @@
 
                         </li>
 
-                        <li class="active-menu"><a href="{% url 'contact' %}">Əlaqə</a></li>
+                        <li class="active-menu"><a href="{% url 'contact'
+                                %}">Əlaqə</a></li>
                     </ul>
                 </div>
             </div>
@@ -256,154 +240,29 @@
         </div>
         <!-- Offcanvas End -->
 
-        <div class="swiper hero-slide">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="exvent-hero-section-05"
-                        style="background-image:
-                        url({{header.image1.url}});">
-                        <div class="container">
-                            <div class="row justify-content-center
-                                align-items-center">
-                                <div class="col-md-8 text-center">
-                                    <div class="hero-conent-wrapper">
-                                        <div class="top-title-date"
-                                            data-aos="fade-down"
-                                            data-aos-delay="500">
-                                            <span>{{header.minititle1}}</span>
-                                        </div>
-                                        <div class="main-title"
-                                            data-aos="fade-down"
-                                            data-aos-delay="1000">
-                                            <h1>{{header.title1}}</h1>
-                                        </div>
-                                        <ul class="hero-meta"
-                                            data-aos="fade-right"
-                                            data-aos-delay="1500">
-                                            <li class="meta-item">
-                                                <a href="pricing.html"><i
-                                                        class="fas fa-user"></i>
-                                                    {{ eagernumber }}
-                                                    izləyici</a>
-                                            </li>
-                                            <li class="meta-item">
-                                                <a href="speaker-01.html"><i
-                                                        class="fas
-                                                        fa-marker"></i> {{ meetnumber }}
-                                                    görüş</a>
-                                            </li>
-                                            <li class="meta-item">
-                                                <a href="contact.html"><i
-                                                        class="fas
-                                                        fa-medal"></i> {{ sportmennumber }}
-                                                    çempion</a>
-                                            </li>
-                                        </ul>
 
-                                    </div>
-                                </div>
-                            </div>
+        <!-- Hero Start -->
+        <div style="margin-bottom:2%;" class="section exvent-hero-section d-lg-flex d-block align-items-center inner-page-hero" style="background-image: url({% static 'assets/images/bg/about_page_bg.jpg' %});">
+            <img class="shape-1 img-fluid" src="{% static 'assets/images/shape/hero_shape1.png' %}" alt="">
+            <img class="shape-2 img-fluid" src="{% static 'assets/images/shape/hero_shape2.png' %}" alt="">
+
+            <div class="container">
+                <div class="row exvent-hero-row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <div class="page-title">
+                            <h2 class="section-title">Reabilitasiya həyatdır</h2>
                         </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="exvent-hero-section-05"
-                        style="background-image:
-                        url({{header.image2.url}});">
-                        <div class="container">
-                            <div class="row justify-content-center
-                                align-items-center">
-                                <div class="col-md-8 text-center">
-                                    <div class="hero-conent-wrapper">
-                                        <div class="top-title-date"
-                                            data-aos="fade-down"
-                                            data-aos-delay="500">
-                                            <span>{{header.minititle2}}</span>
-                                        </div>
-                                        <div class="main-title"
-                                            data-aos="fade-down"
-                                            data-aos-delay="1000">
-                                            <h1>{{header.title2}}</h1>
-                                        </div>
-                                        <ul class="hero-meta"
-                                            data-aos="fade-right"
-                                            data-aos-delay="1500">
-                                            <li class="meta-item">
-                                                <a href="pricing.html"><i
-                                                        class="fas fa-user"></i>
-                                                    {{ eagernumber }}
-                                                    izləyici</a>
-                                            </li>
-                                            <li class="meta-item">
-                                                <a href="speaker-01.html"><i
-                                                        class="fas
-                                                        fa-marker"></i> {{ meetnumber }}
-                                                    görüş</a>
-                                            </li>
-                                            <li class="meta-item">
-                                                <a href="contact.html"><i
-                                                        class="fas
-                                                        fa-medal"></i> {{ sportmennumber }}
-                                                    çempion</a>
-                                            </li>
-                                        </ul>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide" style="padding-bottom:60px">
-                    <div class="exvent-hero-section-05"
-                        style="background-image:
-                        url({{header.image3.url}});">
-                        <div class="container">
-                            <div class="row justify-content-center
-                                align-items-center">
-                                <div class="col-md-8 text-center">
-                                    <div class="hero-conent-wrapper">
-                                        <div class="top-title-date"
-                                            data-aos="fade-down"
-                                            data-aos-delay="500">
-                                            <span>{{header.minititle3}}</span>
-                                        </div>
-                                        <div class="main-title"
-                                            data-aos="fade-down"
-                                            data-aos-delay="1000">
-                                            <h1>{{header.title3}}</h1>
-                                        </div>
-                                        <ul class="hero-meta"
-                                            data-aos="fade-right"
-                                            data-aos-delay="1500">
-                                            <li class="meta-item">
-                                                <a href="pricing.html"><i
-                                                        class="fas fa-user"></i>
-                                                    {{ eagernumber }}
-                                                    izləyici</a>
-                                            </li>
-                                            <li class="meta-item">
-                                                <a href="speaker-01.html"><i
-                                                        class="fas
-                                                        fa-marker"></i> {{ meetnumber }}
-                                                    görüş</a>
-                                            </li>
-                                            <li class="meta-item">
-                                                <a href="contact.html"><i
-                                                        class="fas
-                                                        fa-medal"></i> {{ sportmennumber }}
-                                                    çempion</a>
-                                            </li>
-                                        </ul>
-
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="page-navigation">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb justify-content-center">
+                                  
+                                  
+                                </ol>
+                            </nav>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="swiper-pagination"></div>
         </div>
      
         <!-- Hero End -->
@@ -416,7 +275,7 @@
                         <div class="speaker-wrapper speaker-col">
                             <div class="single-speaker">
                                 <a href="speaker-single.html" class="speaker-thumbnail">
-                                    <img src="{{request.user.owner.image.url}}" alt="Speaker 1" class="speaker-img">
+                                    <img {% if request.user.owner %} src="{{request.user.owner.image.url}}" {% else %} src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" {% endif %} alt="Speaker 1" class="speaker-img">
                                 </a>
                                 <div class="speaker-details">
                                     <div class="heading-shape">
@@ -427,7 +286,7 @@
                                     <a href="speaker-single.html" class="speaker-name-link">
                                         <h4 class="speaker-name">{{request.user.first_name}} {{request.user.last_name}}</h4>
                                     </a>
-                                    <p class="speaker-designation">{{ request.user.owner.field}} ({{request.user.owner.titul}})</p>
+                                    <p class="speaker-designation">{{ request.user.owner.field}} {% if request.user.owner %} ({{request.user.owner.titul}}) {% endif %} </p>
                                 </div>
                             </div>
                             <div class="speaker-social">
@@ -439,6 +298,7 @@
                             </div>
                         </div>
                     </div>
+                    {% if request.user.owner.phone_number %}
                     <div class="col-lg-7">
                         <div class="speaker-informations">
                             <div class="row">
@@ -449,6 +309,7 @@
                                     </div>
                                     <div class="info-single">
                                         <h5 class="title">Mobile Number: </h5>
+                                        
                                         <p class="desc">{{request.user.owner.phone_number}}</p>
                                     </div>
                                     <div class="info-single">
@@ -491,7 +352,7 @@
                                             </div>
                                         </div>
                                         <a href="{{meet.meeting_id}}" class="thumbnail">
-                                            <img src="{% static 'assets/images/thumbnails/schedule_thumb1.png' %}" alt="Thumbnail">
+                                            <img style="border-radius: 50% !important; width:80%;" src="{{meet.meetingowner.owner.image.url}}" alt="Thumbnail">
                                         </a>
                                         <div class="location">
                                             <p><i class="fas fa-map-marker-alt"></i> {{ meet.location}}</p>
@@ -505,6 +366,100 @@
                             </div>
                         </div>
                     </div>
+                    {% else %}
+                    <div class="col-lg-7">
+                        <div class="speaker-informations">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="info-single">
+                                        <h5 class="title">Username: </h5>
+                                        <p class="desc">{{request.user.username}}</p>
+                                    </div>
+                                    <div class="info-single">
+                                        <h5 class="title">Mobile Number: </h5>
+                                        
+                                        <p class="desc">{{request.user.eager.phone_number}}</p>
+                                    </div>
+                                    <div class="info-single">
+                                        <h5 class="title">Email : </h5>
+                                        <p class="desc">{{request.user.email}}</p>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="info-single">
+                                        <h5 class="title">Idman sahesi: </h5>
+                                        <p class="desc">{{request.user.eager.field}}</p>
+                                    </div>
+                                    <div class="info-single">
+                                        <h5 class="title">Şifrə: </h5>
+                                        <p class="desc">*********</p>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+
+                        {% if request.user.owner %}
+                        <div class="persoal-info">
+                            <h3 class="title">Sizin haqqınızda</h3>
+                            <p>{{request.user.owner.personal_information}}</p>
+                        </div>
+                        {% endif %}
+
+                        <div class="speaker-upcoming">
+                            <h3 class="title">Sənin görüşlərin</h3>
+                            <div class="row g-2">
+                                {% if request.user.owner %}
+                                {% for meet in request.user.adventures.all %}
+                                <div class="col-md-4">
+                                    <div class="single-speaker-event">
+                                        <div class="date-details">
+                                            <h3 class="date">{{meet.date|date:"d"}}</h3>
+                                            <div class="month-time">
+                                                <span class="month">{{meet.date|date:"F"}}</span>
+                                                <p class="time">{{meet.date|date:"H:i"}}</p>
+                                            </div>
+                                        </div>
+                                        <a href="{{meet.meeting_id}}" class="thumbnail">
+                                            <img src="{{meet.meetingowner.owner.image.url}}" alt="Thumbnail">
+                                        </a>
+                                        <div class="location">
+                                            <p><i class="fas fa-map-marker-alt"></i> {{ meet.location}}</p>
+                                        </div>
+                                        <a href="{{meet.meeting_id}}" class="title">
+                                            <h3 style="height:3rem">{{meet.content|slice:30}}..</h3>
+                                        </a>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                {% else %}
+                                {% for meet in request.user.meetings.all %}
+                                <div class="col-md-4">
+                                    <div class="single-speaker-event">
+                                        <div class="date-details">
+                                            <h3 class="date">{{meet.date|date:"d"}}</h3>
+                                            <div class="month-time">
+                                                <span class="month">{{meet.date|date:"F"}}</span>
+                                                <p class="time">{{meet.date|date:"H:i"}}</p>
+                                            </div>
+                                        </div>
+                                        <a href="{{meet.meeting_id}}" class="thumbnail">
+                                            <img src="{{meet.meetingowner.owner.image.url}}" alt="Thumbnail">
+                                        </a>
+                                        <div class="location">
+                                            <p><i class="fas fa-map-marker-alt"></i> {{ meet.location}}</p>
+                                        </div>
+                                        <a href="{{meet.meeting_id}}" class="title">
+                                            <h3 style="height:3rem">{{meet.content|slice:30}}..</h3>
+                                        </a>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>

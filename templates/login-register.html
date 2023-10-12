@@ -50,27 +50,31 @@
 
 
             <!-- Header Start  -->
-            <div id="header" class="section exvent-header-2">
+            <div id="header" class="section exvent-header-section">
 
                 <div class="container">
-
+    
                     <!-- Header Wrap Start  -->
                     <div class="header-wrap">
-
+    
                         <div class="header-logo">
-                            <a href="index.html"><img src="{% static 'assets/images/logo/logo2.png' %}" alt=""></a>
+                            <a href="index.html"><img src="{% static 'assets/images/logo/logo.png' %}" alt=""></a>
                         </div>
-
+    
                         <div class="header-menu d-none d-lg-block">
                             <ul class="main-menu">
                                 <li>
-                                    <a href="{% url 'home' %}">Əsas səhifə</a>
+                                    <a href="{% url 'home' %}">Ana Səhifə</a>
+                                   
                                 </li>
-
-                                <li><a href="{% url 'contact' %}">Əlaqə</a></li>
+                                <li>
+                                    <a href="{% url 'contact' %}">Əlaqə</a>
+                                </li>
+                                
+                               
                             </ul>
                         </div>
-
+    
                         <!-- Header Meta Start -->
                         <div class="header-meta">
                             <!-- Header Search Start -->
@@ -150,7 +154,7 @@
                                     <!-- Dropdown Cart Total End -->
                                     <!-- Dropdown Cart Button Start -->
                                     <div class="cart-btns">
-                                        <a class="btn" href="pricing.html">Kabinet</a>
+                                        <a class="btn" href="{% url 'speaker' %}">Kabinet</a>
                                         <a class="btn btn-2"
                                             href="{% url 'logout' %}?next={{ request.path }}">Çıxış et</a>
                                     </div>
@@ -190,8 +194,7 @@
 
                             <!-- Header Button Start -->
                             <div class="header-btn d-none d-xl-block">
-                                <button class="btn-5" style="width: 150px;">Buy
-                                    Ticket Now</button>
+                                <a href="#"><button class="btn-5" style="width: 150px;">Heydər Əliyev</button></a>
                             </div>
                             <!-- Header Button End -->
 
@@ -207,10 +210,10 @@
                             <!-- Header Toggle End -->
                         </div>
                         <!-- Header Meta End  -->
-
+    
                     </div>
                     <!-- Header Wrap End  -->
-
+    
                 </div>
             </div>
             <!-- Header End -->
@@ -220,7 +223,8 @@
                 <div class="offcanvas-header">
                     <!-- Offcanvas Logo Start -->
                     <div class="offcanvas-logo">
-                        <a href="index.html"><img src="{% static 'assets/images/logo.png' %}" alt=""></a>
+                        <a href="index.html"><img src="{% static
+                                'assets/images/logo.png' %}" alt=""></a>
                     </div>
                     <!-- Offcanvas Logo End -->
                     <button type="button" class="close-btn"
@@ -237,7 +241,8 @@
 
                             </li>
 
-                            <li class="active-menu"><a href="{% url 'contact' %}">Əlaqə</a></li>
+                            <li class="active-menu"><a href="{% url 'contact'
+                                    %}">Əlaqə</a></li>
                         </ul>
                     </div>
                 </div>
@@ -247,154 +252,27 @@
 
 
             <!-- Hero Start -->
-            <div class="swiper hero-slide">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="exvent-hero-section-05"
-                            style="background-image:
-                            url({{header.image1.url}});">
-                            <div class="container">
-                                <div class="row justify-content-center
-                                    align-items-center">
-                                    <div class="col-md-8 text-center">
-                                        <div class="hero-conent-wrapper">
-                                            <div class="top-title-date"
-                                                data-aos="fade-down"
-                                                data-aos-delay="500">
-                                                <span>{{header.minititle1}}</span>
-                                            </div>
-                                            <div class="main-title"
-                                                data-aos="fade-down"
-                                                data-aos-delay="1000">
-                                                <h1>{{header.title1}}</h1>
-                                            </div>
-                                            <ul class="hero-meta"
-                                                data-aos="fade-right"
-                                                data-aos-delay="1500">
-                                                <li class="meta-item">
-                                                    <a href="pricing.html"><i
-                                                            class="fas fa-user"></i>
-                                                        {{ eagernumber }}
-                                                        izləyici</a>
-                                                </li>
-                                                <li class="meta-item">
-                                                    <a href="speaker-01.html"><i
-                                                            class="fas
-                                                            fa-marker"></i> {{ meetnumber }}
-                                                        görüş</a>
-                                                </li>
-                                                <li class="meta-item">
-                                                    <a href="contact.html"><i
-                                                            class="fas
-                                                            fa-medal"></i> {{ sportmennumber }}
-                                                        çempion</a>
-                                                </li>
-                                            </ul>
-
-                                        </div>
-                                    </div>
-                                </div>
+            <div class="section exvent-hero-section d-lg-flex d-block align-items-center inner-page-hero" style="background-image: url({% static 'assets/images/bg/about_page_bg.jpg' %});">
+                <img class="shape-1 img-fluid" src="{% static 'assets/images/shape/hero_shape1.png' %}" alt="">
+                <img class="shape-2 img-fluid" src="{% static 'assets/images/shape/hero_shape2.png' %}" alt="">
+    
+                <div class="container">
+                    <div class="row exvent-hero-row justify-content-center">
+                        <div class="col-lg-8 text-center">
+                            <div class="page-title">
+                                <h2 class="section-title">Reabilitasiya həyatdır</h2>
                             </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="exvent-hero-section-05"
-                            style="background-image:
-                            url({{header.image2.url}});">
-                            <div class="container">
-                                <div class="row justify-content-center
-                                    align-items-center">
-                                    <div class="col-md-8 text-center">
-                                        <div class="hero-conent-wrapper">
-                                            <div class="top-title-date"
-                                                data-aos="fade-down"
-                                                data-aos-delay="500">
-                                                <span>{{header.minititle2}}</span>
-                                            </div>
-                                            <div class="main-title"
-                                                data-aos="fade-down"
-                                                data-aos-delay="1000">
-                                                <h1>{{header.title2}}</h1>
-                                            </div>
-                                            <ul class="hero-meta"
-                                                data-aos="fade-right"
-                                                data-aos-delay="1500">
-                                                <li class="meta-item">
-                                                    <a href="pricing.html"><i
-                                                            class="fas fa-user"></i>
-                                                        {{ eagernumber }}
-                                                        izləyici</a>
-                                                </li>
-                                                <li class="meta-item">
-                                                    <a href="speaker-01.html"><i
-                                                            class="fas
-                                                            fa-marker"></i> {{ meetnumber }}
-                                                        görüş</a>
-                                                </li>
-                                                <li class="meta-item">
-                                                    <a href="contact.html"><i
-                                                            class="fas
-                                                            fa-medal"></i> {{ sportmennumber }}
-                                                        çempion</a>
-                                                </li>
-                                            </ul>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide" style="padding-bottom:60px">
-                        <div class="exvent-hero-section-05"
-                            style="background-image:
-                            url({{header.image3.url}});">
-                            <div class="container">
-                                <div class="row justify-content-center
-                                    align-items-center">
-                                    <div class="col-md-8 text-center">
-                                        <div class="hero-conent-wrapper">
-                                            <div class="top-title-date"
-                                                data-aos="fade-down"
-                                                data-aos-delay="500">
-                                                <span>{{header.minititle3}}</span>
-                                            </div>
-                                            <div class="main-title"
-                                                data-aos="fade-down"
-                                                data-aos-delay="1000">
-                                                <h1>{{header.title3}}</h1>
-                                            </div>
-                                            <ul class="hero-meta"
-                                                data-aos="fade-right"
-                                                data-aos-delay="1500">
-                                                <li class="meta-item">
-                                                    <a href="pricing.html"><i
-                                                            class="fas fa-user"></i>
-                                                        {{ eagernumber }}
-                                                        izləyici</a>
-                                                </li>
-                                                <li class="meta-item">
-                                                    <a href="speaker-01.html"><i
-                                                            class="fas
-                                                            fa-marker"></i> {{ meetnumber }}
-                                                        görüş</a>
-                                                </li>
-                                                <li class="meta-item">
-                                                    <a href="contact.html"><i
-                                                            class="fas
-                                                            fa-medal"></i> {{ sportmennumber }}
-                                                        çempion</a>
-                                                </li>
-                                            </ul>
-
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="page-navigation">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb justify-content-center">
+                                      
+                                      
+                                    </ol>
+                                </nav>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-pagination"></div>
             </div>
             <!-- Hero End -->
             <div id="mytarget" class="containerr" style="padding-bottom:0px !important;">
@@ -473,6 +351,12 @@
                                             <div class="single-input white-bg">
                                                 <input id="reg_surname" type="text"
                                                     placeholder="Soyad">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="single-input white-bg">
+                                                <input id="reg_number" type="text"
+                                                    placeholder="Əlaqə nömrəsi">
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -617,6 +501,7 @@
             const password2 = document.getElementById ('reg_password2').value;
             const name = document.getElementById('reg_name').value;
             const surname = document.getElementById('reg_surname').value;
+            const phone_number = document.getElementById('reg_number').value;
         
             // Check if the class name of the clicked button is "submit_btn"
             const clickedButton = event.target;
@@ -665,6 +550,7 @@
                         password2:password,
                         first_name:name,
                         last_name:surname,
+                        phone_number:phone_number
     
                     }), // You can format the data as needed
                     headers: {

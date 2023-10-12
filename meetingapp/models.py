@@ -68,15 +68,15 @@ class Header(models.Model):
     
     
 class Eager(models.Model):
-    user = models.OneToOneField(User,on_delete=models.CASCADE)
-    field = models.CharField(max_length=120)
+    user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='eager')
+    field = models.CharField(max_length=120,null=True,blank=True)
     phone_number = models.CharField(max_length=120)
     is_blocked = models.BooleanField(default=False)
     is_moderator = models.BooleanField(default=False)
     
     
     def __str__(self):
-        return self.first_name + ' ' + self.last_name
+        return self.user.first_name + ' - ' + self.user.last_name
     
 class ForgottenPassword(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='forgot')

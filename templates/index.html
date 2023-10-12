@@ -10,7 +10,7 @@
 
 </head>
 
-<body>
+<body style="opacity: 0;">
     <style>
         .sdk-select {
             height: 34px;
@@ -63,8 +63,9 @@
                 <form class="navbar-form navbar-right" id="meeting_form">
                     <div class="form-group">
                         <input type="text" name="display_name" id="display_name" value="2.15.2#CDN" maxLength="100"
-                            placeholder="Name" class="form-control" required>
+                            placeholder="Name"  class="form-control" required>
                     </div>
+                 
                     <div class="form-group">
                         <input type="text" name="meeting_number" id="meeting_number" value="" maxLength="200"
                             style="width:150px" placeholder="Meeting Number" class="form-control" required>
@@ -137,7 +138,31 @@
             }
         })
     </script>
+<script>
+    document.getElementById("display_name").value = "{{request.user.first_name}} {{request.user.last_name}}";
+    document.getElementById("meeting_number").value = "";
+    document.getElementById("meeting_pwd").value = "";
+    setTimeout(function() {
+   
+    document.getElementById("meeting_lang").value = "en-US";
+    document.getElementById("display_name").value = "{{request.user.first_name}} {{request.user.last_name}}";
+    document.getElementById("meeting_email").value = "{{request.user.email}}";
+    
+    document.getElementById("meeting_number").value = "{{meeting_id}}";
+    document.getElementById("meeting_pwd").value = "{{meeting_pwd}}";
+    document.getElementById("meeting_lang").value = "en-US";
+  
+     
 
+    }, 1000); 
+    setTimeout(function() {
+    mybutton = document.getElementById('copy_join_link')
+    mybutton.click()
+    window.location.href=localStorage.getItem('join')
+    },2000);
+ 
+    
+</script>
     <script src="https://source.zoom.us/2.15.2/lib/vendor/react.min.js"></script>
     <script src="https://source.zoom.us/2.15.2/lib/vendor/react-dom.min.js"></script>
     <script src="https://source.zoom.us/2.15.2/lib/vendor/redux.min.js"></script>
@@ -148,10 +173,7 @@
     <script src="{% static 'js/vconsole.min.js' %}"></script>
     <script src="{% static 'js/index.js' %}"></script>
 
-    <script>
-
-
-    </script>
+  
 </body>
 
 </html>

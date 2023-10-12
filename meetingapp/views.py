@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from meetingapp.models import *
 from django.http import JsonResponse
 from datetime import date,timedelta,datetime
-from meetingapp.forms import Messageform,Surveyform
+from meetingapp.forms import Messageform,Surveyform,CustomUserCreationForm
 from django.http import HttpResponse
 import json
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
@@ -14,13 +14,32 @@ from django.conf import settings
 from django.contrib.auth import login as auth_login
 from meetingapp.utils import code_slug_generator,validateEmail
 from django.contrib.auth.decorators import login_required
-    
+import pytz
 # Create your views here.
 import calendar
 
 def meetjoin(request,meet=None):
-    meet
-    context = {}
+    mymeet = Meeting.objects.get(id=meet)
+    zoom_url = mymeet.meeting_id
+    url_parts = zoom_url.split('/')
+   
+    if len(url_parts) < 5:
+        return JsonResponse({"error": "Invalid Zoom URL"})
+
+    # Extract the meeting ID and password
+
+    password_part = url_parts[-1]
+    meeting_id = url_parts[-1].split('?')[0]
+    password_parts = password_part.split('=')
+    if len(password_parts) < 2:
+        return JsonResponse({"error": "Invalid Zoom URL"})
+    
+    meeting_pwd = password_parts[1].split('.')[0]
+    print(meeting_id,meeting_pwd)
+    context = {
+        'meeting_id':meeting_id,
+        'meeting_pwd':meeting_pwd
+    }
     return render(request,'index.html',context)
 
 
@@ -64,17 +83,17 @@ def home(request):
 
     start_month = today - timedelta(days=today.day)
     end_month = today + timedelta(days=(days_in_current_month-today.day))
-    
+    now = datetime.now(pytz.utc)
     day_meetings = meetings.filter(date__date=today)
-    week_meetings = meetings.filter(date__date__gte=start_week,date__date__lte=end_week).exclude(date__date=today)
-    month_meetings = meetings.filter(date__date__gte=start_month,date__date__lte=end_month).exclude(date__date__gte=start_week,date__date__lte=end_week)
-    if meetings.filter(date__date__gte=today).exists():
+    week_meetings = meetings.filter(date__date__gte=datetime.now(),date__date__lte=end_week).exclude(date__date=today)
+    month_meetings = meetings.filter(date__date__gte=datetime.now(),date__date__lte=end_month).exclude(date__date__gte=datetime.now(),date__date__lte=end_week)
+    if meetings.filter(date__gte=datetime.now()).exists():
 
-        nearest_meeting = meetings.filter(date__date__gte=today).order_by('date')[0].date
-        if nearest_meeting.day <= today.day:
+        nearest_meeting = meetings.filter(date__gte=datetime.now()).order_by('date')[0].date
+        if nearest_meeting < now:
             you = 'late'
     else:
- 
+        
         nearest_meeting = 'late'
     meetnumber = len(Meeting.objects.all())
     eagernumber = len(Eager.objects.all())
@@ -154,6 +173,32 @@ def message(request):
     else:
         return HttpResponse(status=405) 
 
+def wishlist(request):
+    if request.method == 'POST':
+        
+        if not request.user.is_authenticated:
+            return HttpResponse(status=403) 
+        data2 = {'message': 'Data saved successfully'}
+        
+        data = json.loads(request.body)
+        user = User.objects.get(id=data.get('user'))
+      
+        if Meeting.objects.filter(id=data.get('id')).exists():
+            meeting = Meeting.objects.get(id=data.get('id'))
+        else:
+            return HttpResponse(status=403) 
+        if meeting in user.meetings.all():
+            user.meetings.remove(meeting)
+            print('removed')
+            return JsonResponse(data2,status=201)
+        
+        else:
+            user.meetings.add(meeting)
+            print('added')
+            return JsonResponse(data2,status=200)
+    else:
+        return HttpResponse(status=405) 
+
 def login_register(request):
     myaction = request.GET.get('myaction', reverse('login'))
     myresponse = {'message':'success'}
@@ -161,29 +206,33 @@ def login_register(request):
     if request.method == 'POST':
     
         data = json.loads(request.body)
-    
+        print(data)
         if myaction == '2':
             
             login_form = AuthenticationForm(request, data=data)
-    
+            
             if login_form.is_valid():
                 user = login_form.get_user()
                 auth_login(request, user)
-   
+                
                 
                 return JsonResponse(myresponse)
             else:
-      
+                print(login_form.errors)
                 return HttpResponse(status=400) 
                 # Replace 'home' with the URL of your home page
         elif myaction == '1':
-            registration_form = UserCreationForm(data)
+            registration_form = CustomUserCreationForm(data)
+            phone_number = data.pop('phone_number')
+            print(data,phone_number)
             if registration_form.is_valid():
                 user = registration_form.save()
+                eager = Eager(user=user,phone_number=phone_number)
+                eager.save()
                 auth_login(request, user)
                 return JsonResponse(myresponse)
             else:
-
+                print(registration_form.errors)
                 
                 return HttpResponse(status=400)  
         return HttpResponse(status=200) 
@@ -271,8 +320,9 @@ def sendMail(request):
     }
     
     data = json.loads(request.body)
-
+    
     email = ''
+    print(data)
     if validateEmail(data.get('email')):
         print('emaildir')
         email = data.get('email')
