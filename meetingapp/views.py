@@ -89,9 +89,8 @@ def home(request):
     month_meetings = meetings.filter(date__date__gte=datetime.now(),date__date__lte=end_month).exclude(date__date__gte=datetime.now(),date__date__lte=end_week)
     print(meetings.filter(date__lte=datetime.now()))
     if meetings.filter(date__gte=datetime.now()).exists():
-        print(meetings.filter(date__gte=datetime.now()))
         nearest_meeting = meetings.filter(date__gte=datetime.now()).order_by('date')[0].date
-        print(now)
+    
         print(datetime.now())
         you = 'late'
     else:
