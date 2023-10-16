@@ -87,17 +87,19 @@ def home(request):
     day_meetings = meetings.filter(date__date=today)
     week_meetings = meetings.filter(date__date__gte=datetime.now(),date__date__lte=end_week).exclude(date__date=today)
     month_meetings = meetings.filter(date__date__gte=datetime.now(),date__date__lte=end_month).exclude(date__date__gte=datetime.now(),date__date__lte=end_week)
-    if meetings.filter(date__gte=datetime.now()).exists():
-
+    print(meetings.filter(date__lte=datetime.now()))
+    if meetings.filter(date__gte=now).exists():
+        print(meetings.filter(date__gte=datetime.now()))
         nearest_meeting = meetings.filter(date__gte=datetime.now()).order_by('date')[0].date
-        if nearest_meeting < now:
-            you = 'late'
+        
+        you = 'late'
     else:
         
         nearest_meeting = 'late'
     meetnumber = len(Meeting.objects.all())
     eagernumber = len(Eager.objects.all())
     sportmennumber = len(Sportmen.objects.all())
+    print(you)
     
     context = {
         'header':header,

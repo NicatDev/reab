@@ -98,15 +98,13 @@
                                                         <span class="count">0</span>
                                                     </button>
                                                     <!-- Header Dropdown Cart Start -->
-                                                    <div class="dropdown-menu dropdown-cart
-                                                        slideIn">
+                                                    <div class="dropdown-menu dropdown-cart slideIn" ">
                                                         <!-- Dropdown Cart Items Start -->
                                                         <div class="cart-items">
                                                             <!-- Single Cart Item Start -->
                                                             <div class="single-cart-item">
                                                                 <div class="item-image">
-                                                                    <img src="{% static 'assets/images/cart/cart-1.jpg'
-                                                                        %}" alt="cart">
+                                                                    <img src="{% static 'assets/images/cart/cart-1.jpg' %}" alt="cart">
                                                                 </div>
                                                                 <div class="item-content">
                                                                     <h4 class="title"><a
@@ -373,8 +371,9 @@
                                 <span class="counter-subtitle">Qalan vaxt</span>
                             </div>
                         </div>
-                        {% if you != 'late' %}
+                        {% if you == 'late' %}
                         <div class="col-lg-8 text-center">
+                            <!-- Countdown Start -->
                             <!-- Countdown Start -->
                             <div class="exvent-countdown-inner-5 countdown" data-countdown="{{nearest_meeting|date:"Y/m/d"}} {{ nearest_meeting|time:"H:i:s" }}" data-format="short">
                                 <div class="single-countdown">
@@ -395,6 +394,7 @@
                                 </div>
                             </div>
                             <!-- Countdown End -->
+                            <!-- Countdown End-->
                         </div>
                         {% else %}
                         <div class="col-lg-8 text-center">
@@ -607,7 +607,7 @@
                                                             <p><span><i class="fas fa-map-marker-alt"></i>
                                                                 </span>{{meet.location}}</p>
                                                         </div>
-                                                        <h4 class="schedule-title">{{meet.title}} </h4>
+                                                       <a href="{% url 'meetjoin' meet.id %}"><h4 class="schedule-title">{{meet.title}} </h4></a> 
                                                         <div class="schedule-descrip">
                                                             <p>{{meet.content}}</p>
                                                             <p class="collapse hidden-desc"
@@ -666,7 +666,7 @@
                                                             <p><span><i class="fas fa-map-marker-alt"></i>
                                                                 </span>{{meet.location}}</p>
                                                         </div>
-                                                        <h4 class="schedule-title">{{meet.title}} </h4>
+                                                        <a href="{% url 'meetjoin' meet.id %}"><h4 class="schedule-title">{{meet.title}} </h4></a> 
                                                         <div class="schedule-descrip">
                                                             <p>{{meet.content}}</p>
                                                             <p class="collapse hidden-desc"
@@ -725,7 +725,7 @@
                                                             <p><span><i class="fas fa-map-marker-alt"></i>
                                                                 </span>{{meet.location}}</p>
                                                         </div>
-                                                        <h4 class="schedule-title">{{meet.title}} </h4>
+                                                        <a href="{% url 'meetjoin' meet.id %}"><h4 class="schedule-title">{{meet.title}} </h4></a> 
                                                         <div class="schedule-descrip">
                                                             <p>{{meet.content}}</p>
                                                             <p class="collapse hidden-desc"
@@ -948,7 +948,7 @@
 
         var csrfToken = "{{ csrf_token }}";
         function submitData() {
-            console.log('1')
+          
             event.preventDefault();
 
             // Get the email input value
@@ -1009,7 +1009,7 @@
         }
         var csrfToken = "{{ csrf_token }}";
         // You can now use the 'user' object in JavaScript
-        console.log(user);
+
 
         // Example: Send user data via POST request using JavaScript (you may need to use AJAX)
         var data = {
@@ -1047,7 +1047,12 @@
             console.error('Error:', error);
         });}
     </script>
-
+<style>
+    
+    .dropdown-menu.show{
+        background-color:rgb(234, 234, 234);
+    }
+</style>
     <!-- JS
     ============================================ -->
     <script src="{% static 'assets/js/vendor/jquery-1.12.4.min.js' %}"></script>

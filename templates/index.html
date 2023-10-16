@@ -155,17 +155,18 @@
     console.log('-------------')
     console.log('{{meeting_id}}')
 
-    }, 3000); 
+    }, 2000); 
     setTimeout(function() {
     mybutton = document.getElementById('copy_join_link')
     mybutton.click()
     console.log(mybutton)
     
-    },4000);
+    },3000);
     setTimeout(function() {
     
         console.log(localStorage.getItem('join'))
-        },3000);
+        window.location.href = myjoiningurl
+        },4000);
     
     
 </script>

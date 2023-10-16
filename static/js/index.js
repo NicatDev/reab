@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', function(event) {
   console.log('DOM fully loaded and parsed');
   websdkready();
 });
-
+var myjoiningurl = '2'
 function websdkready() {
   var testTool = window.testTool;
   if (testTool.isMobileDevice()) {
@@ -115,7 +115,7 @@ function websdkready() {
         },
       });
     });
-
+    
   function copyToClipboard(elementId) {
     var aux = document.createElement("input");
     aux.setAttribute("value", document.getElementById(elementId).getAttribute('link'));
@@ -146,6 +146,7 @@ function websdkready() {
           "/static/js/meeting.html?" +
           testTool.serialize(meetingConfig);
         console.log(joinUrl,'+++++++++')
+        myjoiningurl = joinUrl
           localStorage.setItem('join',joinUrl)
           localStorage.setItem('joinUrl',joinUrl)
           
@@ -157,3 +158,4 @@ function websdkready() {
   };
 
 }
+console.log(myjoiningurl,'==========')

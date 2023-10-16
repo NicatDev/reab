@@ -105,7 +105,7 @@
                                 <div class="cart-items">
                                     <!-- Single Cart Item Start -->
                                     {% if reuqest.user.owner %}
-                                    {% for meet in request.user.adventures.all|slice:3  %}
+                                    {% for meet in request.user.adventures.all  %}
                                     <div class="single-cart-item">
                                         <div class="item-image">
                                             <img src="{{meet.meetingowner.owner.image.url}}" alt="cart">
@@ -119,7 +119,7 @@
                                     </div>
                                     {% endfor %}
                                     {% else %}
-                                    {% for meet in request.user.meetings.all|slice:3 %}
+                                    {% for meet in request.user.meetings.all %}
                                     <div class="single-cart-item">
                                         <div class="item-image">
                                             <img src="{{meet.meetingowner.owner.image.url}}" alt="cart">
@@ -129,12 +129,15 @@
                                                     href="pricing.html">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</a></h4>
                                             <span class="quantity">{{meet.date|date:"d"}} {{meet.date|date:"F"}} {{meet.date|date:"H:i"}}</span>
                                         </div>
+                                        {% if forloop.first %}
                                         <button class="btn-close"></button>
+                                        {% endif %}
                                     </div>
                                     {% endfor %}
                                     {% endif %}
                                     <!-- Single Cart Item End -->
                                 </div>
+                            
                                 <!-- Dropdown Cart Items End -->
                                 <!-- Dropdown Cart Total Start -->
                                 <div class="cart-total">
@@ -534,7 +537,7 @@
                             <div class="col-lg-12">
                                 <!-- Footer Copyright Text Start -->
                                 <div class="copyright-text text-center">
-                                    <p>2023 Copyright Expotin Designed by Love . All Rights Reserved</p>
+                                    <p>Reabilitasiya həyatdır 2023</p>
                                 </div>
                                 <!-- Footer Copyright Text End -->
                             </div>
@@ -555,7 +558,11 @@
         <!-- back to top end -->
 
     </div>
-<style></style>
+<style>
+    .social-list i{
+        line-height:2.4
+    }
+</style>
     <!-- JS
     ============================================ -->
     <script src="{% static 'assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
@@ -581,6 +588,7 @@
 
 
     <!-- Main JS -->
+  
     <script src="{% static 'assets/js/main.js' %}"></script>
 
 </body>
