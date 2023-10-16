@@ -90,7 +90,7 @@ def home(request):
     print(meetings.filter(date__lte=datetime.now()))
     if meetings.filter(date__gte=now).exists():
         print(meetings.filter(date__gte=datetime.now()))
-        nearest_meeting = meetings.filter(date__gte=datetime.now()).order_by('date')[0].date
+        nearest_meeting = meetings.filter(date__gte=now).order_by('date')[0].date
         
         you = 'late'
     else:
