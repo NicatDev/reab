@@ -90,8 +90,8 @@ def home(request):
     print(meetings.filter(date__lte=datetime.now()))
     if meetings.filter(date__gte=datetime.now()).exists():
         nearest_meeting = meetings.filter(date__gte=datetime.now()).order_by('date')[0].date
-    
-        print(meetings.filter(date__gte=datetime.now()).order_by('date')[0])
+        print(datetime.now(),'------')
+        print(meetings.filter(date__gte=datetime.now()).order_by('date'),'+++++++++++++++++++')
         you = 'late'
     else:
         
