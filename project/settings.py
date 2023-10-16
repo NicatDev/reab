@@ -26,7 +26,21 @@ SECRET_KEY = 'django-insecure-qq^s6+5)cvht1i1#-w&2b%rns!bqrw=8%2j8@j(3yt^$$(%07x
 DEBUG = True
 import os
 ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = [
+    "https://test.azgpen.com/",
+]
+CORS_ALLOWED_ORIGINS = [
+    "https://test.azgpen.com/",
+]
 
+CORS_ALLOW_METHODS = (
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+)
 
 # Application definition
 
@@ -37,7 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+    'corsheaders',
     'meetingapp',
     
     #thirdparty
