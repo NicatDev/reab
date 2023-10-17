@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     'meetingapp',
     'django_user_agents',
     #thirdparty
+    "whitenoise.runserver_nostatic",
+
     
     
 ]
@@ -68,7 +70,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_user_agents.middleware.UserAgentMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     ]
+
 
 ROOT_URLCONF = 'project.urls'
 
@@ -89,7 +93,31 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'project.wsgi.application'
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'error.log',
+            'encoding': 'utf-8',  # UTF-8 karakter kodlaması ekleyin
+        },
+    },
+    'root': {
+        'handlers': ['file'],
+        'level': 'ERROR',
+    },
+}
+import logging
 
+# ...
+
+try:
+    # Hata oluşan bir kod bloğu
+    raise Exception("Bu bir hata mesajıdır.")
+except Exception as e:
+    logging.error('Hata oluştu: %s', str(e))
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -139,13 +167,20 @@ ORTAWARE_CLASSES = (
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
+# STORAGES = {
+#     # ...
+#     "staticfiles": {
+#         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+#     },
+# }
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-
-# STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_HOST = os.environ.get("DJANGO_STATIC_HOST", "")
+STATIC_URL = STATIC_HOST + "/static/"
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+# STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
