@@ -98,8 +98,7 @@ def home(request):
     user_agent = request.META.get('HTTP_USER_AGENT', '').lower()
  
 
-    print(request.user_agent.browser.family)
-    print(request.user_agent,'----------')
+
     chrome = False
     if request.user_agent.is_mobile:
         chrome = True
