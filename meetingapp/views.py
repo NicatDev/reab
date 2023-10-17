@@ -15,8 +15,9 @@ from django.contrib.auth import login as auth_login
 from meetingapp.utils import code_slug_generator,validateEmail
 from django.contrib.auth.decorators import login_required
 import pytz
-# Create your views here.
+from django.http import JsonResponse
 import calendar
+
 
 def meetjoin(request,meet):
     mymeet = Meeting.objects.get(id=meet)
@@ -93,13 +94,33 @@ def home(request):
         
         you = 'late'
     else:
-
         nearest_meeting = 'late'
+    user_agent = request.META.get('HTTP_USER_AGENT', '').lower()
+ 
+
+    print(request.user_agent.browser.family)
+    print(request.user_agent,'----------')
+    chrome = False
+    if request.user_agent.is_mobile:
+        chrome = True
+        print('mobile')
+    if request.user_agent.os.family == 'iOS':
+        chrome = False
+        print('ios')
+    if request.user_agent.browser.family == 'Mobile Safari':
+        chrome = False
+        print('mobile safari')
+    if request.user_agent.is_pc:
+        print('pc')
+        chrome = True
+    if request.user_agent.os.family  == 'iOS':
+        print('ios')
+        chrome = False
+    
     meetnumber = len(Meeting.objects.all())
     eagernumber = len(Eager.objects.all())
     sportmennumber = len(Sportmen.objects.all())
-
-    print(now,'-now',datetime.now(),'datetime.now')
+    print(chrome)
     context = {
         'header':header,
         'about':about,
@@ -112,16 +133,20 @@ def home(request):
         'you':you,
         'meetnumber':meetnumber,
         'eagernumber':eagernumber,
-        'sportmennumber':sportmennumber
+        'sportmennumber':sportmennumber,
+        'chrome':chrome
     }
     
     return render(request,'index-5.html',context)
 
 def contact(request):
+    
     if Header.objects.all().exists():
         header = Header.objects.first()
+        
     else:
         header = {}
+        
     meetnumber = len(Meeting.objects.all())
     eagernumber = len(Eager.objects.all())
     sportmennumber = len(Sportmen.objects.all()) 
@@ -135,24 +160,21 @@ def contact(request):
 def logout_view(request):
     if request.user.is_authenticated:
         logout(request)
+        
     next_page = request.GET.get('next', reverse('home'))  # Default to the home page
     return redirect(next_page)
 
 def login(request):
   
-    
     if Header.objects.all().exists():
         header = Header.objects.first()
     else:
         header = {}
+        
     meetnumber = len(Meeting.objects.all())
     eagernumber = len(Eager.objects.all())
     sportmennumber = len(Sportmen.objects.all()) 
     
-    
-
-
-
     context = {'header':header,
         'meetnumber':meetnumber,
         'eagernumber':eagernumber,
@@ -161,7 +183,7 @@ def login(request):
         }
     return render(request,'login-register.html',context)
 
-from django.http import JsonResponse
+
 
 def message(request):
     if request.method == 'POST':

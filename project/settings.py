@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'meetingapp',
-    
+    'django_user_agents',
     #thirdparty
     
     
@@ -67,7 +67,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+    'django_user_agents.middleware.UserAgentMiddleware',
+    ]
 
 ROOT_URLCONF = 'project.urls'
 
@@ -131,6 +132,10 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+ORTAWARE_CLASSES = ( 
+    # digər orta proqram... 
+    'django_user_agents.middleware.UserAgentMiddleware', 
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
