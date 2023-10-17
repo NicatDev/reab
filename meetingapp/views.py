@@ -79,12 +79,11 @@ def home(request):
         about = {}
     today = date.today()
     days_in_current_month = calendar.monthrange(today.year, today.month)[1]
-    start_week = today - timedelta(days=today.weekday())
+
     end_week = today + timedelta(days=(7-today.weekday()))
 
-    start_month = today - timedelta(days=today.day)
     end_month = today + timedelta(days=(days_in_current_month-today.day))
-    now = datetime.now(pytz.utc)
+
     day_meetings = meetings.filter(date__date=today)
     week_meetings = meetings.filter(date__date__gte=datetime.now(),date__date__lte=end_week).exclude(date__date=today)
     month_meetings = meetings.filter(date__date__gte=datetime.now(),date__date__lte=end_month).exclude(date__date__gte=datetime.now(),date__date__lte=end_week)
@@ -95,24 +94,22 @@ def home(request):
         you = 'late'
     else:
         nearest_meeting = 'late'
-    # user_agent = request.META.get('HTTP_USER_AGENT', '').lower()
-    # chrome = False
-    # if request.user_agent.is_mobile:
-    #     chrome = True
-    #     print('mobile')
-    # if request.user_agent.os.family == 'iOS':
-    #     chrome = False
-    #     print('ios')
-    # if request.user_agent.browser.family == 'Mobile Safari':
-    #     chrome = False
-    #     print('mobile safari')
-    # if request.user_agent.is_pc:
-    #     print('pc')
-    #     chrome = True
-    # if request.user_agent.os.family  == 'iOS':
-    #     print('ios')
-    #     chrome = False
-    
+    chrome = False
+    if request.user_agent.is_mobile:
+        chrome = True
+        print('mobile')
+    if request.user_agent.os.family == 'iOS':
+        chrome = False
+        print('ios')
+    if request.user_agent.browser.family == 'Mobile Safari':
+        chrome = False
+        print('mobile safari')
+    if request.user_agent.is_pc:
+        print('pc')
+        chrome = True
+    if request.user_agent.os.family  == 'iOS':
+        print('ios')
+        chrome = False
     meetnumber = len(Meeting.objects.all())
     eagernumber = len(Eager.objects.all())
     sportmennumber = len(Sportmen.objects.all())
@@ -130,7 +127,7 @@ def home(request):
         'meetnumber':meetnumber,
         'eagernumber':eagernumber,
         'sportmennumber':sportmennumber,
-        # 'chrome':chrome
+        'chrome':chrome
     }
     
     return render(request,'index-5.html',context)
