@@ -95,9 +95,7 @@ def home(request):
         you = 'late'
     else:
         nearest_meeting = 'late'
-    user_agent = request.META.get('HTTP_USER_AGENT', '').lower()
- 
-
+    # user_agent = request.META.get('HTTP_USER_AGENT', '').lower()
 
     # chrome = False
     # if request.user_agent.is_mobile:
