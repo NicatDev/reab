@@ -607,7 +607,7 @@
                                                             <p><span><i class="fas fa-map-marker-alt"></i>
                                                                 </span>{{meet.location}}</p>
                                                         </div>
-                                                       <a {% if chrome %} href="{% url 'meetjoin' meet.id %}" {% else %} href="{{meet.meeting_id}}"{% endif %}><h4 class="schedule-title">{{meet.title}} </h4></a> 
+                                                        <i class="fa fa-info-circle" aria-hidden="true" data-tooltip="Görüşlər Zoom tətbiqi ilə nolunacaq. Daha yaxşı performans üçün İOS istifadəçilərinə Zoom tətbiqini endirməsi tövsiyyə olunur."></i><a {% if chrome %} href="{% url 'meetjoin' meet.id %}" {% else %} href="{{meet.meeting_id}}"{% endif %}><h4 class="schedule-title">{{meet.title}} </h4></a> 
                                                         <div class="schedule-descrip">
                                                             <p>{{meet.content}}</p>
                                                             <p class="collapse hidden-desc"
@@ -654,19 +654,19 @@
                                                     
                                                   
                                                        
-                                                    <img src="{{meet.meetingowner.owner.image.url}}"
+                                                    <a href="{% url 'meetjoin' meet.id %}"><img src="{{meet.meetingowner.owner.image.url}}"
                                                         style="max-width:12rem" alt="Thumbnail"
-                                                        class="schedule-thumb-img">
+                                                        class="schedule-thumb-img"></a>
                                                 </div>
                                             </div>
                                             <div class="col-lg-9 col-12">
                                                 <div class="schedule-content-wrap">
-                                                    <div class="schedule-content">
+                                                    <div  class="schedule-content">
                                                         <div class="schedule-location">
                                                             <p><span><i class="fas fa-map-marker-alt"></i>
                                                                 </span>{{meet.location}}</p>
                                                         </div>
-                                                        <a href="{% url 'meetjoin' meet.id %}"><h4 class="schedule-title">{{meet.title}} </h4></a> 
+                                                        <i class="fa fa-info-circle" aria-hidden="true" data-tooltip="Görüşlər Zoom tətbiqi ilə nolunacaq. Daha yaxşı performans üçün İOS istifadəçilərinə Zoom tətbiqini endirməsi tövsiyyə olunur."></i><a {% if chrome %} href="{% url 'meetjoin' meet.id %}" {% else %} href="{{meet.meeting_id}}"{% endif %}><h4 class="schedule-title">{{meet.title}} </h4></a> 
                                                         <div class="schedule-descrip">
                                                             <p>{{meet.content}}</p>
                                                             <p class="collapse hidden-desc"
@@ -713,19 +713,19 @@
                                                     
                                                   
                                                        
-                                                    <img src="{{meet.meetingowner.owner.image.url}}"
+                                                    <a href="{% url 'meetjoin' meet.id %}"><img src="{{meet.meetingowner.owner.image.url}}"
                                                         style="max-width:12rem" alt="Thumbnail"
-                                                        class="schedule-thumb-img">
+                                                        class="schedule-thumb-img"></a>
                                                 </div>
                                             </div>
                                             <div class="col-lg-9 col-12">
                                                 <div class="schedule-content-wrap">
-                                                    <div class="schedule-content">
+                                                    <div  class="schedule-content">
                                                         <div class="schedule-location">
                                                             <p><span><i class="fas fa-map-marker-alt"></i>
                                                                 </span>{{meet.location}}</p>
                                                         </div>
-                                                        <a style="cursor:pointer" href="{% url 'meetjoin' meet.id %}"><h4 class="schedule-title">{{meet.title}} </h4></a> 
+                                                        <i class="fa fa-info-circle" aria-hidden="true" data-tooltip="Görüşlər Zoom tətbiqi ilə nolunacaq. Daha yaxşı performans üçün İOS istifadəçilərinə Zoom tətbiqini endirməsi tövsiyyə olunur."></i><a {% if chrome %} href="{% url 'meetjoin' meet.id %}" {% else %} href="{{meet.meeting_id}}"{% endif %}><h4 class="schedule-title">{{meet.title}} </h4></a> 
                                                         <div class="schedule-descrip">
                                                             <p>{{meet.content}}</p>
                                                             <p class="collapse hidden-desc"
@@ -1052,6 +1052,46 @@
     .dropdown-menu.show{
         background-color:rgb(234, 234, 234);
     }
+    @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+
+i[data-tooltip]::after {
+  content: attr(data-tooltip);
+  width: 200px !important;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+        text-align: left;
+  background-color: rgba(10, 0, 73, 0.871);
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: rgb(231, 231, 231);
+  line-height: 1rem;
+  font-weight:600;
+  font-size:12px;
+  border:1px solid rgb(1, 58, 79);
+  transform: scale(0);
+  transition: 0.2s ease-in-out;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+i[data-tooltip]:hover::after {
+  transform: scale(1);
+  bottom: 70%;
+  left:0;
+}
+
+/* Additional Styling */
+
+
+
+
+.schedule-content i {
+  color: #444444;
+  cursor: pointer;
+  padding-right:0.2rem
+}
+
 </style>
     <!-- JS
     ============================================ -->

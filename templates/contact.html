@@ -600,6 +600,18 @@
                     swal('Adinizi daxil edin !');
                     return;
                 }
+                else if (subject === '') {
+                    swal('Mövzunu daxil edin !');
+                    return;
+                }
+                else if (phone === '') {
+                    swal('Əlaqə nömrəsini daxil edin !');
+                    return;
+                }
+                else if (message === '') {
+                    swal('Məktubunuzu daxil edin !');
+                    return;
+                }
 
                 // You can use a method like fetch to send the data to the server
                 fetch(url, {

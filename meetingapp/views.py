@@ -188,9 +188,22 @@ def login(request):
 def message(request):
     if request.method == 'POST':
         data = json.loads(request.body)
+        print(data)
         newmessage = Messageform(data=data)
+        if data.get('message') == '':
+            return HttpResponse(status=401)
+        if data.get('phone') == '':
+            return HttpResponse(status=402)
+        if data.get('subject') == '':
+            return HttpResponse(status=403)
+        if data.get('name') == '':
+            return HttpResponse(status=404)
+        if data.get('email') == '':
+            return HttpResponse(status=405)
         if newmessage.is_valid():
             newmessage.save()
+        else:
+            return HttpResponse(status=405) 
         data = {'message': 'Data saved successfully'}
         return JsonResponse(data)
     else:
