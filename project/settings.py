@@ -28,9 +28,11 @@ import os
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = [
     "https://test.azgpen.com",
+    "http://75.119.147.165/"
 ]
 CORS_ALLOWED_ORIGINS = [
     "https://test.azgpen.com",
+    "http://75.119.147.165/"
 ]
 
 CORS_ALLOW_METHODS = (
@@ -183,7 +185,7 @@ STATIC_URL = STATIC_HOST + "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
