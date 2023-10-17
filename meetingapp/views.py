@@ -92,8 +92,10 @@ def home(request):
         nearest_meeting = meetings.filter(date__gte=datetime.now()).order_by('date')[0].date
         
         you = 'late'
+        
     else:
         nearest_meeting = 'late'
+        
     chrome = False
     if request.user_agent.is_mobile:
         chrome = True
