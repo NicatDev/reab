@@ -97,18 +97,17 @@ def home(request):
     chrome = False
     if request.user_agent.is_mobile:
         chrome = True
-        print('mobile')
     if request.user_agent.os.family == 'iOS':
         chrome = False
-        print('ios')
+
     if request.user_agent.browser.family == 'Mobile Safari':
         chrome = False
-        print('mobile safari')
+    
     if request.user_agent.is_pc:
-        print('pc')
+
         chrome = True
     if request.user_agent.os.family  == 'iOS':
-        print('ios')
+  
         chrome = False
     meetnumber = len(Meeting.objects.all())
     eagernumber = len(Eager.objects.all())
