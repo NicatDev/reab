@@ -6,7 +6,6 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Exvent - Event & Conference HTML5 Template</title>
         <meta name="robots" content="noindex, follow">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -50,7 +49,7 @@
 
 
             <!-- Header Start  -->
-            <div id="header" class="section exvent-header-section">
+            <div id="header" class="section exvent-header-section" style="background-color: #150328;">
 
                 <div class="container">
     
@@ -251,35 +250,12 @@
             <!-- Offcanvas End -->
 
 
-            <!-- Hero Start -->
-            <div class="section exvent-hero-section d-lg-flex d-block align-items-center inner-page-hero" style="background-image: url({% static 'assets/images/bg/about_page_bg.jpg' %});">
-                <img class="shape-1 img-fluid" src="{% static 'assets/images/shape/hero_shape1.png' %}" alt="">
-                <img class="shape-2 img-fluid" src="{% static 'assets/images/shape/hero_shape2.png' %}" alt="">
-    
-                <div class="container">
-                    <div class="row exvent-hero-row justify-content-center">
-                        <div class="col-lg-8 text-center">
-                            <div class="page-title">
-                                <h2 class="section-title">Reabilitasiya həyatdır</h2>
-                            </div>
-                            <div class="page-navigation">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb justify-content-center">
-                                      
-                                      
-                                    </ol>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Hero End -->
-            <div id="mytarget" class="containerr" style="padding-bottom:0px !important;">
+          
+            <div id="mytarget" class="containerr" style="padding-bottom:0px !important;padding-top: 50px;">
                 <div>
                    
-                  <button onclick="OpendivLogin()"  {% if action != '1' %} class="log act" {% else %} class="log" {% endif %} id="log">Login</button>
-                  <button onclick="OpendivRegister()" {% if action != '1' %} class="reg" {% else %} class="reg act" {% endif %} id="reg">Register</button>
+                  <button onclick="OpendivLogin()"  {% if action != '1' %} class="log act" {% else %} class="log" {% endif %} id="log">Daxil ol</button>
+                  <button onclick="OpendivRegister()" {% if action != '1' %} class="reg" {% else %} class="reg act" {% endif %} id="reg">Qeydiyyatdan keçin</button>
                </div>
               </div>
 
@@ -290,20 +266,20 @@
                         <div  id="login" {% if action == '1' %} style="display: none;"{% endif %}  class="col-lg-6 col-md-8">
                            
                             <div class="hero-form mt-0 grey-bg">
-                                <h3 class="form-title black">Login</h3>
+                                <h3 class="form-title black">Daxil ol</h3>
                                 <form  class="exvent-form">
                                     <div class="row gy-4">
                                         <div class="col-12">
                                             <div class="single-input white-bg">
                                                 <input id="name" type="text"
-                                                    placeholder="Username or Email">
+                                                    placeholder="İstifadəçi adı və ya Email">
                                             </div>
                                         </div>
                                   
                                         <div class="col-12">
                                             <div class="single-input white-bg">
                                                 <input id="password" type="password"
-                                                    placeholder="Password">
+                                                    placeholder="Parol">
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -312,13 +288,13 @@
                                                     type="checkbox"
                                                     id="flexCheckDefault">
                                                 <label class="form-check-label" id="remember-me-checkbox"
-                                                    for="flexCheckDefault">Remember
-                                                    Me</label>
+                                                    for="flexCheckDefault">Məni xatırla
+                                                    </label>
                                             </div>
                                         </div>
                                         <div class="col-sm-5 text-center">
                                             <button onclick="LoginUser()"
-                                                class="submit_btn">Log in</button>
+                                                class="submit_btn">Daxil ol</button>
                                         </div>
                                         <div class="col-12">
                                             <a href="{% url 'forgot' %}"
@@ -332,13 +308,13 @@
                         <div id="register" class="col-lg-6 col-md-8" {% if action != '1' %} style="display: none;"{% endif %} >
                           
                             <div class="hero-form mt-0 grey-bg">
-                                <h3  class="form-title black">Register</h3>
+                                <h3  class="form-title black">Qeydiyyatdan keçin</h3>
                                 <form class="exvent-form">
                                     <div class="row gy-4">
                                         <div class="col-12">
                                             <div class="single-input white-bg">
                                                 <input id="reg_username" type="text"
-                                                    placeholder="Username">
+                                                    placeholder="İstifadəçi adı">
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -370,19 +346,19 @@
                                             <div class="single-input white-bg ">
                                                 <input  id="reg_password"
                                                     type="password"
-                                                    placeholder="Password">
+                                                    placeholder="Parol">
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="single-input white-bg">
                                                 <input id="reg_password2"
                                                     type="password"
-                                                    placeholder="Confrim Password">
+                                                    placeholder="Parolu təsdiqləyin">
                                             </div>
                                         </div>
                                         <div class="col-sm-5 text-center">
                                             <button onclick="RegisterUser()"
-                                                class="submit_btn">Register</button>
+                                                class="submit_btn">Qeydiyyatdan keçin</button>
                                         </div>
                                     </div>
                                 </form>
@@ -414,13 +390,13 @@
                                                 class="fab fa-facebook-f"></i></a></li>
                                     <li><a href="www.twitter.html"><i
                                                 style="line-height:2.5 ;"
-                                                class="fab fa-twitter"></i></a></li>
+                                                class="fab fa-instagram"></i></a></li>
                                     <li><a href="www.dribbble.html"><i
                                                 style="line-height:2.5 ;"
-                                                class="fab fa-dribbble"></i></a></li>
+                                                class="fab fa-youtube"></i></a></li>
                                     <li><a href="www.behance.html"><i
                                                 style="line-height:2.5 ;"
-                                                class="fab fa-behance"></i></a></li>
+                                                class="fab fa-brands fa-tiktok"></i></a></li>
                                 </ul>
                             </div>
                         </div>

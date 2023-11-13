@@ -28,11 +28,11 @@ import os
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = [
     "https://test.azgpen.com",
-    "http://75.119.147.165/"
+    "http://75.119.147.165"
 ]
 CORS_ALLOWED_ORIGINS = [
     "https://test.azgpen.com",
-    "http://75.119.147.165/"
+    "http://75.119.147.165"
 ]
 
 CORS_ALLOW_METHODS = (

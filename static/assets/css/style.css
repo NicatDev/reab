@@ -1102,7 +1102,6 @@ textarea:-ms-input-placeholder {
 /*  2.1 - Header Top CSS
 /*----------------------------------------*/
 .exvent-header-section {
-  position: absolute;
   left: 0;
   top: 0;
   width: 100%;
@@ -1380,7 +1379,7 @@ textarea:-ms-input-placeholder {
   justify-content: space-between;
   align-items: center;
   position: relative;
-  background: #ffffff;
+  background: #150328;
   padding: 0 20px;
   z-index: 5;
 }
@@ -1411,7 +1410,7 @@ textarea:-ms-input-placeholder {
   font-family: "Ubuntu", sans-serif;
   font-weight: 700;
   text-transform: capitalize;
-  color: #1a0a1e;
+  color: #fff;
 }
 
 .header-menu .main-menu li.active-menu > a {
@@ -1478,7 +1477,7 @@ textarea:-ms-input-placeholder {
 
 
 .header-menu .main-menu li .sub-menu li.active > a {
-  color: #fc097c;
+  color: #ffae4a;
 }
 
 .header-menu .main-menu li .sub-menu li.active > a::before {
@@ -1488,7 +1487,7 @@ textarea:-ms-input-placeholder {
 }
 
 .header-menu .main-menu li .sub-menu li:hover > a {
-  color: #fc097c;
+  color: #ffae4a;
 }
 
 
