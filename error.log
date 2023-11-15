@@ -1646,3 +1646,54 @@ Not Found: /static/assets/images/close.png
 Not Found: /login/{% static                                'assets/images/logo.png' %}
 Not Found: /static/assets/images/prev.png
 Not Found: /static/assets/images/next.png
+Not Found: /static/assets/images/close.png
+Not Found: /{% static                                'assets/images/logo.png' %}
+Not Found: /static/assets/images/prev.png
+Not Found: /static/assets/images/next.png
+Not Found: /static/assets/images/close.png
+Not Found: /{% static            'assets/images/favicon.png' %}
+Not Found: /login/{% static                                'assets/images/logo.png' %}
+Not Found: /static/assets/images/prev.png
+Not Found: /static/assets/images/next.png
+Not Found: /static/assets/images/close.png
+Not Found: /{% static                                'assets/images/logo.png' %}
+Internal Server Error: /send_mail/
+Traceback (most recent call last):
+  File "C:\Users\jamila\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jamila\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jamila\OneDrive\Desktop\reab\meetingapp\views.py", line 364, in sendMail
+    return JsonResponse(status=403)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: JsonResponse.__init__() missing 1 required positional argument: 'data'
+Not Found: /login/{% static                                'assets/images/logo.png' %}
+Bad Request: /login_register
+Not Found: /media/305165053_1290189805080136_2911084879132919015_n.jpg
+Not Found: /media/IMG_20180623_024747_151.jpg
+Not Found: /media/305165053_1290189805080136_2911084879132919015_n_DxKMgC0.jpg
+Not Found: /media/77149c170292707.Y3JvcCwxMjAwLDkzOCwwLDEzMA_Iw5C6rA.png
+Not Found: /media/77149c170292707.Y3JvcCwxMjAwLDkzOCwwLDEzMA_qQ59nAf.png
+Not Found: /media/77149c170292707.Y3JvcCwxMjAwLDkzOCwwLDEzMA.png
+Not Found: /media/77149c170292707.Y3JvcCwxMjAwLDkzOCwwLDEzMA_9zoiOwk.png
+Not Found: /media/1666282361319_UDXrouy.jpg
+Not Found: /media/1666282361319_av4D5o3.jpg
+Not Found: /media/1666282361319_JY1ow3p.jpg
+Not Found: /static/assets/images/prev.png
+Not Found: /static/assets/images/next.png
+Not Found: /static/assets/images/close.png
+Not Found: /media/305165053_1290189805080136_2911084879132919015_n.jpg
+Not Found: /media/305165053_1290189805080136_2911084879132919015_n_DxKMgC0.jpg
+Not Found: /media/IMG_20180623_024747_151.jpg
+Not Found: /media/77149c170292707.Y3JvcCwxMjAwLDkzOCwwLDEzMA_Iw5C6rA.png
+Not Found: /media/77149c170292707.Y3JvcCwxMjAwLDkzOCwwLDEzMA_qQ59nAf.png
+Not Found: /media/77149c170292707.Y3JvcCwxMjAwLDkzOCwwLDEzMA.png
+Not Found: /media/77149c170292707.Y3JvcCwxMjAwLDkzOCwwLDEzMA_9zoiOwk.png
+Not Found: /media/1666282361319_UDXrouy.jpg
+Not Found: /media/1666282361319_av4D5o3.jpg
+Not Found: /media/1666282361319_JY1ow3p.jpg
+Not Found: /static/assets/images/prev.png
+Not Found: /static/assets/images/next.png
+Not Found: /static/assets/images/close.png
