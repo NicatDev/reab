@@ -2,12 +2,10 @@
 <html class="no-js" lang="en">
 
 
-<!-- Mirrored from thepixelcurve.com/html/exvent/dest/index-5.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 29 Sep 2023 11:13:40 GMT -->
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Exvent - Event & Conference HTML5 Template</title>
     <meta name="robots" content="noindex, follow">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -39,9 +37,7 @@
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
 
 
-    <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
-    <!-- <link rel="stylesheet" href="{% static 'assets/css/vendor/plugins.min.css">
-    <link rel="stylesheet" href="{% static 'assets/css/style.min.css"> -->
+    
 
 </head>
 
@@ -221,213 +217,215 @@
             </div>
         </div>
         <!-- Header End -->
-
-        <!-- Offcanvas Start-->
+<div style="background-color: #fc097c;">
+     <div class="container">
+<!-- Offcanvas Start-->
         <div class="offcanvas offcanvas-start" id="offcanvasExample">
-            <div class="offcanvas-header">
-                <!-- Offcanvas Logo Start -->
-                <div class="offcanvas-logo">
-                    <a href="{% url 'home' %}"><img src="{% static 'assets/images/logo.png' %}" alt=""></a>
-                </div>
-                <!-- Offcanvas Logo End -->
-                <button type="button" class="close-btn" data-bs-dismiss="offcanvas"><i
-                        class="flaticon-close"></i></button>
-            </div>
-
-            <!-- Offcanvas Body Start -->
-            <div class="offcanvas-body">
-                <div class="offcanvas-menu">
-                    <ul class="main-menu">
-                        <li class="active-menu">
-                            <a href="{% url 'home' %}">Ana səhifə</a>
-
-                        </li>
-
-
-                        <li><a href="{% url 'contact' %}">Əlaqə</a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- Offcanvas Body End -->
+    <div class="offcanvas-header">
+        <!-- Offcanvas Logo Start -->
+        <div class="offcanvas-logo">
+            <a href="{% url 'home' %}"><img src="{% static 'assets/images/logo.png' %}" alt=""></a>
         </div>
-        <!-- Offcanvas End -->
+        <!-- Offcanvas Logo End -->
+        <button type="button" class="close-btn" data-bs-dismiss="offcanvas"><i
+                class="flaticon-close"></i></button>
+    </div>
+
+    <!-- Offcanvas Body Start -->
+    <div class="offcanvas-body">
+        <div class="offcanvas-menu">
+            <ul class="main-menu">
+                <li class="active-menu">
+                    <a href="{% url 'home' %}">Ana səhifə</a>
+
+                </li>
 
 
-        <!-- Hero Start -->
+                <li><a href="{% url 'contact' %}">Əlaqə</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Offcanvas Body End -->
+        </div>
+<!-- Offcanvas End -->
+
+<!-- Hero Start -->
         <div class="swiper hero-slide">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="exvent-hero-section-05" style="background-image: url({{header.image1.url}});">
-                        <div class="container">
-                            <div class="row justify-content-center align-items-center">
-                                <div class="col-md-8 text-center">
-                                    <div class="hero-conent-wrapper">
-                                        <div class="top-title-date" data-aos="fade-down" data-aos-delay="500">
-                                            <span>{{header.minititle1}}</span>
-                                        </div>
-                                        <div class="main-title" data-aos="fade-down" data-aos-delay="1000">
-                                            <h1>{{header.title1}}</h1>
-                                        </div>
-                                        <ul class="hero-meta" data-aos="fade-right" data-aos-delay="1500">
-                                            <li class="meta-item">
-                                                <a href="#"><i class="fas fa-user"></i> {{ eagernumber }}
-                                                    İzləyİcİ</a>
-                                            </li>
-                                            <li class="meta-item">
-                                                <a href="#"><i class="fas fa-marker"></i> {{ meetnumber }}
-                                                    görüş</a>
-                                            </li>
-                                            <li class="meta-item">
-                                                <a href="#"><i class="fas fa-medal"></i> {{ sportmennumber }}
-                                                    çempİon</a>
-                                            </li>
-                                        </ul>
-
-                                    </div>
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="exvent-hero-section-05" style="background-image: url({{header.image1.url}});">
+                <div class="container">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-md-8 text-center">
+                            <div class="hero-conent-wrapper">
+                                <div class="top-title-date" data-aos="fade-down" data-aos-delay="500">
+                                    <span>{{header.minititle1}}</span>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="exvent-hero-section-05" style="background-image: url({{header.image2.url}});">
-                        <div class="container">
-                            <div class="row justify-content-center align-items-center">
-                                <div class="col-md-8 text-center">
-                                    <div class="hero-conent-wrapper">
-                                        <div class="top-title-date" data-aos="fade-down" data-aos-delay="500">
-                                            <span>{{header.minititle2}}</span>
-                                        </div>
-                                        <div class="main-title" data-aos="fade-down" data-aos-delay="1000">
-                                            <h1>{{header.title2}}</h1>
-                                        </div>
-                                        <ul class="hero-meta" data-aos="fade-right" data-aos-delay="1500">
-                                            <li class="meta-item">
-                                                <a href="#"><i class="fas fa-user"></i> {{ eagernumber }}
-                                                    İzləyİcİ</a>
-                                            </li>
-                                            <li class="meta-item">
-                                                <a href="#"><i class="fas fa-marker"></i> {{ meetnumber }}
-                                                    görüş</a>
-                                            </li>
-                                            <li class="meta-item">
-                                                <a href="#"><i class="fas fa-medal"></i> {{ sportmennumber }}
-                                                    çempİon</a>
-                                            </li>
-                                        </ul>
-
-                                    </div>
+                                <div class="main-title" data-aos="fade-down" data-aos-delay="1000">
+                                    <h1>{{header.title1}}</h1>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="exvent-hero-section-05" style="background-image: url({{header.image3.url}});">
-                        <div class="container">
-                            <div class="row justify-content-center align-items-center">
-                                <div class="col-md-8 text-center">
-                                    <div class="hero-conent-wrapper">
-                                        <div class="top-title-date" data-aos="fade-down" data-aos-delay="500">
-                                            <span>{{header.minititle3}}</span>
-                                        </div>
-                                        <div class="main-title" data-aos="fade-down" data-aos-delay="1000">
-                                            <h1>{{header.title3}}</h1>
-                                        </div>
-                                        <ul class="hero-meta" data-aos="fade-right" data-aos-delay="1500">
-                                            <li class="meta-item">
-                                                <a href="#"><i class="fas fa-user"></i> {{ eagernumber }}
-                                                    
-                                                    İzləyİcİ</a>
-                                            </li>
-                                            <li class="meta-item">
-                                                <a href="#"><i class="fas fa-marker"></i> {{ meetnumber }}
-                                                    görüş</a>
-                                            </li>
-                                            <li class="meta-item">
-                                                <a href="#"><i class="fas fa-medal"></i> {{ sportmennumber }}
-                                                    çempİon</a>
-                                            </li>
-                                        </ul>
+                                <ul class="hero-meta" data-aos="fade-right" data-aos-delay="1500">
+                                    <li class="meta-item">
+                                        <a href="#"><i class="fas fa-user"></i> {{ eagernumber }}
+                                            İzləyİcİ</a>
+                                    </li>
+                                    <li class="meta-item">
+                                        <a href="#"><i class="fas fa-marker"></i> {{ meetnumber }}
+                                            görüş</a>
+                                    </li>
+                                    <li class="meta-item">
+                                        <a href="#"><i class="fas fa-medal"></i> {{ sportmennumber }}
+                                            çempİon</a>
+                                    </li>
+                                </ul>
 
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="swiper-pagination"></div>
         </div>
-        <!-- Hero End -->
+        <div class="swiper-slide">
+            <div class="exvent-hero-section-05" style="background-image: url({{header.image2.url}});">
+                <div class="container">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-md-8 text-center">
+                            <div class="hero-conent-wrapper">
+                                <div class="top-title-date" data-aos="fade-down" data-aos-delay="500">
+                                    <span>{{header.minititle2}}</span>
+                                </div>
+                                <div class="main-title" data-aos="fade-down" data-aos-delay="1000">
+                                    <h1>{{header.title2}}</h1>
+                                </div>
+                                <ul class="hero-meta" data-aos="fade-right" data-aos-delay="1500">
+                                    <li class="meta-item">
+                                        <a href="#"><i class="fas fa-user"></i> {{ eagernumber }}
+                                            İzləyİcİ</a>
+                                    </li>
+                                    <li class="meta-item">
+                                        <a href="#"><i class="fas fa-marker"></i> {{ meetnumber }}
+                                            görüş</a>
+                                    </li>
+                                    <li class="meta-item">
+                                        <a href="#"><i class="fas fa-medal"></i> {{ sportmennumber }}
+                                            çempİon</a>
+                                    </li>
+                                </ul>
 
-        <!-- Countdown Start -->
-        <div class="event-countdown-5 section-padding-02 grey-bg">
-            <div class="container">
-                <div class="counter-wrapper">
-                    <div class="row gx-0 gy-5 align-items-center">
-                        <div class="col-lg-4 text-center">
-                            <div class="counter-content-left">
-                                <h4 class="counter-title">Görüş</h4>
-                                <span class="counter-subtitle">Qalan vaxt</span>
                             </div>
                         </div>
-                        {% if you == 'late' %}
-                        <div class="col-lg-8 text-center">
-                            <!-- Countdown Start -->
-                            <!-- Countdown Start -->
-                            <div class="exvent-countdown-inner-5 countdown" data-countdown="{{nearest_meeting|date:"Y/m/d"}} {{ nearest_meeting|time:"H:i:s" }}" data-format="short">
-                                <div class="single-countdown">
-                                    <span class="count countdown__time daysLeft">0</span>
-                                    <span class="value countdown__time daysText"></span>
-                                </div>
-                                <div class="single-countdown countdown-2">
-                                    <span class="count countdown__time hoursLeft"></span>
-                                    <span class="value countdown__time hoursText"></span>
-                                </div>
-                                <div class="single-countdown countdown-3">
-                                    <span class="count countdown__time minsLeft"></span>
-                                    <span class="value countdown__time minsText"></span>
-                                </div>
-                                <div class="single-countdown countdown-4">
-                                    <span class="count countdown__time secsLeft"></span>
-                                    <span class="value countdown__time secsText"></span>
-                                </div>
-                            </div>
-                            <!-- Countdown End -->
-                            <!-- Countdown End-->
-                        </div>
-                        {% else %}
-                        <div class="col-lg-8 text-center">
-                            <!-- Countdown Start -->
-                            <div class="exvent-countdown-inner-5"  data-format="short">
-                                <div class="single-countdown">
-                                    <span class="count countdown__time daysleft">0</span>
-                                    <span class="value countdown__time daysText">Gün</span>
-                                </div>
-                           
-                                <div class="single-countdown countdown-2">
-                                    <span class="count countdown__time hoursLeft">0</span>
-                                    <span class="value countdown__time hoursText">Saat</span>
-                                </div>
-                                <div class="single-countdown countdown-3">
-                                    <span class="count countdown__time minsLeft">0</span>
-                                    <span class="value countdown__time minsText">Dəqiqə</span>
-                                </div>
-                                <div class="single-countdown countdown-4">
-                                    <span class="count countdown__time secsLeft">0</span>
-                                    <span class="value countdown__time secsText">Saniyə</span>
-                                </div>
-                            </div>
-                            <!-- Countdown End -->
-                        </div>
-                        {% endif %}
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Countdown End -->
+        <div class="swiper-slide">
+            <div class="exvent-hero-section-05" style="background-image: url({{header.image3.url}});">
+                <div class="container">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-md-8 text-center">
+                            <div class="hero-conent-wrapper">
+                                <div class="top-title-date" data-aos="fade-down" data-aos-delay="500">
+                                    <span>{{header.minititle3}}</span>
+                                </div>
+                                <div class="main-title" data-aos="fade-down" data-aos-delay="1000">
+                                    <h1>{{header.title3}}</h1>
+                                </div>
+                                <ul class="hero-meta" data-aos="fade-right" data-aos-delay="1500">
+                                    <li class="meta-item">
+                                        <a href="#"><i class="fas fa-user"></i> {{ eagernumber }}
+                                            
+                                            İzləyİcİ</a>
+                                    </li>
+                                    <li class="meta-item">
+                                        <a href="#"><i class="fas fa-marker"></i> {{ meetnumber }}
+                                            görüş</a>
+                                    </li>
+                                    <li class="meta-item">
+                                        <a href="#"><i class="fas fa-medal"></i> {{ sportmennumber }}
+                                            çempİon</a>
+                                    </li>
+                                </ul>
 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+        </div>
+<!-- Hero End -->
+
+<!-- Countdown Start -->
+         <div class="event-countdown-5 section-padding-02 grey-bg">
+    <div class="container">
+        <div class="counter-wrapper">
+            <div class="row gx-0 gy-5 align-items-center">
+                <div class="col-lg-4 text-center">
+                    <div class="counter-content-left">
+                        <h4 class="counter-title">Görüş</h4>
+                        <span class="counter-subtitle">Qalan vaxt</span>
+                    </div>
+                </div>
+                {% if you == 'late' %}
+                <div class="col-lg-8 text-center">
+                    <!-- Countdown Start -->
+                    <!-- Countdown Start -->
+                    <div class="exvent-countdown-inner-5 countdown" data-countdown="{{nearest_meeting|date:"Y/m/d"}} {{ nearest_meeting|time:"H:i:s" }}" data-format="short">
+                        <div class="single-countdown">
+                            <span class="count countdown__time daysLeft">0</span>
+                            <span class="value countdown__time daysText"></span>
+                        </div>
+                        <div class="single-countdown countdown-2">
+                            <span class="count countdown__time hoursLeft"></span>
+                            <span class="value countdown__time hoursText"></span>
+                        </div>
+                        <div class="single-countdown countdown-3">
+                            <span class="count countdown__time minsLeft"></span>
+                            <span class="value countdown__time minsText"></span>
+                        </div>
+                        <div class="single-countdown countdown-4">
+                            <span class="count countdown__time secsLeft"></span>
+                            <span class="value countdown__time secsText"></span>
+                        </div>
+                    </div>
+                    <!-- Countdown End -->
+                    <!-- Countdown End-->
+                </div>
+                {% else %}
+                <div class="col-lg-8 text-center">
+                    <!-- Countdown Start -->
+                    <div class="exvent-countdown-inner-5"  data-format="short">
+                        <div class="single-countdown">
+                            <span class="count countdown__time daysleft">0</span>
+                            <span class="value countdown__time daysText">Gün</span>
+                        </div>
+                   
+                        <div class="single-countdown countdown-2">
+                            <span class="count countdown__time hoursLeft">0</span>
+                            <span class="value countdown__time hoursText">Saat</span>
+                        </div>
+                        <div class="single-countdown countdown-3">
+                            <span class="count countdown__time minsLeft">0</span>
+                            <span class="value countdown__time minsText">Dəqiqə</span>
+                        </div>
+                        <div class="single-countdown countdown-4">
+                            <span class="count countdown__time secsLeft">0</span>
+                            <span class="value countdown__time secsText">Saniyə</span>
+                        </div>
+                    </div>
+                    <!-- Countdown End -->
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+         </div>
+<!-- Countdown End -->
+      </div>
+</div>
+        
 
         <!-- Event Counter Start -->
         <div class="event-counter-section section-padding grey-bg">
