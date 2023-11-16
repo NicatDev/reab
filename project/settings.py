@@ -96,31 +96,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'project.wsgi.application'
 
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': 'error.log',
-            'encoding': 'utf-8',  # UTF-8 karakter kodlaması ekleyin
-        },
-    },
-    'root': {
-        'handlers': ['file'],
-        'level': 'ERROR',
-    },
-}
-import logging
-
-# ...
-
-try:
-    # Hata oluşan bir kod bloğu
-    raise Exception("Bu bir hata mesajıdır.")
-except Exception as e:
-    logging.error('Hata oluştu: %s', str(e))
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
