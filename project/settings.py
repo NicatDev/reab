@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     'meetingapp',
     'django_user_agents',
     #thirdparty
-    "whitenoise.runserver_nostatic",
+
 
     
     
@@ -72,7 +72,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_user_agents.middleware.UserAgentMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+
     ]
 
 
@@ -142,15 +142,6 @@ ORTAWARE_CLASSES = (
     'django_user_agents.middleware.UserAgentMiddleware', 
 )
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
-# STORAGES = {
-#     # ...
-#     "staticfiles": {
-#         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-#     },
-# }
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 STATIC_HOST = os.environ.get("DJANGO_STATIC_HOST", "")
