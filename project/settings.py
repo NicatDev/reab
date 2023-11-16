@@ -95,7 +95,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'project.wsgi.application'
-LOGGING = {
+
     'version': 1,
     'disable_existing_loggers': False,
     'handlers': {
