@@ -432,7 +432,7 @@ textarea:-ms-input-placeholder {
   left: unset;
   bottom: unset;
   right: calc(0% + 15%);
-  top: 50%;
+  top: 40%;
 }
 
 .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
@@ -2977,7 +2977,7 @@ textarea:-ms-input-placeholder {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 90%;
   background: rgba(0, 0, 0, 0.9);
   opacity: 0.8;
   z-index: -1;
@@ -8780,4 +8780,15 @@ textarea:-ms-input-placeholder {
 
 .footer-section-4 .footer-widgets-area .footer-widget .widget-content .footer-nav-item:hover {
   color: #ffae4a;
+}
+.header-logo img{
+  width: 112px;
+}
+.main-menu{
+  padding-right: 180px;
+}
+.counter-wrapper{
+  position: absolute;
+  width: 98%;
+  bottom: 30px;
 }
