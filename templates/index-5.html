@@ -71,7 +71,11 @@
                                 <a href="{% url 'home' %}">Əsas səhifə</a>
                             </li>
 
+                            <li><a href="{% url 'contact' %}">Spikerlər</a></li>
+                            <li><a href="{% url 'contact' %}">Görüşlər</a></li>
+                            <li><a href="{% url 'contact' %}">Bloq</a></li>
                             <li><a href="{% url 'contact' %}">Əlaqə</a></li>
+
                         </ul>
                     </div>
 
@@ -243,12 +247,10 @@
             </ul>
         </div>
     </div>
-    <!-- Offcanvas Body End -->
-        </div>
-<!-- Offcanvas End -->
 
-<!-- Hero Start -->
-        <div class="swiper hero-slide">
+    </div>
+
+<div class="swiper hero-slide" style="border-radius:3%; overflow: hidden;">
     <div class="swiper-wrapper">
         <div class="swiper-slide">
             <div class="exvent-hero-section-05" style="background-image: url({{header.image1.url}}); height: 800px !important;border-radius: 10px;">
@@ -352,13 +354,13 @@
         </div>
     </div>
     <div class="swiper-pagination"></div>
-        </div>
+</div>
 <!-- Hero End -->
 
 <!-- Countdown Start -->
          <div class="event-countdown-5 section-padding-02 grey-bg">
     <div class="container">
-        <div class="counter-wrapper" style="bottom:-70px !important">
+        <div class="counter-wrapper" style="bottom:-70px !important;background:white;">
             <div class="row gx-0 gy-5 align-items-center">
                 <div class="col-lg-4 text-center">
                     <div class="counter-content-left">
@@ -420,6 +422,7 @@
         </div>
     </div>
          </div>
+         
 <!-- Countdown End -->
       </div>
 </div>
