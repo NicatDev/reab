@@ -56,22 +56,21 @@
         <!-- Preloader End -->
 
         <!-- Header Start Transparent header  -->
-        <div id="header" class="section exvent-header-2">
+        <div id="header" class="section exvent-header-2" style="background-color: #150328;">
 
-            <div class="container">
+          
 
                 <!-- Header Wrap Start  -->
-                <div class="header-wrap">
+                <div class="header-wrap" style="background-color: #150328">
 
-                    <div class="header-logo">
-                        <a href="index.html"><img src="{% static 'assets/images/logo/logo2.png' %}" alt=""></a>
+                    <div class="header-logo" style="width: 50px;">
+                        <a href="{% url 'home' %}"><img style="width: 50px;" src="{% static 'assets/images/logo/logo2.svg' %}" alt="">
                     </div>
 
                     <div class="header-menu d-none d-lg-block">
                         <ul class="main-menu">
                             <li class="active-menu">
                                 <a href="{% url 'home' %}">Əsas səhifə</a>
-
                             </li>
 
                             <li><a href="{% url 'contact' %}">Əlaqə</a></li>
@@ -214,17 +213,18 @@
                 </div>
                 <!-- Header Wrap End  -->
 
-            </div>
+       
         </div>
         <!-- Header End -->
-<div style="background-color: #fc097c;">
+<div style="background-color: #f1f3ff;">
      <div class="container">
 <!-- Offcanvas Start-->
-        <div class="offcanvas offcanvas-start" id="offcanvasExample">
-    <div class="offcanvas-header">
+        <div class="offcanvas offcanvas-start" id="offcanvasExample" style="border-radius: 10px;">
+    <div class="offcanvas-header" >
         <!-- Offcanvas Logo Start -->
         <div class="offcanvas-logo">
-            <a href="{% url 'home' %}"><img src="{% static 'assets/images/logo.png' %}" alt=""></a>
+            <a href="{% url 'home' %}"><img src="{% static 'assets/images/logo2.svg' %}" alt="">
+             </a>
         </div>
         <!-- Offcanvas Logo End -->
         <button type="button" class="close-btn" data-bs-dismiss="offcanvas"><i
