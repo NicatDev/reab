@@ -8787,8 +8787,3 @@ textarea:-ms-input-placeholder {
 .main-menu{
   padding-right: 180px;
 }
-.counter-wrapper{
-  position: absolute;
-  width: 98%;
-  bottom: 30px;
-}
