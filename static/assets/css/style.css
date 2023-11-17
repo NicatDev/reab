@@ -1933,7 +1933,7 @@ textarea:-ms-input-placeholder {
 
 .dropdown-cart .cart-btns .btn.btn-2 {
   background: #00acee;
-  border: 2px solid transparent;
+  /* border: 2px solid transparent; */
   transition: all 0.3s linear;
 }
 
