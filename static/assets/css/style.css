@@ -2958,6 +2958,7 @@ textarea:-ms-input-placeholder {
 }
 
 .exvent-hero-section-05 {
+  background-image: linear-gradient(to right, #38ab66 , #f1781f);
   position: relative;
   padding-top: 85px;
   background-repeat: no-repeat;
