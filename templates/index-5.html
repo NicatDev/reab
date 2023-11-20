@@ -11,11 +11,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon">
-    <!-- Basic stylesheet -->
-<link rel="stylesheet" href="owl-carousel/owl.carousel.css">
- 
-<!-- Default Theme -->
-<link rel="stylesheet" href="owl-carousel/owl.theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -939,16 +938,12 @@ line-height: 1.6;">{{about.content}} <a href="#" id="dahaFazlaGorLink" style="te
             </div>
         </div>
         <!-- Brand Area End -->
-        <div class="owl-carousel owl-theme">
-            <div> Your Content </div>
-            <div> Your Content </div>
-            <div> Your Content </div>
-            <div> Your Content </div>
-            <div> Your Content </div>
-            <div> Your Content </div>
-            <div> Your Content </div>
-            ...
-          </div>
+        <div class="owl-carousel">
+            <div>Salam<img src="image1.jpg" alt="Image 1"></div>
+            <div>Saqol<img src="image2.jpg" alt="Image 2"></div>
+            <div>necesen<img src="image3.jpg" alt="Image 3"></div>
+            <!-- Diğer slaytları ekleyin -->
+        </div>
       
         <!-- Footer Section Start -->
         <div class="footer-section" style="background-image: url({% static 'assets/images/bg/footer_bg1.jpg' %});">
@@ -1334,42 +1329,30 @@ i[data-tooltip]:hover::after {
 <script src="jquery-1.9.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js" integrity="sha512-gY25nC63ddE0LcLPhxUJGFxa2GoIyA5FLym4UJqHDEMHjp8RET6Zn/SHo1sltt3WuVtqfyxECP38/daUc/WVEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
  
-<!-- Include js plugin -->
-<script src="assets/owl-carousel/owl.carousel.js"></script>
 
-    <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
+    <script>
+    $(document).ready(function(){
+        $(".owl-carousel").owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 5
+                }
+            }
+        });
+    });
+</script>
 
-
-    <!-- Main JS -->
-    <script src="{% static 'assets/js/main.js' %}"></script>
     
-   
-<script>$(".owl-carousel").owlCarousel({
- 
-    //Basic Speeds
-    slideSpeed : 200,
-    paginationSpeed : 800,
- 
-    //Autoplay
-    autoPlay : false,
-    goToFirst : true,
-    goToFirstSpeed : 1000,
- 
-    // Navigation
-    navigation : false,
-    navigationText : ["prev","next"],
-    pagination : true,
-    paginationNumbers: true,
- 
-    // Responsive
-    responsive: true,
-    items : 5,
-    itemsDesktop : [1199,4],
-    itemsDesktopSmall : [980,3],
-    itemsTablet: [768,2],
-    itemsMobile : [479,1]
- 
-})</script>
+
 </body>
 
 
