@@ -11,8 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon">
-    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+    <!-- Basic stylesheet -->
+<link rel="stylesheet" href="owl-carousel/owl.carousel.css">
+ 
+<!-- Default Theme -->
+<link rel="stylesheet" href="owl-carousel/owl.theme.css">
   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -937,33 +940,7 @@ line-height: 1.6;">{{about.content}} <a href="#" id="dahaFazlaGorLink" style="te
         </div>
         <!-- Brand Area End -->
 
-        <div class="slider">
-            <div class="col-sm-12">
-                <div class="slide-wrapper">
-                    <div class="slide-slider-full owl-carousel owl-theme">
-                        <div class="owl-items">
-                            <div>Salamlarrr</div>
-                        </div>
-                        <div class="owl-items">
-                            <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia, ipsa!</div>
-                        </div>
-                        <div class="owl-items">
-                            <div>Saqolll</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="owl-carousel">
-                <div> Your Cont </div>
-                <div> Your Content </div>
-                <div> Your ontent </div>
-                <div> Your Content </div>
-                <div> Your Contet </div>
-                <div> Your Content </div>
-                <div> Your Content </div>
-              </div>
-        </div>
-
+      
         <!-- Footer Section Start -->
         <div class="footer-section" style="background-image: url({% static 'assets/images/bg/footer_bg1.jpg' %});">
 
@@ -1095,12 +1072,13 @@ line-height: 1.6;">{{about.content}} <a href="#" id="dahaFazlaGorLink" style="te
             transform: rotate(90deg);
             transition: 0.5s;
         }
-        .owl-carousel .owl-item {
+       
+    </style>
+    <!-- <style>
+         .owl-carousel .owl-item {
         position: initial;
         
     }
-    </style>
-    <style>
          .full-wrap .owl-carousel .owl-stage-outer .owl-item.active {
         opacity: 1;
     }
@@ -1128,11 +1106,10 @@ line-height: 1.6;">{{about.content}} <a href="#" id="dahaFazlaGorLink" style="te
     .owl-carousel .owl-item {
         position: initial !important;
     }
-    </style>
-    <script>
+    </style> -->
+    <!-- <script>
          $(document).ready(function () {
             $(".owl-carousel").owlCarousel({
-                // Change this value to control the number of items displayed
                 loop: true,
                 margin: 10,
                 autoplay: true,
@@ -1152,7 +1129,7 @@ line-height: 1.6;">{{about.content}} <a href="#" id="dahaFazlaGorLink" style="te
                 }
             });
         });
-    </script>
+    </script> -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Select all elements with a class starting with "plus-icon-" but not having "plus-icon-shape"
@@ -1345,15 +1322,54 @@ i[data-tooltip]:hover::after {
     integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="jquery.min.js"></script>
-    <script src="owlcarousel/owl.carousel.min.js"></script>
+   <!-- You can use latest version of jQuery  -->
+<script src="jquery-1.9.1.min.js"></script>
+ 
+<!-- Include js plugin -->
+<script src="assets/owl-carousel/owl.carousel.js"></script>
 
     <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
 
 
     <!-- Main JS -->
     <script src="{% static 'assets/js/main.js' %}"></script>
-
+    
+    <div class="owl-carousel owl-theme">
+        <div> Your Content </div>
+        <div> Your Content </div>
+        <div> Your Content </div>
+        <div> Your Content </div>
+        <div> Your Content </div>
+        <div> Your Content </div>
+        <div> Your Content </div>
+        ...
+      </div>
+<script>$(".owl-carousel").owlCarousel({
+ 
+    //Basic Speeds
+    slideSpeed : 200,
+    paginationSpeed : 800,
+ 
+    //Autoplay
+    autoPlay : false,
+    goToFirst : true,
+    goToFirstSpeed : 1000,
+ 
+    // Navigation
+    navigation : false,
+    navigationText : ["prev","next"],
+    pagination : true,
+    paginationNumbers: true,
+ 
+    // Responsive
+    responsive: true,
+    items : 5,
+    itemsDesktop : [1199,4],
+    itemsDesktopSmall : [980,3],
+    itemsTablet: [768,2],
+    itemsMobile : [479,1]
+ 
+})</script>
 </body>
 
 
