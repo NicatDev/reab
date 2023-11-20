@@ -381,7 +381,72 @@
     <div class="swiper-pagination d-none"></div>
 </div>
 <!-- Hero End -->
-
+<!-- Countdown Start -->
+<div class="event-countdown-5 section-padding-02 grey-bg">
+    <div class="container">
+        <div class="counter-wrapper" style="background:white;">
+            <div class="row gx-0 gy-5 align-items-center text-center">
+                <div class="col-lg-4 text-center">
+                    <div class="counter-content-left">
+                        <h4 class="counter-title">Görüş</h4>
+                        <span class="counter-subtitle">Qalan vaxt</span>
+                    </div>
+                </div>
+                {% if you == 'late' %}
+                <div class="col-lg-8 text-center">
+                    <!-- Countdown Start -->
+                    <!-- Countdown Start -->
+                    <div class="exvent-countdown-inner-5 countdown" data-countdown="{{nearest_meeting|date:"Y/m/d"}} {{ nearest_meeting|time:"H:i:s" }}" data-format="short">
+                        <div class="single-countdown">
+                            <span class="count countdown__time daysLeft">0</span>
+                            <span class="value countdown__time daysText"></span>
+                        </div>
+                        <div class="single-countdown countdown-2">
+                            <span class="count countdown__time hoursLeft"></span>
+                            <span class="value countdown__time hoursText"></span>
+                        </div>
+                        <div class="single-countdown countdown-3">
+                            <span class="count countdown__time minsLeft"></span>
+                            <span class="value countdown__time minsText"></span>
+                        </div>
+                        <div class="single-countdown countdown-4">
+                            <span class="count countdown__time secsLeft"></span>
+                            <span class="value countdown__time secsText"></span>
+                        </div>
+                    </div>
+                    <!-- Countdown End -->
+                    <!-- Countdown End-->
+                </div>
+                {% else %}
+                <div class="col-lg-8 text-center">
+                    <!-- Countdown Start -->
+                    <div class="exvent-countdown-inner-5"  data-format="short">
+                        <div class="single-countdown">
+                            <span class="count countdown__time daysleft">0</span>
+                            <span class="value countdown__time daysText">Gün</span>
+                        </div>
+                   
+                        <div class="single-countdown countdown-2">
+                            <span class="count countdown__time hoursLeft">0</span>
+                            <span class="value countdown__time hoursText">Saat</span>
+                        </div>
+                        <div class="single-countdown countdown-3">
+                            <span class="count countdown__time minsLeft">0</span>
+                            <span class="value countdown__time minsText">Dəqiqə</span>
+                        </div>
+                        <div class="single-countdown countdown-4">
+                            <span class="count countdown__time secsLeft">0</span>
+                            <span class="value countdown__time secsText">Saniyə</span>
+                        </div>
+                    </div>
+                    <!-- Countdown End -->
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+         </div>
+<!-- Countdown End -->
 <!-- Countdown Start -->
          <div class="event-countdown-5 section-padding-02 grey-bg">
     <div class="container">
@@ -447,7 +512,6 @@
         </div>
     </div>
          </div>
-         
 <!-- Countdown End -->
       </div>
 </div>
