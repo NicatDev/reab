@@ -1078,7 +1078,7 @@ line-height: 1.6;">{{about.content}} <a href="#" id="dahaFazlaGorLink" style="te
         }
        
     </style>
-    <!-- <style>
+ 
          .owl-carousel .owl-item {
         position: initial;
         
@@ -1334,19 +1334,22 @@ i[data-tooltip]:hover::after {
     $(document).ready(function(){
         $(".owl-carousel").owlCarousel({
             loop: true,
-            margin: 10,
-            nav: true,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 3
-                },
-                1000: {
-                    items: 5
+                margin: 10,
+                autoplay: true,
+                autoHeight: true,
+                autoplayTimeout: 4500,
+                smartSpeed: 4000,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 2
+                    },
+                    1000: {
+                        items: 3
+                    }
                 }
-            }
         });
     });
 </script>
